@@ -57,7 +57,7 @@ export default function ContactSection() {
 
           <motion.ul
             variants={stagger}
-            className="mt-10 grid gap-4 sm:grid-cols-3"
+            className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
             {contactDetails.map((item) => (
               <motion.li

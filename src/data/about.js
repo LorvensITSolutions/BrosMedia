@@ -42,6 +42,15 @@ export const aboutPhilosophy = {
   quote:
     'Branding is not just a logo. Marketing is not just posting on Instagram.',
   body: 'We work with clients who understand that building a brand takes strategy, consistency, and quality execution — and we are here to provide all three. We start every engagement by understanding the business before we touch the design.',
+  splitCard: {
+    image:
+      'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1400&q=80',
+    brandIcon:
+      'https://framerusercontent.com/images/B00RZaWioQ3RGArHmXWSFMjkZB8.png?width=500&height=500',
+    previewTitle: 'What we believe',
+    previewIndustry: 'Our Philosophy',
+    categories: ['Strategy', 'Consistency', 'Quality execution', 'Brand-first'],
+  },
 }
 
 export const aboutDifferentiators = {

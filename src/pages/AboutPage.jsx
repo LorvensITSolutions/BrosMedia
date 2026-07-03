@@ -1,13 +1,12 @@
 import { useRef, useState } from 'react'
 import {
   motion,
-  useInView,
   useScroll,
-  useSpring,
   useTransform,
 } from 'framer-motion'
 import LetterSwap from '../framer/letter_swap.jsx'
 import EyeFollowButton from '../framer/eye_follow_button.jsx'
+import { PhilosophySplitCard } from '../framer/project_split_card.jsx'
 import {
   aboutCta,
   aboutDifferentiators,
@@ -362,40 +361,37 @@ function StorySection() {
 }
 
 function PhilosophySection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
-  const lineGrow = useSpring(isInView ? 1 : 0, { stiffness: 50, damping: 22 })
-
   return (
     <section
       id="philosophy"
-      ref={ref}
       className="scroll-mt-[calc(var(--navbar-height)+1rem)] bg-white py-20 font-sans lg:py-28"
     >
-      <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={stagger}>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={stagger}
+          className="mb-10 max-w-2xl lg:mb-14"
+        >
           <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/80">
             {aboutPhilosophy.label}
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-4xl"
+            className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl"
           >
             {aboutPhilosophy.title}
           </motion.h2>
+        </motion.div>
 
-          <motion.div variants={fadeUp} className="relative mx-auto mt-12 max-w-3xl">
-            <motion.div
-              className="mx-auto h-px w-24 origin-center bg-blue"
-              style={{ scaleX: lineGrow }}
-            />
-            <blockquote className="mt-10 text-2xl font-bold leading-snug text-primary sm:text-3xl lg:text-4xl">
-              {aboutPhilosophy.quote}
-            </blockquote>
-            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-primary/65 sm:text-lg">
-              {aboutPhilosophy.body}
-            </p>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={spring}
+        >
+          <PhilosophySplitCard philosophy={aboutPhilosophy} />
         </motion.div>
       </div>
     </section>
