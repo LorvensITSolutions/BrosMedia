@@ -76,7 +76,7 @@ function HeadlineTitle() {
         className="block"
         active={hovered}
         color="#000000"
-        hoverColor="#dfff00"
+        hoverColor="#1e45ff"
         staggerFrom="first"
         {...swapBase}
       />
@@ -86,7 +86,7 @@ function HeadlineTitle() {
         className="block"
         active={hovered}
         color="#000000"
-        hoverColor="#dfff00"
+        hoverColor="#1e45ff"
         staggerFrom="first"
         {...swapBase}
       />
@@ -96,7 +96,7 @@ function HeadlineTitle() {
           as="span"
           active={hovered}
           color="#000000"
-          hoverColor="#dfff00"
+          hoverColor="#1e45ff"
           staggerFrom="first"
           {...swapBase}
         />
@@ -105,7 +105,7 @@ function HeadlineTitle() {
           as="span"
           active={hovered}
           color="#000000"
-          hoverColor="#dfff00"
+          hoverColor="#1e45ff"
           staggerFrom="center"
           {...swapBase}
         />
@@ -124,9 +124,9 @@ function ServicesHero({ onExplore }) {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 30])
 
   const stats = [
-    { value: '4', label: 'Core services', color: 'text-accent' },
+    { value: '4', label: 'Core services', color: 'text-blue' },
     { value: '360°', label: 'Brand coverage', color: 'text-primary' },
-    { value: '100%', label: 'Hands-on team', color: 'text-accent' },
+    { value: '100%', label: 'Hands-on team', color: 'text-blue' },
     { value: 'HYD', label: 'Based in Hyderabad', color: 'text-primary' },
   ]
 
@@ -136,11 +136,11 @@ function ServicesHero({ onExplore }) {
       className="relative min-h-[85vh] overflow-hidden bg-white font-sans text-primary"
     >
       <HeroBlob
-        className="left-[-10%] top-[8%] h-72 w-72 bg-accent/10 sm:h-96 sm:w-96"
+        className="left-[-10%] top-[8%] h-72 w-72 bg-blue/10 sm:h-96 sm:w-96"
         animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
       />
       <HeroBlob
-        className="right-[-8%] bottom-[12%] h-64 w-64 bg-secondary/25 sm:h-80 sm:w-80"
+        className="right-[-8%] bottom-[12%] h-64 w-64 bg-blue/15 sm:h-80 sm:w-80"
         animate={{ x: [0, -20, 0], y: [0, 15, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
       />
@@ -163,7 +163,7 @@ function ServicesHero({ onExplore }) {
               className="pointer-events-none absolute inset-x-0 top-1/2 z-0 flex justify-center -translate-y-1/2"
               aria-hidden="true"
             >
-              <span className="inline-block max-w-full origin-center text-center font-black leading-none tracking-tighter text-accent/[0.06] text-[3.5rem] sm:text-[clamp(4.5rem,14cqw,10rem)] sm:text-accent/[0.07] lg:text-[clamp(9rem,17.5cqw,13.5rem)] xl:text-[clamp(10rem,18cqw,14rem)]">
+              <span className="inline-block max-w-full origin-center text-center font-black leading-none tracking-tighter text-blue/[0.07] text-[3.5rem] sm:text-[clamp(4.5rem,14cqw,10rem)] lg:text-[clamp(9rem,17.5cqw,13.5rem)] xl:text-[clamp(10rem,18cqw,14rem)]">
                 SERVICES
               </span>
             </motion.div>
@@ -187,7 +187,7 @@ function ServicesHero({ onExplore }) {
             <button
               type="button"
               onClick={onExplore}
-              className="text-sm font-semibold text-primary underline decoration-secondary decoration-2 underline-offset-4 transition hover:text-accent"
+              className="text-sm font-semibold text-primary underline decoration-blue decoration-2 underline-offset-4 transition hover:text-blue"
             >
               Explore services
             </button>
@@ -206,7 +206,7 @@ function ServicesHero({ onExplore }) {
                 <button
                   type="button"
                   onClick={() => scrollToService(service.id)}
-                  className={`rounded-full border border-primary/10 bg-white px-4 py-2.5 text-xs font-medium text-primary transition hover:border-accent/30 hover:text-accent sm:py-2 sm:text-sm ${
+                  className={`rounded-full border border-primary/10 bg-white px-4 py-2.5 text-xs font-medium text-primary transition hover:border-blue/30 hover:text-blue sm:py-2 sm:text-sm ${
                     index < 2 ? 'w-full max-w-[17rem]' : 'w-full'
                   }`}
                 >
@@ -251,7 +251,7 @@ function MarqueeStrip() {
             className="flex items-center gap-8 text-sm font-semibold uppercase tracking-[0.18em] text-white/35"
           >
             {item}
-            <span className="text-secondary" aria-hidden="true">
+            <span className="text-blue" aria-hidden="true">
               ✦
             </span>
           </span>
@@ -285,7 +285,7 @@ function ServiceNav({ activeId, onSelect }) {
                 )}
                 <span
                   className={`relative z-10 text-xs font-bold tabular-nums ${
-                    isActive ? 'text-secondary' : 'text-white/30'
+                    isActive ? 'text-blue' : 'text-white/30'
                   }`}
                 >
                   {String(index + 1).padStart(2, '0')}
@@ -314,7 +314,7 @@ function MobileServiceNav({ activeId, onSelect }) {
             onClick={() => onSelect(service.id)}
             className={`shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition ${
               isActive
-                ? 'bg-secondary text-primary'
+                ? 'bg-blue text-white'
                 : 'border border-white/15 bg-white/5 text-white/70'
             }`}
           >
@@ -358,7 +358,7 @@ function ServicePanel({ service, index, setActiveId }) {
         }`}
       >
         <motion.div variants={fadeUp} className="relative overflow-hidden rounded-3xl">
-          <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent/20 via-transparent to-secondary/15 opacity-50 blur-2xl" />
+          <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-blue/20 via-transparent to-blue/10 opacity-50 blur-2xl" />
           <motion.img
             src={service.image}
             alt={service.name}
@@ -373,10 +373,10 @@ function ServicePanel({ service, index, setActiveId }) {
         <motion.div style={{ x: contentX, opacity: contentOpacity }} variants={fadeUp}>
           <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-8">
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-primary">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary/80">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/80">
                 Service
               </p>
             </div>
@@ -399,7 +399,7 @@ function ServicePanel({ service, index, setActiveId }) {
                   variants={slideIn}
                   className="flex items-start gap-3 text-sm text-white/80 sm:text-base"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue" />
                   {item}
                 </motion.li>
               ))}
@@ -430,17 +430,17 @@ function ProcessStepCard({ item, index, isLast = false }) {
           transition={{ ...spring, delay: index * 0.08 }}
         >
           <motion.span
-            className="absolute inset-0 rounded-full border-2 border-dashed border-accent/40"
+            className="absolute inset-0 rounded-full border-2 border-dashed border-blue/35"
             animate={{ rotate: 360 }}
             transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
           />
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-primary text-[0.65rem] font-bold text-secondary">
+          <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-blue text-[0.65rem] font-bold text-white">
             {item.step}
           </span>
         </motion.div>
         {!isLast && (
           <motion.div
-            className="mt-2 w-px origin-top bg-gradient-to-b from-accent via-accent/50 to-transparent"
+            className="mt-2 w-px origin-top bg-gradient-to-b from-blue via-blue/50 to-transparent"
             style={{ height: 72, scaleY: lineGrow }}
           />
         )}
@@ -449,17 +449,17 @@ function ProcessStepCard({ item, index, isLast = false }) {
       <motion.div
         whileHover={{ y: -8 }}
         transition={spring}
-        className="group relative min-w-0 flex-1 overflow-hidden rounded-3xl border border-primary/10 bg-white p-6 shadow-[0_16px_50px_rgba(223,255,0,0.07)] sm:flex-none sm:p-8"
+        className="group relative min-w-0 flex-1 overflow-hidden rounded-3xl border border-primary/10 bg-white p-6 shadow-[0_16px_50px_rgba(30,69,255,0.08)] sm:flex-none sm:p-8"
       >
         <motion.div
-          className="absolute inset-x-0 top-0 h-1 origin-left bg-gradient-to-r from-accent via-secondary to-accent"
+          className="absolute inset-x-0 top-0 h-1 origin-left bg-gradient-to-r from-blue via-blue/70 to-blue"
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ duration: 0.7, delay: 0.15 + index * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
         />
 
         <span
-          className="pointer-events-none absolute -right-1 -top-2 select-none text-[5.5rem] font-black leading-none tracking-tighter text-accent/[0.05] sm:text-[7rem]"
+          className="pointer-events-none absolute -right-1 -top-2 select-none text-[5.5rem] font-black leading-none tracking-tighter text-blue/[0.06] sm:text-[7rem]"
           aria-hidden="true"
         >
           {item.step}
@@ -473,11 +473,11 @@ function ProcessStepCard({ item, index, isLast = false }) {
             transition={{ ...spring, delay: index * 0.1 }}
           >
             <motion.span
-              className="absolute inset-0 rounded-2xl border-2 border-dashed border-accent/30"
+              className="absolute inset-0 rounded-2xl border-2 border-dashed border-blue/25"
               animate={{ rotate: index % 2 === 0 ? 360 : -360 }}
               transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
             />
-            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-sm font-bold text-secondary">
+            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-blue text-sm font-bold text-white">
               {item.step}
             </span>
           </motion.div>
@@ -509,13 +509,13 @@ function ProcessTimeline() {
       ref={sectionRef}
       className="relative overflow-hidden bg-white font-sans"
     >
-      <div className="pointer-events-none absolute -right-20 top-0 h-80 w-80 rounded-full bg-accent/10 blur-[110px]" />
-      <div className="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-secondary/25 blur-[110px]" />
+      <div className="pointer-events-none absolute -right-20 top-0 h-80 w-80 rounded-full bg-blue/10 blur-[110px]" />
+      <div className="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-blue/8 blur-[110px]" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(223,255,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(223,255,0,0.04) 1px, transparent 1px)',
+            'linear-gradient(rgba(30,69,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(30,69,255,0.04) 1px, transparent 1px)',
           backgroundSize: '56px 56px',
         }}
       />
@@ -529,7 +529,7 @@ function ProcessTimeline() {
             variants={stagger}
             className="max-w-xl"
           >
-            <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.2em] text-accent/80">
+            <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/80">
               How we work
             </motion.p>
             <motion.h2
@@ -537,7 +537,7 @@ function ProcessTimeline() {
               className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl"
             >
               A simple process.
-              <span className="text-accent"> Serious execution.</span>
+              <span className="text-blue"> Serious execution.</span>
             </motion.h2>
           </motion.div>
 
@@ -555,11 +555,11 @@ function ProcessTimeline() {
         <div className="relative mt-14 hidden sm:block">
           <div className="absolute left-[8%] right-[8%] top-7 h-px bg-primary/10" />
           <motion.div
-            className="absolute left-[8%] top-7 h-px w-[84%] origin-left bg-gradient-to-r from-accent via-secondary to-accent"
+            className="absolute left-[8%] top-7 h-px w-[84%] origin-left bg-gradient-to-r from-blue via-blue/70 to-blue"
             style={{ scaleX: beamProgress }}
           />
           <motion.div
-            className="absolute top-7 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-[0_0_12px_rgba(223,255,0,0.6)]"
+            className="absolute top-7 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue shadow-[0_0_12px_rgba(30,69,255,0.45)]"
             style={{ left: dotLeft }}
           />
 
@@ -606,24 +606,24 @@ function ServicesCta() {
   const whatsappHref = getWhatsAppHref(finalCtaButtons.whatsapp)
 
   return (
-    <section className="bg-gradient-to-br from-secondary via-secondary to-accent/20 font-sans">
+    <section className="bg-gradient-to-br from-blue via-[#1a3de6] to-[#0f2bb8] font-sans">
       <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-8 lg:py-28">
         <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={stagger}>
           <motion.p
             variants={fadeUp}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-accent"
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70"
           >
             {finalCtaIntro.label}
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl"
+            className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
           >
             {finalCtaIntro.headline}
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary/75 sm:text-lg"
+            className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg"
           >
             {finalCtaIntro.description}
           </motion.p>
@@ -633,13 +633,13 @@ function ServicesCta() {
           >
             <a
               href={finalCtaButtons.discovery.href}
-              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-accent"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-blue transition hover:bg-white/90"
             >
               {finalCtaButtons.discovery.label}
             </a>
             <a
               href={whatsappHref}
-              className="inline-flex items-center justify-center rounded-full border border-primary/15 bg-white px-6 py-3.5 text-sm font-semibold text-primary transition hover:border-accent/30 hover:text-accent"
+              className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/15"
             >
               {finalCtaButtons.whatsapp.label}
             </a>

@@ -24,8 +24,4 @@ export const comingSoonPages = {
     title: 'Industries',
     description: 'Sector-by-sector expertise pages are being prepared. We work across real estate, healthcare, education, fashion, and more.',
   },
-  [routes.about]: {
-    title: 'About',
-    description: 'Our full story, team, and approach page is under construction. Check back shortly.',
-  },
 }
