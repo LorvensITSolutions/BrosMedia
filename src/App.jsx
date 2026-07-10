@@ -1,11 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
-import ContactPage from './pages/ContactPage'
-import ServicesPage from './pages/ServicesPage'
-import AboutPage from './pages/AboutPage'
-import OurWorkPage from './pages/OurWorkPage'
-import IndustriesPage from './pages/IndustriesPage'
 import { routes } from './data/navigation'
 
 function App() {
@@ -14,11 +9,11 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path={routes.home} element={<HomePage />} />
-          <Route path={routes.services} element={<ServicesPage />} />
-          <Route path={routes.ourWork} element={<OurWorkPage />} />
-          <Route path={routes.industries} element={<IndustriesPage />} />
-          <Route path={routes.about} element={<AboutPage />} />
-          <Route path={routes.contact} element={<ContactPage />} />
+          <Route path="/services" element={<Navigate to={routes.services} replace />} />
+          <Route path="/about" element={<Navigate to={routes.about} replace />} />
+          <Route path="/our-work" element={<Navigate to={routes.ourWork} replace />} />
+          <Route path="/industries" element={<Navigate to={routes.industries} replace />} />
+          <Route path="/contact" element={<Navigate to={routes.contact} replace />} />
           <Route path="*" element={<Navigate to={routes.home} replace />} />
         </Route>
       </Routes>

@@ -25,7 +25,7 @@ export default function DynamicNavbar() {
   const [hovered, setHovered] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [canHover, setCanHover] = useState(false)
-  const { pathname } = useLocation()
+  const { hash } = useLocation()
 
   const expanded = hovered || menuOpen
 
@@ -106,7 +106,8 @@ export default function DynamicNavbar() {
             <div className="border-t border-primary/10 px-3 pb-4 pt-2 sm:px-4">
               <ul className="flex flex-col gap-0.5">
                 {navLinks.map((link) => {
-                  const isActive = pathname === link.to
+                  const linkHash = link.to.includes('#') ? `#${link.to.split('#')[1]}` : ''
+                  const isActive = Boolean(hash) && hash === linkHash
 
                   return (
                     <li key={link.to}>
@@ -115,9 +116,9 @@ export default function DynamicNavbar() {
                         text={link.label}
                         active={isActive}
                         className={`block rounded-xl px-4 py-3 text-sm font-medium ${
-                          isActive ? 'bg-accent/5' : ''
+                          isActive ? 'bg-blue/5' : ''
                         }`}
-                        color={isActive ? '#dfff00' : 'rgba(0,0,0,0.75)'}
+                        color={isActive ? '#1e45ff' : 'rgba(0,0,0,0.75)'}
                         hoverColor="#dfff00"
                         onClick={collapse}
                       />
@@ -129,13 +130,13 @@ export default function DynamicNavbar() {
               <div className="mt-2 px-1">
                 <Link
                   to={routes.contact}
-                  className="flex w-full items-center justify-center rounded-full bg-accent px-4 py-2.5 text-sm font-medium transition-colors hover:bg-primary"
+                  className="flex w-full items-center justify-center rounded-full bg-blue px-4 py-2.5 text-sm font-medium transition-colors hover:bg-primary"
                   onClick={collapse}
                 >
                   <LetterSwap
                     text="Get in Touch"
                     color="#ffffff"
-                    hoverColor="#dfff00"
+                    hoverColor="#ffffff"
                     variant="pingPong"
                     direction="up"
                   />

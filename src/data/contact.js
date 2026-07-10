@@ -7,12 +7,12 @@ export const contactIntro = {
     'Whether you have a clear brief or just a rough idea — reach out. We will ask the right questions and give you an honest picture of what we can do for your brand.',
 }
 
-export const contactEmail = 'hello@brosmedia.com'
+export const contactEmail = 'brosmedia26@gmail.com'
 
 export const contactWhatsApp = {
   // Country code + number, no + (e.g. 919876543210)
-  number: '',
-  display: 'WhatsApp us',
+  number: '917013814030',
+  display: '+91 70138 14030',
   message: "Hi Brosmedia, I'd like to discuss a project.",
 }
 

@@ -6,7 +6,7 @@ import { routes } from '../data/navigation'
 
 function LinkDivider() {
   return (
-    <span className="mx-3 text-black/20 sm:mx-4" aria-hidden="true">
+    <span className="mx-3 text-white/20 sm:mx-4" aria-hidden="true">
       ·
     </span>
   )
@@ -16,14 +16,14 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-b from-accent/[0.04] to-white font-sans">
+    <footer className="bg-black border-t border-white/10 font-sans">
       <div className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-12">
         <div className="flex flex-col items-center text-center">
           <Link to={routes.home} className="shrink-0" aria-label="Brosmedia home">
             <CharacterImageReveal
               text="BROSMEDIA"
               images={footerRevealImages}
-              textColor="#000000"
+              textColor="#ffffff"
               imageSize={64}
               offsetY={-8}
               objectFit="contain"
@@ -36,7 +36,7 @@ export default function Footer() {
             />
           </Link>
 
-          <p className="mt-4 text-sm text-black/50 sm:text-base">{footerIntro.address}</p>
+          <p className="mt-4 text-sm text-white/50 sm:text-base">{footerIntro.address}</p>
 
           <nav className="mt-5" aria-label="Footer">
             <ul className="flex flex-wrap items-center justify-center">
@@ -47,7 +47,7 @@ export default function Footer() {
                     to={link.to}
                     text={link.label}
                     className="text-sm font-medium sm:text-base"
-                    color="rgba(0,0,0,0.8)"
+                    color="rgba(255,255,255,0.85)"
                     hoverColor="#dfff00"
                   />
                 </li>
@@ -55,7 +55,7 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <p className="mt-6 text-xs text-black/40 sm:text-sm">
+          <p className="mt-6 text-xs text-white/40 sm:text-sm">
             © {year} {footerIntro.companyName}. All rights reserved.
           </p>
         </div>

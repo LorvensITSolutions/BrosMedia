@@ -9,12 +9,10 @@ import EyeFollowButton from '../framer/eye_follow_button.jsx'
 import { finalCtaButtons, getWhatsAppHref } from '../data/finalCta'
 import {
   deliverables,
-  getClientWebsiteHref,
   ourWorkCta,
   ourWorkIntro,
   ourWorkMarqueeItems,
   ourWorkStats,
-  portfolioClients,
 } from '../data/ourWork'
 import { routes } from '../data/navigation'
 
@@ -170,6 +168,7 @@ function OurWorkHero({ onExplore }) {
             <EyeFollowButton
               text="Talk to us"
               to={routes.contact}
+              hoverColor="#1e45ff"
               className="w-full max-w-[17rem] sm:w-auto"
             />
             <button
@@ -177,7 +176,7 @@ function OurWorkHero({ onExplore }) {
               onClick={onExplore}
               className="text-sm font-semibold text-primary underline decoration-blue decoration-2 underline-offset-4 transition hover:text-blue"
             >
-              View portfolio
+              View deliverables
             </button>
           </motion.div>
 
@@ -226,165 +225,548 @@ function MarqueeStrip() {
   )
 }
 
-function PortfolioTable() {
+function BrandIdentityShowcase({ portraitImage, landscapeImage, portraitAlt, landscapeAlt }) {
   return (
-    <section id="portfolio" className="scroll-mt-[calc(var(--navbar-height)+1rem)] bg-[#f5f7ff] py-16 font-sans lg:py-24">
+    <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+      <div
+        className="pointer-events-none absolute left-[8%] top-[12%] h-48 w-48 rounded-full bg-blue/10 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute bottom-[6%] right-[4%] h-40 w-40 rounded-full bg-blue/8 blur-3xl"
+        aria-hidden="true"
+      />
+
+      <div className="relative flex flex-col items-center gap-5 sm:flex-row sm:items-end sm:justify-center sm:gap-6 lg:gap-8">
+        <motion.figure
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={{ ...spring, delay: 0.05 }}
+          whileHover={{ y: -6 }}
+          className="relative z-10 w-full max-w-[17.5rem] shrink-0 sm:max-w-[15.5rem] lg:max-w-[18rem]"
+        >
+          <div className="overflow-hidden rounded-[1.75rem] border border-blue/10 bg-white p-2 shadow-[0_22px_60px_rgba(30,69,255,0.14)] sm:rounded-[2rem] sm:p-2.5">
+            <img
+              src={portraitImage}
+              alt={portraitAlt}
+              className="aspect-[568/734] w-full rounded-[1.35rem] object-cover sm:rounded-[1.5rem]"
+              loading="lazy"
+            />
+          </div>
+        </motion.figure>
+
+        <motion.figure
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={{ ...spring, delay: 0.18 }}
+          whileHover={{ y: -6 }}
+          className="relative z-20 w-full max-w-[20rem] shrink-0 sm:-ml-6 sm:max-w-[18rem] lg:-ml-10 lg:max-w-[22rem]"
+        >
+          <div className="overflow-hidden rounded-[1.5rem] border border-blue/10 bg-white p-2 shadow-[0_24px_70px_rgba(30,69,255,0.16)] sm:rounded-[1.75rem] sm:p-2.5">
+            <img
+              src={landscapeImage}
+              alt={landscapeAlt}
+              className="aspect-[576/536] w-full rounded-[1.15rem] object-cover sm:rounded-[1.35rem]"
+              loading="lazy"
+            />
+          </div>
+        </motion.figure>
+      </div>
+    </div>
+  )
+}
+
+function WebsiteDeviceShowcase({ desktopImage, mobileImage, alt }) {
+  return (
+    <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
+      <div className="overflow-hidden rounded-2xl border border-blue/10 bg-[#f5f7ff] p-3 shadow-[0_24px_70px_rgba(30,69,255,0.12)] sm:rounded-3xl sm:p-4">
+        <div className="mb-3 flex items-center gap-2 px-1">
+          <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+          <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+          <span className="ml-2 h-6 flex-1 rounded-md bg-white/80" />
+        </div>
+        <div className="overflow-hidden rounded-xl border border-blue/10 bg-white">
+          <img
+            src={desktopImage}
+            alt={`${alt} desktop view`}
+            className="aspect-[16/10] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24, x: 12 }}
+        whileInView={{ opacity: 1, y: 0, x: 0 }}
+        viewport={viewport}
+        transition={{ ...spring, delay: 0.15 }}
+        className="absolute -bottom-6 -right-2 w-[38%] max-w-[11rem] sm:-bottom-8 sm:right-4 sm:max-w-[13rem] lg:-right-6"
+      >
+        <div className="rounded-[1.75rem] border-[5px] border-primary bg-primary p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.25)] sm:border-[6px]">
+          <div className="overflow-hidden rounded-[1.25rem] bg-white">
+            <img
+              src={mobileImage}
+              alt={`${alt} mobile view`}
+              className="aspect-[9/19] w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+
+function DeliverableShowcase({ image, alt, index }) {
+  return (
+    <motion.div
+      whileHover={{ y: -6 }}
+      transition={spring}
+      className="relative overflow-hidden rounded-3xl border border-blue/10 bg-[#f5f7ff] shadow-[0_20px_60px_rgba(30,69,255,0.1)]"
+    >
+      <span
+        className="pointer-events-none absolute -right-2 -top-4 z-10 text-7xl font-black leading-none text-blue/[0.07] sm:text-8xl"
+        aria-hidden="true"
+      >
+        {String(index + 1).padStart(2, '0')}
+      </span>
+      <img
+        src={image}
+        alt={alt}
+        className="aspect-[4/3] w-full object-cover sm:aspect-[16/11]"
+        loading="lazy"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent" />
+    </motion.div>
+  )
+}
+
+function TransparentShowcase({ image, alt }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={viewport}
+      transition={spring}
+      whileHover={{ y: -6 }}
+      className="relative mx-auto flex w-full max-w-lg items-center justify-center lg:max-w-none"
+    >
+      <img
+        src={image}
+        alt={alt}
+        className="h-auto w-full object-contain"
+        loading="lazy"
+      />
+    </motion.div>
+  )
+}
+
+function MetaAdsNeonCurve() {
+  return (
+    <svg
+      className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-[55%] w-full overflow-visible"
+      viewBox="0 0 800 320"
+      fill="none"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M-40 280 C 80 260, 140 120, 260 140 C 380 160, 420 280, 540 240 C 660 200, 700 80, 840 100"
+        stroke="#dfff00"
+        strokeWidth="14"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  )
+}
+
+function MetaAdsShowcase({ phoneImage, gridImages = [], alt }) {
+  return (
+    <div className="relative mx-auto aspect-square w-full max-w-lg overflow-visible lg:max-w-none lg:aspect-[5/4]">
+      <div className="absolute inset-0 z-0 grid h-full grid-cols-3 gap-2 sm:gap-3">
+        {gridImages.map((src, i) => (
+          <div
+            key={`${src}-${i}`}
+            className="relative h-full w-full overflow-hidden rounded-lg sm:rounded-xl"
+          >
+            <img
+              src={src}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Light edge fade only — keep campaign images readable */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-1/4 bg-gradient-to-r from-black/50 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/5 bg-gradient-to-t from-black/35 to-transparent" />
+
+      <MetaAdsNeonCurve />
+
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={viewport}
+        transition={{ ...spring, delay: 0.12 }}
+        className="relative z-10 flex h-full items-center justify-center px-2 py-4 sm:px-6"
+      >
+        <img
+          src={phoneImage}
+          alt={alt}
+          className="h-auto max-h-[min(30rem,72vw)] w-auto max-w-[88%] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)] sm:max-h-[34rem]"
+          loading="lazy"
+        />
+      </motion.div>
+    </div>
+  )
+}
+
+function CreativeProductionShowcase({ cards = [], alt }) {
+  return (
+    <div className="relative z-10 mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:mt-16 lg:gap-6">
+      {cards.map((src, i) => (
+        <motion.div
+          key={`${src}-${i}`}
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={{ ...spring, delay: 0.1 + i * 0.12 }}
+          className="relative aspect-[16/11] w-full"
+        >
+          <img
+            src={src}
+            alt={`${alt} ${i + 1}`}
+            className="absolute inset-0 h-full w-full rounded-2xl object-contain object-center drop-shadow-[0_8px_20px_rgba(0,0,0,0.22)]"
+            loading="lazy"
+          />
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+
+function MetaLogoMark() {
+  return (
+    <img
+      src="https://res.cloudinary.com/dvruqkpqk/image/upload/v1783678833/meta-removebg-preview_ji98ct.png"
+      alt=""
+      className="h-auto w-[min(48vw,15rem)] object-contain sm:w-[min(40vw,17rem)] lg:w-[19rem]"
+      loading="lazy"
+    />
+  )
+}
+
+function PrintCollateralShowcase({ leftImage, rightImage, alt, index, title, description }) {
+  const titleMain = title.replace(/\s*Collateral\s*$/i, '').trim()
+  const hasCollateral = /collateral/i.test(title)
+
+  return (
+    <div className="relative h-[36rem] w-full overflow-hidden sm:h-[42rem] lg:h-[48rem]">
+      {/* Text — top right (padded) */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        variants={stagger}
+        className="relative z-[3] ml-auto w-full max-w-md px-6 pt-10 sm:max-w-lg sm:pt-14 lg:max-w-xl lg:px-10 lg:pt-16"
+      >
+        <motion.p
+          variants={fadeUp}
+          className="text-5xl font-light tracking-tight text-white sm:text-6xl lg:text-7xl"
+        >
+          {String(index + 1).padStart(2, '0')}
+        </motion.p>
+        <motion.h3
+          variants={fadeUp}
+          className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
+        >
+          <span className="text-accent">{titleMain}</span>
+          {hasCollateral ? <span className="text-white"> Collateral</span> : null}
+        </motion.h3>
+        <motion.p
+          variants={fadeUp}
+          className="mt-3 max-w-md text-sm leading-relaxed text-white/75 sm:text-base lg:text-lg"
+        >
+          {description}
+        </motion.p>
+      </motion.div>
+
+      {/* GoClean — flush to left edge, bleeds off left/top */}
+      <motion.div
+        initial={{ opacity: 0, x: -48, rotate: -16 }}
+        whileInView={{ opacity: 1, x: 0, rotate: -12 }}
+        viewport={viewport}
+        transition={spring}
+        className="absolute -left-8 top-0 z-[1] w-[85%] origin-top-left sm:-left-12 sm:w-[68%] lg:-left-16 lg:w-[60%] xl:-left-20"
+      >
+        <img
+          src={leftImage}
+          alt={`${alt} — GoClean brochure`}
+          className="h-auto w-full max-w-none object-contain object-left drop-shadow-[0_24px_50px_rgba(0,0,0,0.55)]"
+          loading="lazy"
+        />
+      </motion.div>
+
+      {/* AMVI — bottom right */}
+      <motion.div
+        initial={{ opacity: 0, y: 48 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewport}
+        transition={{ ...spring, delay: 0.1 }}
+        className="absolute bottom-6 right-4 z-[2] w-[88%] sm:bottom-8 sm:right-6 sm:w-[64%] lg:bottom-10 lg:right-8 lg:w-[52%]"
+      >
+        <img
+          src={rightImage}
+          alt={`${alt} — AMVI brochure`}
+          className="h-auto w-full rounded-2xl object-contain drop-shadow-[0_20px_44px_rgba(0,0,0,0.5)] sm:rounded-3xl"
+          loading="lazy"
+        />
+      </motion.div>
+    </div>
+  )
+}
+
+function DeliverableBlock({ item, index }) {
+  const isEven = index % 2 === 0
+  const isWebsite = item.layout === 'website'
+  const isBrandIdentity = item.layout === 'brand-identity'
+  const isTransparent = item.layout === 'transparent'
+  const isMetaAds = item.layout === 'meta-ads'
+  const isCreativeProduction = item.layout === 'creative-production'
+  const isPrintCollateral = item.layout === 'print-collateral'
+
+  if (isPrintCollateral) {
+    return (
+      <article
+        id={item.id}
+        className="scroll-mt-[calc(var(--navbar-height)+1rem)] relative overflow-hidden bg-black font-sans text-white"
+      >
+        <PrintCollateralShowcase
+          leftImage={item.leftImage}
+          rightImage={item.rightImage}
+          alt={item.imageAlt}
+          index={index}
+          title={item.title}
+          description={item.description}
+        />
+      </article>
+    )
+  }
+
+  if (isCreativeProduction) {
+    return (
+      <article
+        id={item.id}
+        className="scroll-mt-[calc(var(--navbar-height)+1rem)] relative overflow-hidden bg-black py-16 font-sans text-white lg:py-24"
+      >
+        <div className="pointer-events-none absolute -right-6 top-8 opacity-90 sm:right-4 sm:top-10 lg:right-10 lg:top-12">
+          <MetaLogoMark />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            variants={stagger}
+            className="relative z-10 max-w-2xl"
+          >
+            <motion.p
+              variants={fadeUp}
+              className="text-5xl font-light tracking-tight text-white sm:text-6xl lg:text-7xl"
+            >
+              {String(index + 1).padStart(2, '0')}
+            </motion.p>
+            <motion.h3
+              variants={fadeUp}
+              className="mt-4 text-3xl font-bold tracking-tight text-accent sm:text-4xl lg:text-5xl"
+            >
+              {item.title}
+            </motion.h3>
+            <motion.p
+              variants={fadeUp}
+              className="mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg"
+            >
+              {item.description}
+            </motion.p>
+          </motion.div>
+
+          <div className="relative mt-8 sm:mt-10">
+            <svg
+              className="pointer-events-none absolute left-[-8%] top-[18%] z-[1] h-[70%] w-[116%] overflow-visible"
+              viewBox="0 0 1000 280"
+              fill="none"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M-20 180 C 120 40, 220 40, 340 150 C 460 260, 560 260, 700 140 C 820 40, 900 80, 1040 160"
+                stroke="#dfff00"
+                strokeWidth="16"
+                strokeLinecap="round"
+              />
+            </svg>
+
+            <CreativeProductionShowcase cards={item.cards} alt={item.imageAlt} />
+          </div>
+        </div>
+      </article>
+    )
+  }
+
+  if (isMetaAds) {
+    return (
+      <article
+        id={item.id}
+        className="scroll-mt-[calc(var(--navbar-height)+1rem)] overflow-hidden bg-black py-16 font-sans text-white lg:py-24"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            variants={stagger}
+            className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12 xl:gap-16"
+          >
+            <motion.div variants={fadeUp} className="relative z-10 max-w-xl">
+              <p className="text-5xl font-light tracking-tight text-white/90 sm:text-6xl lg:text-7xl">
+                {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 className="mt-5 text-3xl font-bold tracking-tight text-accent sm:text-4xl lg:text-5xl">
+                {item.title}
+              </h3>
+              <p className="mt-5 text-base leading-relaxed text-white/75 sm:text-lg">
+                {item.description}
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <MetaAdsShowcase
+                phoneImage={item.phoneImage}
+                gridImages={item.gridImages}
+                alt={item.imageAlt}
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </article>
+    )
+  }
+
+  return (
+    <article
+      id={item.id}
+      className={`scroll-mt-[calc(var(--navbar-height)+1rem)] py-16 lg:py-24 ${
+        isEven ? 'bg-white' : 'bg-[#f5f7ff]'
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           variants={stagger}
-          className="mb-10 lg:mb-14"
+          className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
+            isEven ? '' : 'lg:[&>*:first-child]:order-2'
+          }`}
         >
-          <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/80">
-            Client portfolio
-          </motion.p>
-          <motion.h2 variants={fadeUp} className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            Who we have worked with
-          </motion.h2>
+          <motion.div variants={fadeUp} className="max-w-xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/80">
+              {String(index + 1).padStart(2, '0')} · Deliverable
+            </p>
+            <h3 className="mt-4 text-2xl font-bold tracking-tight text-primary sm:text-3xl lg:text-4xl">
+              {item.title}
+            </h3>
+            <p className="mt-5 text-base leading-relaxed text-primary/70 sm:text-lg">
+              {item.description}
+            </p>
+            {isWebsite && (
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="rounded-full border border-blue/15 bg-blue/[0.06] px-3 py-1.5 text-xs font-semibold text-blue">
+                  Desktop view
+                </span>
+                <span className="rounded-full border border-blue/15 bg-blue/[0.06] px-3 py-1.5 text-xs font-semibold text-blue">
+                  Mobile view
+                </span>
+              </div>
+            )}
+            {isBrandIdentity && (
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="rounded-full border border-blue/15 bg-blue/[0.06] px-3 py-1.5 text-xs font-semibold text-blue">
+                  Brand guidelines
+                </span>
+                <span className="rounded-full border border-blue/15 bg-blue/[0.06] px-3 py-1.5 text-xs font-semibold text-blue">
+                  Logo & color system
+                </span>
+              </div>
+            )}
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            className={isWebsite || isBrandIdentity ? 'pb-4 sm:pb-6' : ''}
+          >
+            {isWebsite ? (
+              <WebsiteDeviceShowcase
+                desktopImage={item.desktopImage}
+                mobileImage={item.mobileImage}
+                alt={item.imageAlt}
+              />
+            ) : isBrandIdentity ? (
+              <BrandIdentityShowcase
+                portraitImage={item.portraitImage}
+                landscapeImage={item.landscapeImage}
+                portraitAlt={item.portraitAlt}
+                landscapeAlt={item.landscapeAlt}
+              />
+            ) : isTransparent ? (
+              <TransparentShowcase image={item.image} alt={item.imageAlt} />
+            ) : (
+              <DeliverableShowcase image={item.image} alt={item.imageAlt} index={index} />
+            )}
+          </motion.div>
         </motion.div>
-
-        <div className="hidden overflow-hidden rounded-2xl border border-blue/10 bg-white shadow-[0_20px_60px_rgba(30,69,255,0.08)] lg:block">
-          <table className="w-full border-collapse text-left">
-            <thead>
-              <tr className="border-b border-blue/10 bg-blue/[0.04]">
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-blue/80">Client</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-blue/80">Industry</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-blue/80">Work done</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-blue/80">Website</th>
-              </tr>
-            </thead>
-            <tbody>
-              {portfolioClients.map((row, index) => {
-                const href = getClientWebsiteHref(row.website)
-                return (
-                  <motion.tr
-                    key={row.id}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={viewport}
-                    transition={{ ...spring, delay: index * 0.04 }}
-                    className="border-b border-primary/5 transition hover:bg-blue/[0.03]"
-                  >
-                    <td className="px-6 py-5 align-top text-sm font-bold text-primary">{row.client}</td>
-                    <td className="px-6 py-5 align-top text-sm text-primary/60">{row.industry}</td>
-                    <td className="max-w-md px-6 py-5 align-top text-sm leading-relaxed text-primary/70">
-                      {row.workDone}
-                    </td>
-                    <td className="px-6 py-5 align-top text-sm">
-                      {href ? (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-blue underline decoration-blue/30 underline-offset-2 transition hover:decoration-blue"
-                        >
-                          {row.website}
-                        </a>
-                      ) : (
-                        <span className="text-primary/35">—</span>
-                      )}
-                    </td>
-                  </motion.tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
-
-        <motion.ul
-          className="grid gap-4 lg:hidden"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={stagger}
-        >
-          {portfolioClients.map((row) => {
-            const href = getClientWebsiteHref(row.website)
-            return (
-              <motion.li key={row.id} variants={fadeUp}>
-                <article className="rounded-2xl border border-blue/10 bg-white p-5 shadow-[0_12px_40px_rgba(30,69,255,0.06)]">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-base font-bold text-primary">{row.client}</h3>
-                    <span className="shrink-0 rounded-full bg-blue/10 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-blue">
-                      {row.industry.split(',')[0]}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-xs text-primary/50">{row.industry}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-primary/70">{row.workDone}</p>
-                  <div className="mt-4 border-t border-primary/8 pt-4">
-                    {href ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-semibold text-blue"
-                      >
-                        {row.website} →
-                      </a>
-                    ) : (
-                      <span className="text-sm text-primary/35">No public website</span>
-                    )}
-                  </div>
-                </article>
-              </motion.li>
-            )
-          })}
-        </motion.ul>
       </div>
-    </section>
+    </article>
   )
 }
 
 function DeliverablesSection() {
   return (
-    <section className="bg-white py-20 font-sans lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+    <div id="deliverables" className="scroll-mt-[calc(var(--navbar-height)+1rem)] font-sans">
+      <section className="bg-white py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
             variants={stagger}
-            className="lg:sticky lg:top-[calc(var(--navbar-height)+2rem)] lg:self-start"
+            className="mx-auto max-w-3xl text-center"
           >
             <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/80">
               {deliverables.label}
             </motion.p>
-            <motion.h2 variants={fadeUp} className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+            <motion.h2 variants={fadeUp} className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl">
               {deliverables.title}
             </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 text-base leading-relaxed text-primary/60">
-              Every engagement draws from this stack — tailored to what your brand actually needs.
+            <motion.p variants={fadeUp} className="mt-5 text-base leading-relaxed text-primary/65 sm:text-lg">
+              {deliverables.intro}
             </motion.p>
           </motion.div>
-
-          <motion.ul
-            className="grid gap-3 sm:grid-cols-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-            variants={stagger}
-          >
-            {deliverables.items.map((item, index) => (
-              <motion.li key={item} variants={fadeUp}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  transition={spring}
-                  className="flex h-full gap-3 rounded-xl border border-blue/10 bg-[#f5f7ff] p-4 sm:p-5"
-                >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue text-[0.65rem] font-bold text-white">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <p className="text-sm leading-relaxed text-primary/75 sm:text-base">{item}</p>
-                </motion.div>
-              </motion.li>
-            ))}
-          </motion.ul>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {deliverables.items.map((item, index) => (
+        <DeliverableBlock key={item.id} item={item} index={index} />
+      ))}
+    </div>
   )
 }
 
@@ -439,9 +821,8 @@ function OurWorkCta() {
 export default function OurWorkPage() {
   return (
     <>
-      <OurWorkHero onExplore={() => scrollToSection('portfolio')} />
+      <OurWorkHero onExplore={() => scrollToSection('deliverables')} />
       <MarqueeStrip />
-      <PortfolioTable />
       <DeliverablesSection />
       <OurWorkCta />
     </>

@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import FluidCardStack from '../framer/fluid_card_stack.jsx'
 import { services, servicesIntro } from '../data/services'
-import { routes } from '../data/navigation'
 
 const spring = { type: 'spring', stiffness: 80, damping: 22, mass: 0.8 }
 const viewport = { once: true, margin: '-80px' }
@@ -30,35 +28,24 @@ export default function Services() {
     <section id="services" className="bg-black font-sans text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
         <motion.div
-          className="mb-10 flex flex-col gap-6 sm:mb-12 sm:flex-row sm:items-end sm:justify-between"
+          className="mb-10 max-w-xl sm:mb-12"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           variants={stagger}
         >
-          <div className="max-w-xl">
-            <motion.p
-              variants={fadeUp}
-              className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary/90"
-            >
-              {servicesIntro.label}
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
-              className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
-            >
-              {servicesIntro.headline}
-            </motion.h2>
-          </div>
-          <motion.div variants={fadeUp}>
-            <Link
-              to={routes.services}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition hover:text-secondary"
-            >
-              View services
-              <span aria-hidden="true">→</span>
-            </Link>
-          </motion.div>
+          <motion.p
+            variants={fadeUp}
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary/90"
+          >
+            {servicesIntro.label}
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+          >
+            {servicesIntro.headline}
+          </motion.h2>
         </motion.div>
 
         <FluidCardStack items={items} />

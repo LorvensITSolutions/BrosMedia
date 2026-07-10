@@ -9,7 +9,7 @@ const hoverSpring = { type: 'spring', bounce: 0, duration: 0.6 }
 
 function PreviewCard({ image, title, industry, hovered }) {
   return (
-    <div className="relative h-full min-h-[280px] overflow-hidden rounded-[32px] bg-white p-6 sm:min-h-[360px] lg:min-h-0">
+    <div className="relative h-full min-h-[280px] overflow-hidden rounded-[32px] bg-[#141414] p-6 sm:min-h-[360px] lg:min-h-0">
       <div className="absolute inset-0 overflow-hidden rounded-[32px]">
         <motion.img
           src={image}
@@ -54,18 +54,7 @@ function DetailsCard({ brandIcon, description, categories, hovered }) {
       </ul>
 
       <div className="mt-8 flex flex-col gap-5">
-        {brandIcon ? (
-          <img
-            src={brandIcon}
-            alt=""
-            className="h-[34px] w-[34px] rounded-lg object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <span className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-blue text-xs font-bold text-white">
-            B
-          </span>
-        )}
+       
         <p className="text-sm font-medium leading-relaxed text-primary/75 text-balance">
           {description}
         </p>

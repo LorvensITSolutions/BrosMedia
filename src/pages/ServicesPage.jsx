@@ -182,6 +182,7 @@ function ServicesHero({ onExplore }) {
             <EyeFollowButton
               text="Start a project"
               to={routes.contact}
+              hoverColor="#1e45ff"
               className="w-full max-w-[17rem] sm:w-auto"
             />
             <button
@@ -273,19 +274,19 @@ function ServiceNav({ activeId, onSelect }) {
                 type="button"
                 onClick={() => onSelect(service.id)}
                 className={`group relative flex w-full items-center gap-4 rounded-2xl px-4 py-4 text-left transition-colors ${
-                  isActive ? 'text-white' : 'text-white/45 hover:text-white/75'
+                  isActive ? 'text-primary' : 'text-primary/45 hover:text-primary/75'
                 }`}
               >
                 {isActive && (
                   <motion.span
                     layoutId="serviceNavActive"
-                    className="absolute inset-0 rounded-2xl border border-white/10 bg-white/[0.06]"
+                    className="absolute inset-0 rounded-2xl border border-blue/15 bg-blue/[0.06]"
                     transition={smoothSpring}
                   />
                 )}
                 <span
                   className={`relative z-10 text-xs font-bold tabular-nums ${
-                    isActive ? 'text-blue' : 'text-white/30'
+                    isActive ? 'text-blue' : 'text-primary/30'
                   }`}
                 >
                   {String(index + 1).padStart(2, '0')}
@@ -315,7 +316,7 @@ function MobileServiceNav({ activeId, onSelect }) {
             className={`shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition ${
               isActive
                 ? 'bg-blue text-white'
-                : 'border border-white/15 bg-white/5 text-white/70'
+                : 'border border-blue/15 bg-white text-primary/70'
             }`}
           >
             {String(index + 1).padStart(2, '0')} · {service.navLabel}
@@ -358,7 +359,7 @@ function ServicePanel({ service, index, setActiveId }) {
         }`}
       >
         <motion.div variants={fadeUp} className="relative overflow-hidden rounded-3xl">
-          <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-blue/20 via-transparent to-blue/10 opacity-50 blur-2xl" />
+          <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent/20 via-transparent to-accent/10 opacity-50 blur-2xl" />
           <motion.img
             src={service.image}
             alt={service.name}
@@ -371,7 +372,7 @@ function ServicePanel({ service, index, setActiveId }) {
         </motion.div>
 
         <motion.div style={{ x: contentX, opacity: contentOpacity }} variants={fadeUp}>
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-8">
+          <div className="rounded-3xl border border-blue/10 bg-white p-6 shadow-[0_16px_50px_rgba(30,69,255,0.08)] sm:p-8">
             <div className="flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">
                 {String(index + 1).padStart(2, '0')}
@@ -381,10 +382,10 @@ function ServicePanel({ service, index, setActiveId }) {
               </p>
             </div>
 
-            <h2 className="mt-5 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+            <h2 className="mt-5 text-2xl font-bold tracking-tight text-primary sm:text-3xl lg:text-4xl">
               {service.name}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg">{service.summary}</p>
+            <p className="mt-4 text-base leading-relaxed text-primary/70 sm:text-lg">{service.summary}</p>
 
             <motion.ul
               className="mt-8 space-y-3"
@@ -397,7 +398,7 @@ function ServicePanel({ service, index, setActiveId }) {
                 <motion.li
                   key={item}
                   variants={slideIn}
-                  className="flex items-start gap-3 text-sm text-white/80 sm:text-base"
+                  className="flex items-start gap-3 text-sm text-primary/75 sm:text-base"
                 >
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue" />
                   {item}
@@ -449,7 +450,7 @@ function ProcessStepCard({ item, index, isLast = false }) {
       <motion.div
         whileHover={{ y: -8 }}
         transition={spring}
-        className="group relative min-w-0 flex-1 overflow-hidden rounded-3xl border border-primary/10 bg-white p-6 shadow-[0_16px_50px_rgba(30,69,255,0.08)] sm:flex-none sm:p-8"
+        className="group relative min-w-0 flex-1 overflow-hidden rounded-3xl border border-blue/10 bg-white p-6 shadow-[0_16px_50px_rgba(30,69,255,0.08)] sm:flex-none sm:p-8"
       >
         <motion.div
           className="absolute inset-x-0 top-0 h-1 origin-left bg-gradient-to-r from-blue via-blue/70 to-blue"
@@ -507,7 +508,7 @@ function ProcessTimeline() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-white font-sans"
+      className="relative overflow-hidden bg-[#f5f7ff] font-sans text-primary"
     >
       <div className="pointer-events-none absolute -right-20 top-0 h-80 w-80 rounded-full bg-blue/10 blur-[110px]" />
       <div className="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-blue/8 blur-[110px]" />
@@ -606,7 +607,7 @@ function ServicesCta() {
   const whatsappHref = getWhatsAppHref(finalCtaButtons.whatsapp)
 
   return (
-    <section className="bg-gradient-to-br from-blue via-[#1a3de6] to-[#0f2bb8] font-sans">
+    <section className="bg-gradient-to-br from-blue via-[#1a3de6] to-[#0f2bb8] font-sans text-white">
       <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-8 lg:py-28">
         <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={stagger}>
           <motion.p
@@ -664,7 +665,7 @@ export default function ServicesPage() {
 
       <MarqueeStrip />
 
-      <section className="bg-primary font-sans text-white">
+      <section className="bg-white font-sans text-primary">
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
           <div className="lg:grid lg:grid-cols-[minmax(240px,300px)_1fr] lg:gap-16">
             <aside className="mb-8 lg:sticky lg:top-[calc(var(--navbar-height)+1.5rem)] lg:mb-0 lg:self-start">
@@ -675,8 +676,8 @@ export default function ServicesPage() {
                 variants={fadeUp}
                 className="mb-6 hidden lg:block"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">Navigate</p>
-                <h2 className="mt-2 text-2xl font-bold text-white">What we do</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/60">Navigate</p>
+                <h2 className="mt-2 text-2xl font-bold text-primary">What we do</h2>
               </motion.div>
               <MobileServiceNav activeId={activeId} onSelect={handleSelect} />
               <div className="mt-8 hidden lg:block">

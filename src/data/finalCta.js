@@ -8,18 +8,18 @@ export const finalCtaIntro = {
 export const finalCtaButtons = {
   discovery: {
     label: 'Book a Free Discovery Call',
-    href: 'mailto:hello@brosmedia.com?subject=Book%20a%20Free%20Discovery%20Call',
+    href: 'mailto:brosmedia26@gmail.com?subject=Book%20a%20Free%20Discovery%20Call',
   },
   whatsapp: {
     label: 'WhatsApp Us →',
     // Country code + number, no + (e.g. 919876543210)
-    number: '',
+    number: '917013814030',
     message: "Hi Brosmedia, I'd like to discuss a project.",
   },
 }
 
 export function getWhatsAppHref({ number, message }) {
-  if (!number) return 'mailto:hello@brosmedia.com'
+  if (!number) return 'mailto:brosmedia26@gmail.com'
 
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`
 }

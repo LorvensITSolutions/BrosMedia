@@ -6,6 +6,7 @@
   --color-secondary: #dfff00;
   --color-accent: #dfff00;
   --color-blue: #1e45ff;
+  /* Blue on white/light surfaces; green (accent) on black/dark surfaces */
   --color-nav: #ffffff;
   --color-white: #ffffff;
 }
@@ -61,6 +62,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--navbar-height) + 1rem);
 }
 
 body {

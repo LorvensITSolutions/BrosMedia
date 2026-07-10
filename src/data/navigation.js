@@ -1,10 +1,10 @@
 export const routes = {
   home: '/',
-  services: '/services',
-  ourWork: '/our-work',
-  industries: '/industries',
-  about: '/about',
-  contact: '/contact',
+  services: '/#services',
+  ourWork: '/#clients',
+  industries: '/#industries-strip',
+  about: '/#about',
+  contact: '/#contact',
 }
 
 export const navLinks = [

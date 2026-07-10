@@ -160,6 +160,7 @@ function IndustriesHero({ onExplore }) {
             <EyeFollowButton
               text="Get in touch"
               to={routes.contact}
+              hoverColor="#1e45ff"
               className="w-full max-w-[17rem] sm:w-auto"
             />
             <button
@@ -421,7 +422,7 @@ export default function IndustriesPage() {
       <IndustriesHero onExplore={() => scrollToSection(industries[0].id)} />
       <MarqueeStrip />
 
-      <section className="bg-[#f5f7ff] font-sans">
+      <section className="border-y border-blue/10 bg-[#f5f7ff] font-sans">
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
           <div className="lg:grid lg:grid-cols-[minmax(220px,280px)_1fr] lg:gap-14">
             <aside className="mb-8 lg:sticky lg:top-[calc(var(--navbar-height)+1.5rem)] lg:mb-0 lg:self-start">

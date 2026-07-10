@@ -226,7 +226,7 @@ export default function About() {
               viewport={viewport}
               variants={fadeUp}
             >
-              <Link to={routes.about} className="group flex items-center gap-5">
+              <Link to={routes.contact} className="group flex items-center gap-5">
               <motion.span
                 className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-secondary text-primary transition-transform group-hover:scale-105"
                 whileHover={{ scale: 1.08, rotate: -6 }}
@@ -235,8 +235,8 @@ export default function About() {
                 <ArrowUpRight />
               </motion.span>
               <span className="leading-tight">
-                <span className="block text-sm font-medium text-white/60">Learn More</span>
-                <span className="block text-base font-semibold text-white">About Our Vision</span>
+                <span className="block text-sm font-medium text-white/60">Get in Touch</span>
+                <span className="block text-base font-semibold text-white">Start a Project</span>
               </span>
               </Link>
             </motion.div>

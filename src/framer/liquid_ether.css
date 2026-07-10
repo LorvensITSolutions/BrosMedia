@@ -3,5 +3,18 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  touch-action: none;
+}
+
+/* Desktop: capture pointer for liquid interaction */
+@media (hover: hover) and (pointer: fine) {
+  .liquid-ether-container {
+    touch-action: none;
+  }
+}
+
+/* Touch: let scroll pass through so hero zoom works without needing to touch the image */
+@media (hover: none), (pointer: coarse) {
+  .liquid-ether-container {
+    pointer-events: none;
+  }
 }

@@ -52,7 +52,7 @@ export default function ComingSoonPage() {
           </Link>
           <Link
             to={routes.contact}
-            className="inline-flex items-center justify-center rounded-full border border-primary/15 bg-white px-6 py-3 text-sm font-semibold text-primary transition hover:border-accent/30 hover:text-accent"
+            className="inline-flex items-center justify-center rounded-full border border-white/15 bg-[#141414] px-6 py-3 text-sm font-semibold text-primary transition hover:border-accent/30 hover:text-accent"
           >
             Contact Us
           </Link>

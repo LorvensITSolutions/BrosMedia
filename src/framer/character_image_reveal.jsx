@@ -76,7 +76,7 @@ export default function CharacterImageReveal({
                   height: imageSize,
                   objectFit,
                   borderRadius: 4,
-                  backgroundColor: objectFit === 'contain' ? '#ffffff' : undefined,
+                  backgroundColor: objectFit === 'contain' ? '#000000' : undefined,
                   padding: objectFit === 'contain' ? 6 : undefined,
                   pointerEvents: 'none',
                   zIndex: 10,

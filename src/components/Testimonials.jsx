@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { TestimonialReelFromData } from '../framer/testimonial_reel.jsx'
+import { TestimonialsProFromData } from '../framer/testimonials_pro.jsx'
 import { testimonials, testimonialsIntro } from '../data/testimonials'
 
 const viewport = { once: true, margin: '-80px' }
@@ -13,24 +13,21 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
           transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
-          className="mx-auto max-w-5xl px-1 sm:px-2"
         >
-          <TestimonialReelFromData
+          <TestimonialsProFromData
             items={testimonials}
-            sectionLabel={testimonialsIntro.label.toUpperCase()}
-            sectionIntroText={testimonialsIntro.description}
-            compact
-            cardBackground="#141414"
-            labelColor="rgba(223, 255, 0, 0.85)"
-            introColor="rgba(255, 255, 255, 0.65)"
-            headlineColor="#ffffff"
-            statementColor="rgba(255, 255, 255, 0.55)"
-            titleColor="rgba(255, 255, 255, 0.45)"
-            quoteIconColor="rgba(255, 255, 255, 0.35)"
-            arrowButtonColor="rgba(255, 255, 255, 0.1)"
-            arrowIconColor="rgba(255, 255, 255, 0.55)"
-            hoverArrowButtonColor="#dfff00"
-            hoverArrowIconColor="#ffffff"
+            intro={testimonialsIntro}
+            repeat={2}
+            badgeBackground="rgba(223, 255, 0, 0.08)"
+            badgeBorder="rgba(223, 255, 0, 0.22)"
+            badgeColor="rgba(223, 255, 0, 0.9)"
+            titleColor="#ffffff"
+            descriptionColor="rgba(255, 255, 255, 0.6)"
+            cardBackground="#ffffff"
+            quoteColor="#111111"
+            nameColor="#111111"
+            roleColor="rgba(17, 17, 17, 0.55)"
+            fadecolor="#000000"
           />
         </motion.div>
       </div>
