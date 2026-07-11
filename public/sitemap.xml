@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <url>
+    <loc>https://brosmedia.in/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://brosmedia.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brosmedia.in/" />
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dvruqkpqk/image/upload/w_1200,h_630,c_pad,b_rgb:000000,q_auto,f_auto/v1782134190/BrosMedia_Logo_1_nxpara.png</image:loc>
+      <image:title>Brosmedia — Digital Marketing Agency in Hyderabad</image:title>
+      <image:caption>Brosmedia digital marketing agency logo and brand mark</image:caption>
+    </image:image>
+  </url>
+</urlset>

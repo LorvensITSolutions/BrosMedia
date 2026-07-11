@@ -1,0 +1,29 @@
+{
+  "name": "Brosmedia",
+  "short_name": "Brosmedia",
+  "description": "Digital marketing agency in Hyderabad — branding, websites, social media, and Meta ads.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["business", "marketing"],
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dvruqkpqk/image/upload/v1781159780/Bros_Media_Logo_zfbess.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://res.cloudinary.com/dvruqkpqk/image/upload/v1781159780/Bros_Media_Logo_zfbess.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

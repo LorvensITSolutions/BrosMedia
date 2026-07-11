@@ -4,7 +4,7 @@ import GsapScrollRevealText from './GsapScrollRevealText'
 import { routes } from '../data/navigation'
 
 const ABOUT_IMAGE =
-  'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80'
+  'https://res.cloudinary.com/dvruqkpqk/image/upload/v1783690793/wmremove-transformed_5_f35bei.png'
 
 const ABOUT_COPY_1 =
   'Brosmedia is built for businesses that are serious about their brand — and serious about growth. We are a focused agency based in Hyderabad, working across branding, digital marketing, creative production, and paid media. We do not do generic. Every brand we work with gets a strategy built around their industry, their audience, and their goals — and a team that stays hands-on from start to finish.'
@@ -136,10 +136,13 @@ export default function About() {
           variants={stagger}
         >
           <motion.div
-            className="pl-4 sm:pl-8 lg:pl-12 lg:pr-12"
+            className="flex flex-col items-center text-center sm:pl-8 lg:items-start lg:pl-12 lg:pr-12 lg:text-left"
             variants={stagger}
           >
-            <motion.div className="flex items-center gap-2.5" variants={fadeUp}>
+            <motion.div
+              className="flex items-center justify-center gap-2.5 lg:justify-start"
+              variants={fadeUp}
+            >
               <AboutIcon />
               <span className="text-sm font-medium text-accent">ABOUT US</span>
             </motion.div>
@@ -157,7 +160,7 @@ export default function About() {
             </motion.p>
           </motion.div>
 
-          <div>
+          <div className="text-center lg:text-left">
             <GsapScrollRevealText
               text={ABOUT_COPY_1}
               className="text-base leading-relaxed text-white/70 sm:text-lg lg:text-xl lg:leading-relaxed"
@@ -220,7 +223,7 @@ export default function About() {
             </motion.div>
 
             <motion.div
-              className="group flex items-center gap-5"
+              className="group flex items-center justify-center gap-5 lg:justify-start"
               initial="hidden"
               whileInView="visible"
               viewport={viewport}

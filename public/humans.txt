@@ -1,0 +1,12 @@
+/* TEAM */
+Agency: Brosmedia
+Location: 1st Floor, Road No. 86, Jubilee Hills, Hyderabad, Telangana 500096
+Contact: brosmedia26@gmail.com
+Phone: +91 70138 14030
+Site: https://brosmedia.in
+
+/* SITE */
+Standards: HTML5, CSS3, ES modules
+Stack: React, Vite, Tailwind CSS
+Language: English (en-IN)
+Last update: 2026-07-11

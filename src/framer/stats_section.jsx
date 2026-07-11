@@ -162,10 +162,21 @@ export default function StatsSection({
   const ref = useRef(null)
   const [started, setStarted] = useState(false)
   const [cellWidth, setCellWidth] = useState(minItemWidth)
+  const [isMobile, setIsMobile] = useState(false)
 
   const fontSize = font?.fontSize ?? 48
   const fontWeight = font?.fontWeight ?? 700
   const fontFamily = font?.fontFamily ?? 'Montserrat, sans-serif'
+  const activeColumnGap = isMobile ? Math.min(columnGap, 24) : columnGap
+  const activeRowGap = isMobile ? Math.max(rowGap, 36) : rowGap
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)')
+    const update = () => setIsMobile(media.matches)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
 
   useEffect(() => {
     const calculate = () => {
@@ -219,60 +230,66 @@ export default function StatsSection({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        columnGap,
-        rowGap,
+        columnGap: activeColumnGap,
+        rowGap: activeRowGap,
         width: '100%',
         paddingTop,
-        paddingRight,
+        paddingRight: isMobile ? Math.min(paddingRight, 20) : paddingRight,
         paddingBottom,
-        paddingLeft,
+        paddingLeft: isMobile ? Math.min(paddingLeft, 20) : paddingLeft,
         background,
         borderRadius,
         boxSizing: 'border-box',
       }}
     >
-      {stats.map((stat, index) => (
-        <div
-          key={`${stat.label}-${index}`}
-          style={{
-            position: 'relative',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: cellWidth,
-            flexShrink: 0,
-          }}
-        >
-          {divider && index > 0 && (
-            <div
-              style={{
-                position: 'absolute',
-                left: 0,
-                top: '15%',
-                height: '70%',
-                width: 1,
-                background: dividerColor,
-              }}
+      {stats.map((stat, index) => {
+        const showDivider = divider && (isMobile ? index % 2 === 1 : index > 0)
+
+        return (
+          <div
+            key={`${stat.label}-${index}`}
+            style={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: isMobile ? `calc(50% - ${activeColumnGap / 2}px)` : cellWidth,
+              flexShrink: 0,
+              boxSizing: 'border-box',
+              paddingLeft: showDivider ? 12 : 0,
+            }}
+          >
+            {showDivider && (
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: '15%',
+                  height: '70%',
+                  width: 1,
+                  background: dividerColor,
+                }}
+              />
+            )}
+            <StatItem
+              value={stat.value}
+              label={stat.label}
+              prefix={stat.prefix ?? ''}
+              suffix={stat.suffix ?? ''}
+              decimals={stat.decimals ?? 0}
+              separator={separator}
+              duration={duration}
+              shouldStart={started}
+              font={font}
+              numberColor={numberColor}
+              labelFont={labelFont}
+              labelColor={labelColor}
+              labelTextTransform={labelTextTransform}
+              gap={itemGap}
             />
-          )}
-          <StatItem
-            value={stat.value}
-            label={stat.label}
-            prefix={stat.prefix ?? ''}
-            suffix={stat.suffix ?? ''}
-            decimals={stat.decimals ?? 0}
-            separator={separator}
-            duration={duration}
-            shouldStart={started}
-            font={font}
-            numberColor={numberColor}
-            labelFont={labelFont}
-            labelColor={labelColor}
-            labelTextTransform={labelTextTransform}
-            gap={itemGap}
-          />
-        </div>
-      ))}
+          </div>
+        )
+      })}
     </div>
   )
 }

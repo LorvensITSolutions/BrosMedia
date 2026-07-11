@@ -62,7 +62,7 @@ export const contactDetails = [
   },
   {
     label: 'Location',
-    value: 'Hyderabad, Telangana, India',
+    value: '1st Floor, Road No. 86, Jubilee Hills, Hyderabad, Telangana 500096',
   },
   {
     label: 'Working hours',

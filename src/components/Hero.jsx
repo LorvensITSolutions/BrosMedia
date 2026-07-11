@@ -3,15 +3,19 @@ import ScrollZoomReveal from '../framer/scroll_zoom_reveal.jsx'
 import SmoothThreeDButton from '../framer/smooth_three_d_button.jsx'
 
 const HERO_BG =
-  'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2400&auto=format&fit=crop'
+  'https://res.cloudinary.com/dvruqkpqk/image/upload/v1783688056/wmremove-transformed_jlwarc.png'
 
 export default function Hero() {
   return (
-    <section id="hero">
+    <section id="hero" aria-label="Brosmedia hero">
+      <h1 className="sr-only">
+        Brosmedia — Digital Marketing Agency in Hyderabad for branding, websites, social media, and
+        Meta ads
+      </h1>
       <ScrollZoomReveal
         image={{
           src: HERO_BG,
-          alt: 'Brosmedia Hero',
+          alt: 'Brosmedia digital marketing team and creative workspace',
         }}
         leftText="BROS "
         rightText="MEDIA"

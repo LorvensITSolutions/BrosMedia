@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import Seo from './Seo'
+import { seoPages } from '../data/seo'
 
 function scrollToHash(hash) {
   if (!hash) {
@@ -18,6 +20,7 @@ function scrollToHash(hash) {
 
 export default function Layout() {
   const { pathname, hash } = useLocation()
+  const pageSeo = seoPages.home
 
   useEffect(() => {
     // Allow the home page to paint before scrolling to a section
@@ -27,6 +30,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-black font-sans text-white">
+      <Seo title={pageSeo.title} description={pageSeo.description} path={pageSeo.path} />
       <Navbar />
       <main>
         <Outlet />

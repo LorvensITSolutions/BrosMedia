@@ -3,7 +3,7 @@ import { clientsTeaser } from './clientsTeaser'
 
 export const footerIntro = {
   companyName: 'Brosmedia',
-  address: 'Hyderabad, Telangana, India',
+  address: '1st Floor, Road No. 86, Jubilee Hills, Hyderabad, Telangana 500096',
 }
 
 export const footerRevealImages = clientsTeaser
