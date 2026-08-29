@@ -29,11 +29,11 @@ export default function IndustriesStrip() {
 
   return (
     <section
-      id="industries-strip"
+      id="industries"
       className="relative bg-black font-sans"
       aria-label="Industries we serve"
     >
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
         <div className="flex justify-center px-2">
           <LetterSwap
             text={industriesStripIntro.label.toUpperCase()}
@@ -47,16 +47,23 @@ export default function IndustriesStrip() {
           />
         </div>
 
-        {/* Mobile: wrapped grid */}
+        {/* Mobile: even 2-column grid */}
         <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:hidden">
           {industriesStrip.map((industry) => (
             <li
               key={industry}
-              className={`flex min-h-[2.75rem] items-center justify-center rounded-xl border border-white/10 bg-white/5 px-2 py-2.5 text-center ${
-                industry.length > 16 ? 'col-span-2' : ''
-              }`}
+              className="flex min-h-[3rem] items-center justify-center rounded-xl border border-white/10 bg-white/5 px-2 py-2.5 text-center"
             >
-              <IndustryItem industry={industry} className="text-[0.68rem] leading-snug" />
+              <IndustryItem
+                industry={industry}
+                className={`leading-snug ${
+                  industry.length > 18
+                    ? 'text-[0.58rem]'
+                    : industry.length > 12
+                      ? 'text-[0.64rem]'
+                      : 'text-[0.7rem]'
+                }`}
+              />
             </li>
           ))}
         </ul>

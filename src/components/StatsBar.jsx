@@ -9,8 +9,8 @@ const stats = [
 
 export default function StatsBar() {
   return (
-    <section className="relative overflow-hidden bg-black font-sans">
-      <div className="relative z-10 max-w-9xl">
+    <section className="relative overflow-hidden bg-black px-4 font-sans sm:px-6">
+      <div className="relative z-10 mx-auto max-w-9xl">
         <StatsSection
           stats={stats}
           duration={2}
@@ -25,6 +25,7 @@ export default function StatsBar() {
           paddingRight={24}
           paddingBottom={32}
           paddingLeft={24}
+          mobilePaddingTop={12}
           columnGap={80}
           rowGap={24}
           minItemWidth={100}

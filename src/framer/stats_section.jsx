@@ -101,7 +101,16 @@ function StatItem({
   compact = false,
 }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap, alignItems: 'center', maxWidth: compact ? 140 : undefined }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap,
+        alignItems: 'center',
+        width: compact ? '100%' : undefined,
+        maxWidth: compact ? 160 : undefined,
+      }}
+    >
       <AnimatedNumber
         end={value}
         duration={duration}
@@ -120,10 +129,11 @@ function StatItem({
           fontFamily: labelFont?.fontFamily ?? 'Montserrat, sans-serif',
           fontStyle: labelFont?.fontStyle ?? 'normal',
           color: labelColor,
-          lineHeight: 1.4,
+          lineHeight: 1.35,
           textAlign: 'center',
           textTransform: labelTextTransform,
-          maxWidth: compact ? 120 : undefined,
+          maxWidth: compact ? 130 : undefined,
+          wordBreak: compact ? 'break-word' : undefined,
         }}
       >
         {label}
@@ -157,6 +167,7 @@ export default function StatsSection({
   paddingRight = 48,
   paddingBottom = 40,
   paddingLeft = 48,
+  mobilePaddingTop,
   background = 'transparent',
   borderRadius = 0,
   className = '',
@@ -165,34 +176,23 @@ export default function StatsSection({
   const [started, setStarted] = useState(false)
   const [cellWidth, setCellWidth] = useState(minItemWidth)
   const [isMobile, setIsMobile] = useState(false)
-  const [isSmallMobile, setIsSmallMobile] = useState(false)
 
   const fontSize = font?.fontSize ?? 48
   const fontWeight = font?.fontWeight ?? 700
   const fontFamily = font?.fontFamily ?? 'Montserrat, sans-serif'
-  const activeColumnGap = isMobile ? 12 : columnGap
-  const activeRowGap = isMobile ? 28 : rowGap
-  const activeFont = isMobile
-    ? { ...font, fontSize: isSmallMobile ? 28 : Math.min(fontSize, 32) }
-    : font
+  const activeColumnGap = isMobile ? 16 : columnGap
+  const activeRowGap = isMobile ? 20 : rowGap
+  const activeFont = isMobile ? { ...font, fontSize: 34 } : font
   const activeLabelFont = isMobile
-    ? { ...labelFont, fontSize: Math.min(labelFont?.fontSize ?? 14, 12) }
+    ? { ...labelFont, fontSize: 12 }
     : labelFont
 
   useEffect(() => {
     const mobileMedia = window.matchMedia('(max-width: 767px)')
-    const smallMedia = window.matchMedia('(max-width: 399px)')
-    const update = () => {
-      setIsMobile(mobileMedia.matches)
-      setIsSmallMobile(smallMedia.matches)
-    }
+    const update = () => setIsMobile(mobileMedia.matches)
     update()
     mobileMedia.addEventListener('change', update)
-    smallMedia.addEventListener('change', update)
-    return () => {
-      mobileMedia.removeEventListener('change', update)
-      smallMedia.removeEventListener('change', update)
-    }
+    return () => mobileMedia.removeEventListener('change', update)
   }, [])
 
   useEffect(() => {
@@ -244,16 +244,19 @@ export default function StatsSection({
       ref={ref}
       className={className}
       style={{
-        display: 'flex',
-        flexWrap: 'wrap',
+        display: isMobile ? 'grid' : 'flex',
+        gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : undefined,
+        flexWrap: isMobile ? undefined : 'wrap',
         justifyContent: 'center',
         columnGap: activeColumnGap,
         rowGap: activeRowGap,
         width: '100%',
-        paddingTop: isMobile ? Math.min(paddingTop, 28) : paddingTop,
-        paddingRight: isMobile ? Math.min(paddingRight, 16) : paddingRight,
-        paddingBottom: isMobile ? Math.min(paddingBottom, 28) : paddingBottom,
-        paddingLeft: isMobile ? Math.min(paddingLeft, 16) : paddingLeft,
+        maxWidth: isMobile ? 420 : undefined,
+        marginInline: isMobile ? 'auto' : undefined,
+        paddingTop: isMobile ? (mobilePaddingTop ?? Math.min(paddingTop, 12)) : paddingTop,
+        paddingRight: isMobile ? Math.min(paddingRight, 20) : paddingRight,
+        paddingBottom: isMobile ? Math.min(paddingBottom, 24) : paddingBottom,
+        paddingLeft: isMobile ? Math.min(paddingLeft, 20) : paddingLeft,
         background,
         borderRadius,
         boxSizing: 'border-box',
@@ -270,11 +273,7 @@ export default function StatsSection({
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              width: isSmallMobile
-                ? '100%'
-                : isMobile
-                  ? `calc(50% - ${activeColumnGap / 2}px)`
-                  : cellWidth,
+              width: isMobile ? 'auto' : cellWidth,
               flexShrink: 0,
               boxSizing: 'border-box',
               paddingLeft: showDivider ? 12 : 0,

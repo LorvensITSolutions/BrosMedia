@@ -35,23 +35,31 @@ const CARD_ICONS = {
 
 function ContactCard({ item }) {
   const Icon = CARD_ICONS[item.label] ?? Mail
+  const isLongValue = item.value.length > 28
+
   const content = (
     <>
       <motion.span
-        className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent"
+        className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg border border-accent/20 bg-accent/10 text-accent sm:mb-4 sm:h-11 sm:w-11 sm:rounded-xl"
         whileHover={{ scale: 1.08, rotate: -4 }}
         transition={{ type: 'spring', stiffness: 400, damping: 18 }}
       >
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
+        <Icon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.75} />
       </motion.span>
-      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-white/40">
+      <p className="text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-white/40 sm:text-[0.65rem] sm:tracking-[0.16em]">
         {item.label}
       </p>
-      <p className="mt-2 text-sm font-semibold leading-relaxed text-white sm:text-[0.95rem]">
+      <p
+        className={`mt-1.5 font-semibold leading-snug text-white sm:mt-2 sm:text-[0.95rem] ${
+          isLongValue
+            ? 'text-[0.68rem] break-words sm:text-sm sm:leading-relaxed'
+            : 'text-xs sm:leading-relaxed'
+        }`}
+      >
         {item.value}
       </p>
       {item.href && (
-        <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent/70 transition group-hover:text-accent">
+        <span className="mt-2 inline-flex items-center gap-1 text-[0.65rem] font-semibold text-accent/70 transition group-hover:text-accent sm:mt-3 sm:text-xs">
           Open
           <span aria-hidden>→</span>
         </span>
@@ -60,7 +68,7 @@ function ContactCard({ item }) {
   )
 
   const cardClass =
-    'group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-accent/30 hover:bg-white/[0.05] sm:p-7'
+    'group relative flex h-full min-h-[8.5rem] flex-col overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3.5 transition-colors hover:border-accent/30 hover:bg-white/[0.05] sm:min-h-0 sm:rounded-2xl sm:p-7'
 
   return (
     <motion.li variants={fadeUp}>
@@ -103,8 +111,8 @@ export default function ContactSection() {
         aria-hidden
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
+      <div className="relative mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -124,7 +132,7 @@ export default function ContactSection() {
             </motion.div>
             <motion.h2
               variants={fadeUp}
-              className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
+              className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
               {contactIntro.headline}
             </motion.h2>
@@ -179,7 +187,7 @@ export default function ContactSection() {
             >
               Reach us directly
             </motion.p>
-            <ul className="grid gap-4 sm:grid-cols-2 sm:gap-5">
+            <ul className="grid grid-cols-2 gap-3 sm:gap-5">
               {contactDetails.map((item) => (
                 <ContactCard key={item.label} item={item} />
               ))}

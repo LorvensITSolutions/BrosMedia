@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ImageStreamHero } from '@/components/ui/image-stream-hero'
 
 const HERO_IMAGES = [
   {
     src: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/prabhas_brosmedia_creative.webp',
-    alt: 'Prabhas supports Nellore Wolves — Brosmedia creative',
+    alt: 'Prabhas supports Nellore Wolves - Brosmedia creative',
   },
   {
     src: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/mbprime_brosmedia_creative.jpg',
-    alt: 'MB Prime Villas & Plots — Brosmedia creative',
+    alt: 'MB Prime Villas & Plots - Brosmedia creative',
   },
   {
     src: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/niharika_konidela_brosmedia_creative.heic',
@@ -17,19 +18,19 @@ const HERO_IMAGES = [
   },
   {
     src: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/mbprime_ap_brosmedia_creative.jpg',
-    alt: 'MB Prime Andhra Pradesh villa community — Brosmedia creative',
+    alt: 'MB Prime Andhra Pradesh villa community - Brosmedia creative',
   },
   {
     src: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/seahawks_brosmedia_beyond_the_game.heic',
-    alt: 'Seahawks Beyond the Game — Brosmedia creative',
+    alt: 'Seahawks Beyond the Game - Brosmedia creative',
   },
   {
     src: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/uv_intro_brosmedia_creative.heic',
-    alt: 'UV Creations intro — Brosmedia creative',
+    alt: 'UV Creations intro - Brosmedia creative',
   },
   {
     src: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/nellore_wolves_intro_brosmedia_creative.heic',
-    alt: 'Nellore Wolves intro — Brosmedia creative',
+    alt: 'Nellore Wolves intro - Brosmedia creative',
   },
 ]
 
@@ -136,7 +137,7 @@ function ImageModal({ image, onClose }) {
     }
   }, [image, onClose])
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {image ? (
         <motion.div
@@ -144,7 +145,7 @@ function ImageModal({ image, onClose }) {
           role="dialog"
           aria-modal="true"
           aria-label={image.alt || 'Image preview'}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-8"
+          className="fixed inset-0 z-[200] flex items-center justify-center p-3 pt-[calc(var(--navbar-height)+0.75rem)] sm:p-6 sm:pt-[calc(var(--navbar-height)+1rem)] md:p-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -163,13 +164,13 @@ function ImageModal({ image, onClose }) {
             type="button"
             onClick={onClose}
             aria-label="Close image preview"
-            className="absolute right-3 top-3 z-10 flex h-10 w-10 cursor-default items-center justify-center rounded-full bg-white/10 text-lg font-semibold text-white transition hover:bg-white/20 sm:right-6 sm:top-6"
+            className="absolute right-3 top-[calc(var(--navbar-height)+0.75rem)] z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/60 text-lg font-semibold text-white backdrop-blur-md transition hover:bg-white/20 sm:right-6 sm:top-[calc(var(--navbar-height)+1rem)]"
           >
             ×
           </button>
 
           <motion.div
-            className="relative z-[1] max-h-[min(88svh,920px)] w-full max-w-[min(94vw,720px)] overflow-hidden rounded-xl bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] [transform-style:preserve-3d] sm:rounded-2xl"
+            className="relative z-[1] max-h-[min(calc(88svh-var(--navbar-height)),820px)] w-full max-w-[min(94vw,720px)] overflow-hidden rounded-xl bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] [transform-style:preserve-3d] sm:rounded-2xl"
             initial={{ rotateY: -90, opacity: 0, scale: 0.88 }}
             animate={{ rotateY: 0, opacity: 1, scale: 1 }}
             exit={{ rotateY: 90, opacity: 0, scale: 0.88 }}
@@ -179,7 +180,7 @@ function ImageModal({ image, onClose }) {
             <img
               src={image.src}
               alt={image.alt || 'Brosmedia creative'}
-              className="max-h-[min(78svh,820px)] w-full object-contain"
+              className="max-h-[min(calc(78svh-var(--navbar-height)),760px)] w-full object-contain"
             />
             {image.alt ? (
               <p className="border-t border-white/10 bg-black/80 px-3 py-2.5 text-center text-[0.7rem] text-white/70 sm:px-4 sm:py-3 sm:text-sm">
@@ -189,7 +190,8 @@ function ImageModal({ image, onClose }) {
           </motion.div>
         </motion.div>
       ) : null}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   )
 }
 

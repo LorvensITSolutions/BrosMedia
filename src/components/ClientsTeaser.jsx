@@ -24,7 +24,7 @@ const stagger = {
 export default function ClientsTeaser() {
   return (
     <section id="clients" className="relative overflow-hidden bg-black font-sans text-white">
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 lg:px-8 lg:pt-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-24">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -40,7 +40,7 @@ export default function ClientsTeaser() {
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl"
+            className="mt-3 text-2xl font-bold tracking-tight text-white sm:mt-4 sm:text-4xl"
           >
             {clientsTeaserIntro.headline}
           </motion.h2>

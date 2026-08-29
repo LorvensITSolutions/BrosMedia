@@ -20,10 +20,10 @@ export default function FaqItem({ number, question, answer, isOpen, onToggle }) 
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex w-full cursor-pointer items-start gap-2 px-6 py-[18px] text-left sm:px-8"
+        className="flex w-full cursor-pointer items-start gap-2 px-4 py-4 text-left sm:px-8 sm:py-[18px]"
       >
-        <span className="shrink-0 px-2 text-xl leading-8 text-white/40">{number}</span>
-        <span className="min-w-0 flex-1 pt-0.5 text-sm font-medium leading-5 text-white sm:text-[0.9375rem]">
+        <span className="shrink-0 px-1 text-lg leading-7 text-white/40 sm:px-2 sm:text-xl sm:leading-8">{number}</span>
+        <span className="min-w-0 flex-1 pt-0.5 text-sm font-medium leading-snug text-white sm:text-[0.9375rem] sm:leading-5">
           {question}
         </span>
         <motion.span
@@ -46,7 +46,7 @@ export default function FaqItem({ number, question, answer, isOpen, onToggle }) 
             transition={transition}
             className="overflow-hidden"
           >
-            <p className="px-6 pb-[18px] pl-[3.25rem] text-sm leading-5 text-white/60 sm:px-8 sm:pl-[3.75rem]">
+            <p className="px-4 pb-4 pl-[2.75rem] text-sm leading-relaxed text-white/60 sm:px-8 sm:pb-[18px] sm:pl-[3.75rem] sm:leading-5">
               {answer}
             </p>
           </motion.div>

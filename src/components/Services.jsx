@@ -26,7 +26,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative overflow-hidden bg-black font-sans text-white">
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
         <motion.div
           className="mb-10 max-w-xl sm:mb-12"
           initial="hidden"
@@ -42,7 +42,7 @@ export default function Services() {
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+            className="mt-3 text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
             {servicesIntro.headline}
           </motion.h2>

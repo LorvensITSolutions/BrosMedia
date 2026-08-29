@@ -60,9 +60,9 @@ export default function FaqSection() {
             FAQ
           </p>
 
-          <div className="relative z-10 flex flex-col gap-6 lg:flex-row lg:gap-10">
+          <div className="relative z-10 flex flex-col gap-5 sm:gap-6 lg:flex-row lg:gap-10">
             <motion.div variants={fadeUp} className="lg:max-w-[620px] lg:flex-1">
-              <h2 className="bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0.55)_100%)] bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-[2rem] sm:leading-10">
+              <h2 className="bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0.55)_100%)] bg-clip-text text-2xl font-semibold tracking-tight text-transparent sm:text-[2rem] sm:leading-10">
                 {faqIntro.title}
               </h2>
               <p className="mt-2.5 text-base leading-6 text-white/55">{faqIntro.description}</p>

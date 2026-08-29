@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { footerIntro, footerSocialLinks } from '../data/footer'
 import { contactEmail } from '../data/contact'
-import { navLinks, routes } from '../data/navigation'
+import { navLinks, routes, isNavLinkActive } from '../data/navigation'
 
 const LOGO_URL =
   'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134190/BrosMedia_Logo_1_nxpara.png'
@@ -213,7 +213,7 @@ function SidebarContact() {
 }
 
 function SidebarMenu({ onClose }) {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
   return (
     <motion.div
@@ -271,7 +271,7 @@ function SidebarMenu({ onClose }) {
           >
             <ul className="flex flex-col gap-0.5 pb-4">
               {menuLinks.map((link, index) => {
-                const isActive = pathname === link.to
+                const isActive = isNavLinkActive(link.to, pathname, hash)
                 const indexLabel = String(index + 1).padStart(2, '0')
 
                 return (

@@ -36,7 +36,7 @@ function StackCard({
       animate={
         isRow
           ? { flex: isActive ? 4 : 1, minWidth: isActive ? 0 : 64 }
-          : { height: isActive ? 280 : 76 }
+          : { height: isActive ? 240 : 72 }
       }
       transition={{
         layout: layoutSpring,

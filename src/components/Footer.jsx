@@ -49,7 +49,7 @@ export default function Footer() {
 
   return (
     <footer className="footer-illucus border-t border-white/6 bg-[#0a0a0c] font-sans text-white">
-      <div className="mx-auto max-w-352 px-6 py-12 sm:px-8 sm:py-14 lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-352 px-5 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-16">
         <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-12">
           <div className="sm:col-span-2 lg:col-span-4">
             <Link

@@ -20,7 +20,7 @@ const SHOWREEL_URL =
 
 function HeroMarketingVisual() {
   return (
-    <div className="relative mx-auto mb-8 flex w-full max-w-5xl flex-col items-center px-4 sm:mb-10 sm:px-6">
+    <div className="relative mx-auto mb-4 flex w-full max-w-5xl flex-col items-center px-4 sm:mb-10 sm:px-6">
       <h1 className="sr-only">
         Brosmedia digital marketing agency — branding, social, and conversion funnels
       </h1>
@@ -159,12 +159,12 @@ export default function Hero() {
     <section
       id="hero"
       aria-label="Brosmedia velocity hero"
-      className="scrollbar-hide relative z-10 flex min-h-svh w-full max-w-[100vw] flex-col justify-center overflow-x-hidden bg-[#070A0D] font-sans text-white"
+      className="scrollbar-hide relative z-10 flex min-h-0 w-full max-w-[100vw] flex-col justify-start overflow-x-hidden bg-[#070A0D] font-sans text-white sm:min-h-svh sm:justify-center"
     >
       <HeroCinematicBackground />
       <HeroDecorativeIcons />
 
-      <div className="relative z-10 flex w-full flex-col justify-center pt-[var(--navbar-height)] pb-6 sm:pb-8">
+      <div className="relative z-10 flex w-full flex-col justify-start pt-[var(--navbar-height)] pb-2 sm:justify-center sm:pb-8">
         <HeroMarketingVisual />
 
         <motion.div
@@ -187,7 +187,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 px-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 sm:px-6"
+          className="mt-5 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 px-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 sm:px-6"
         >
           <Link
             to={routes.contact}
@@ -211,7 +211,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 text-center text-[0.6rem] font-medium uppercase tracking-[0.14em] text-white/35 sm:text-[0.65rem]"
+          className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 pb-1 text-center text-[0.6rem] font-medium uppercase tracking-[0.14em] text-white/35 sm:mt-5 sm:pb-0 sm:text-[0.65rem]"
         >
           <span className="inline-flex items-center gap-1">
             <Zap className="h-3 w-3 text-accent" strokeWidth={2.5} />

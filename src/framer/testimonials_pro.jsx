@@ -129,14 +129,15 @@ function ScrollingGrid({
   cardProps,
   fadeColor,
   className = '',
+  heightClass = '',
 }) {
   const [paused, setPaused] = useState(false)
   const columns = distributeColumns(items, columnCount)
 
   return (
     <div
-      className={`relative overflow-hidden ${className}`}
-      style={{ height: 'clamp(420px, 52vh, 620px)' }}
+      className={`relative overflow-hidden ${heightClass} ${className}`}
+      style={{ height: heightClass ? undefined : 'clamp(420px, 52vh, 620px)' }}
       onMouseEnter={() => startTransition(() => setPaused(true))}
       onMouseLeave={() => startTransition(() => setPaused(false))}
     >
@@ -271,6 +272,7 @@ export default function TestimonialsPro({
             speeds={[32]}
             cardProps={cardProps}
             fadeColor={fadeColor}
+            heightClass="h-[clamp(340px,46vh,520px)]"
           />
         </div>
       </div>

@@ -1,10 +1,10 @@
 export const routes = {
   home: '/',
-  services: '/services',
-  ourWork: '/our-work',
-  industries: '/industries',
-  about: '/about',
-  contact: '/contact',
+  services: '/#services',
+  ourWork: '/#clients',
+  industries: '/#industries',
+  about: '/#about',
+  contact: '/#contact',
 }
 
 export const navLinks = [
@@ -16,3 +16,12 @@ export const navLinks = [
 ]
 
 export const comingSoonPages = {}
+
+export function isNavLinkActive(linkTo, pathname, hash) {
+  if (linkTo === routes.home) {
+    return pathname === '/' && (!hash || hash === '#hero')
+  }
+
+  const targetHash = linkTo.includes('#') ? linkTo.slice(linkTo.indexOf('#')) : ''
+  return pathname === '/' && hash === targetHash
+}

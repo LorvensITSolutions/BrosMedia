@@ -127,7 +127,7 @@ function ArrowUpRight() {
 export default function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-black font-sans text-white">
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-0 lg:px-8 lg:pt-24 lg:pb-0 ">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 pt-12 pb-0 sm:px-6 sm:pt-16 lg:px-8 lg:pt-24 lg:pb-0">
         <motion.div
           className="grid gap-10 pb-12 lg:grid-cols-[3fr_7fr] lg:gap-12 lg:items-start"
           initial="hidden"
@@ -170,7 +170,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        <div className="grid gap-8 pt-12 pb-12 lg:grid-cols-2 lg:gap-10 lg:items-start">
+        <div className="grid gap-8 pt-8 pb-10 sm:pt-12 sm:pb-12 lg:grid-cols-2 lg:gap-10 lg:items-start">
           <motion.div
             className="overflow-hidden rounded-3xl"
             initial={{ opacity: 0, clipPath: 'inset(8% 8% 8% 8% round 24px)' }}
