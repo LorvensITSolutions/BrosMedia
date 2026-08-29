@@ -249,10 +249,10 @@ function MarqueeStrip() {
         {doubled.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="flex items-center gap-8 text-sm font-semibold uppercase tracking-[0.18em] text-white/35"
+            className="flex items-center gap-8 text-sm font-semibold uppercase tracking-[0.18em] text-white/70"
           >
             {item}
-            <span className="text-blue" aria-hidden="true">
+            <span className="text-accent" aria-hidden="true">
               ✦
             </span>
           </span>
@@ -274,19 +274,19 @@ function ServiceNav({ activeId, onSelect }) {
                 type="button"
                 onClick={() => onSelect(service.id)}
                 className={`group relative flex w-full items-center gap-4 rounded-2xl px-4 py-4 text-left transition-colors ${
-                  isActive ? 'text-primary' : 'text-primary/45 hover:text-primary/75'
+                  isActive ? 'text-white' : 'text-white/45 hover:text-white/75'
                 }`}
               >
                 {isActive && (
                   <motion.span
                     layoutId="serviceNavActive"
-                    className="absolute inset-0 rounded-2xl border border-blue/15 bg-blue/[0.06]"
+                    className="absolute inset-0 rounded-2xl border border-accent/30 bg-accent/15"
                     transition={smoothSpring}
                   />
                 )}
                 <span
                   className={`relative z-10 text-xs font-bold tabular-nums ${
-                    isActive ? 'text-blue' : 'text-primary/30'
+                    isActive ? 'text-accent' : 'text-white/30'
                   }`}
                 >
                   {String(index + 1).padStart(2, '0')}
@@ -315,8 +315,8 @@ function MobileServiceNav({ activeId, onSelect }) {
             onClick={() => onSelect(service.id)}
             className={`shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition ${
               isActive
-                ? 'bg-blue text-white'
-                : 'border border-blue/15 bg-white text-primary/70'
+                ? 'bg-accent text-primary'
+                : 'border border-white/15 bg-white/5 text-white/70'
             }`}
           >
             {String(index + 1).padStart(2, '0')} · {service.navLabel}
@@ -358,37 +358,56 @@ function ServicePanel({ service, index, setActiveId }) {
           isEven ? '' : 'lg:[&>*:first-child]:order-2'
         }`}
       >
-        <motion.div variants={fadeUp} className="relative overflow-hidden rounded-3xl">
-          <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent/20 via-transparent to-accent/10 opacity-50 blur-2xl" />
-          <motion.img
-            src={service.image}
-            alt={service.name}
-            loading="lazy"
-            className="relative aspect-[4/3] w-full rounded-3xl object-cover"
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          />
-          <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+        <motion.div variants={fadeUp} className="relative">
+          <div className="absolute -inset-4 rounded-[2rem] bg-accent/10 opacity-60 blur-3xl" />
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-accent/20 bg-[#0a0a0a] p-2 shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:rounded-[2rem] sm:p-2.5">
+            <div className="absolute left-4 top-4 z-10 h-8 w-8 border-l border-t border-accent/50 sm:left-5 sm:top-5" />
+            <div className="absolute bottom-4 right-4 z-10 h-8 w-8 border-b border-r border-accent/50 sm:bottom-5 sm:right-5" />
+            <motion.img
+              src={service.image}
+              alt={service.name}
+              loading="lazy"
+              className="relative aspect-[4/3] w-full rounded-[1.35rem] object-cover sm:rounded-[1.5rem]"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            />
+            <div className="pointer-events-none absolute inset-2 rounded-[1.35rem] bg-gradient-to-t from-black/55 via-transparent to-black/10 sm:inset-2.5 sm:rounded-[1.5rem]" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 px-5 pb-5 sm:px-6 sm:pb-6">
+              <span className="inline-flex rounded-full border border-accent/30 bg-black/55 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent backdrop-blur-sm">
+                {String(index + 1).padStart(2, '0')} · {service.navLabel}
+              </span>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div style={{ x: contentX, opacity: contentOpacity }} variants={fadeUp}>
-          <div className="rounded-3xl border border-blue/10 bg-white p-6 shadow-[0_16px_50px_rgba(30,69,255,0.08)] sm:p-8">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#111111] p-6 sm:rounded-[2rem] sm:p-8 lg:p-9">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+
+            <div className="relative flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent text-sm font-bold text-primary">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/80">
-                Service
-              </p>
+              <div>
+                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-accent">
+                  Service
+                </p>
+                <p className="mt-0.5 text-xs text-white/40">{service.navLabel}</p>
+              </div>
             </div>
 
-            <h2 className="mt-5 text-2xl font-bold tracking-tight text-primary sm:text-3xl lg:text-4xl">
+            <h2 className="relative mt-6 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
               {service.name}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-primary/70 sm:text-lg">{service.summary}</p>
+            <p className="relative mt-4 text-base leading-relaxed text-white/65 sm:text-lg">
+              {service.summary}
+            </p>
+
+            <div className="relative mt-7 h-px w-full bg-gradient-to-r from-accent/40 via-white/10 to-transparent" />
 
             <motion.ul
-              className="mt-8 space-y-3"
+              className="relative mt-7 space-y-3.5"
               variants={stagger}
               initial="hidden"
               whileInView="visible"
@@ -398,9 +417,11 @@ function ServicePanel({ service, index, setActiveId }) {
                 <motion.li
                   key={item}
                   variants={slideIn}
-                  className="flex items-start gap-3 text-sm text-primary/75 sm:text-base"
+                  className="flex items-start gap-3 text-sm text-white/75 sm:text-base"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue" />
+                  <span className="mt-1.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent/15">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  </span>
                   {item}
                 </motion.li>
               ))}
@@ -431,17 +452,17 @@ function ProcessStepCard({ item, index, isLast = false }) {
           transition={{ ...spring, delay: index * 0.08 }}
         >
           <motion.span
-            className="absolute inset-0 rounded-full border-2 border-dashed border-blue/35"
+            className="absolute inset-0 rounded-full border-2 border-dashed border-accent/40"
             animate={{ rotate: 360 }}
             transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
           />
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-blue text-[0.65rem] font-bold text-white">
+          <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-accent text-[0.65rem] font-bold text-primary">
             {item.step}
           </span>
         </motion.div>
         {!isLast && (
           <motion.div
-            className="mt-2 w-px origin-top bg-gradient-to-b from-blue via-blue/50 to-transparent"
+            className="mt-2 w-px origin-top bg-gradient-to-b from-accent via-accent/50 to-transparent"
             style={{ height: 72, scaleY: lineGrow }}
           />
         )}
@@ -450,17 +471,17 @@ function ProcessStepCard({ item, index, isLast = false }) {
       <motion.div
         whileHover={{ y: -8 }}
         transition={spring}
-        className="group relative min-w-0 flex-1 overflow-hidden rounded-3xl border border-blue/10 bg-white p-6 shadow-[0_16px_50px_rgba(30,69,255,0.08)] sm:flex-none sm:p-8"
+        className="group relative min-w-0 flex-1 overflow-hidden rounded-3xl border border-accent/15 bg-white p-6 shadow-[0_16px_50px_rgba(223,255,0,0.08)] sm:flex-none sm:p-8"
       >
         <motion.div
-          className="absolute inset-x-0 top-0 h-1 origin-left bg-gradient-to-r from-blue via-blue/70 to-blue"
+          className="absolute inset-x-0 top-0 h-1 origin-left bg-gradient-to-r from-accent via-accent/70 to-accent"
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ duration: 0.7, delay: 0.15 + index * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
         />
 
         <span
-          className="pointer-events-none absolute -right-1 -top-2 select-none text-[5.5rem] font-black leading-none tracking-tighter text-blue/[0.06] sm:text-[7rem]"
+          className="pointer-events-none absolute -right-1 -top-2 select-none text-[5.5rem] font-black leading-none tracking-tighter text-primary/[0.06] sm:text-[7rem]"
           aria-hidden="true"
         >
           {item.step}
@@ -474,11 +495,11 @@ function ProcessStepCard({ item, index, isLast = false }) {
             transition={{ ...spring, delay: index * 0.1 }}
           >
             <motion.span
-              className="absolute inset-0 rounded-2xl border-2 border-dashed border-blue/25"
+              className="absolute inset-0 rounded-2xl border-2 border-dashed border-accent/35"
               animate={{ rotate: index % 2 === 0 ? 360 : -360 }}
               transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
             />
-            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-blue text-sm font-bold text-white">
+            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-accent text-sm font-bold text-primary">
               {item.step}
             </span>
           </motion.div>
@@ -508,15 +529,15 @@ function ProcessTimeline() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#f5f7ff] font-sans text-primary"
+      className="relative overflow-hidden bg-black font-sans text-white"
     >
-      <div className="pointer-events-none absolute -right-20 top-0 h-80 w-80 rounded-full bg-blue/10 blur-[110px]" />
-      <div className="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-blue/8 blur-[110px]" />
+      <div className="pointer-events-none absolute -right-20 top-0 h-80 w-80 rounded-full bg-accent/10 blur-[110px]" />
+      <div className="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-accent/8 blur-[110px]" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(30,69,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(30,69,255,0.04) 1px, transparent 1px)',
+            'linear-gradient(rgba(223,255,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(223,255,0,0.05) 1px, transparent 1px)',
           backgroundSize: '56px 56px',
         }}
       />
@@ -530,15 +551,15 @@ function ProcessTimeline() {
             variants={stagger}
             className="max-w-xl"
           >
-            <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/80">
+            <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
               How we work
             </motion.p>
             <motion.h2
               variants={fadeUp}
-              className="mt-4 text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl"
+              className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
               A simple process.
-              <span className="text-blue"> Serious execution.</span>
+              <span className="text-accent"> Serious execution.</span>
             </motion.h2>
           </motion.div>
 
@@ -547,20 +568,20 @@ function ProcessTimeline() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewport}
             transition={spring}
-            className="max-w-sm text-sm leading-relaxed text-primary/55 lg:text-base"
+            className="max-w-sm text-sm leading-relaxed text-white/55 lg:text-base"
           >
-            Three focused stages — no fluff, no handoffs. We stay with you from first call to launch.
+            Three focused stages � no fluff, no handoffs. We stay with you from first call to launch.
           </motion.p>
         </div>
 
         <div className="relative mt-14 hidden sm:block">
-          <div className="absolute left-[8%] right-[8%] top-7 h-px bg-primary/10" />
+          <div className="absolute left-[8%] right-[8%] top-7 h-px bg-white/10" />
           <motion.div
-            className="absolute left-[8%] top-7 h-px w-[84%] origin-left bg-gradient-to-r from-blue via-blue/70 to-blue"
+            className="absolute left-[8%] top-7 h-px w-[84%] origin-left bg-gradient-to-r from-accent via-accent/70 to-accent"
             style={{ scaleX: beamProgress }}
           />
           <motion.div
-            className="absolute top-7 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue shadow-[0_0_12px_rgba(30,69,255,0.45)]"
+            className="absolute top-7 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_12px_rgba(223,255,0,0.45)]"
             style={{ left: dotLeft }}
           />
 
@@ -607,12 +628,12 @@ function ServicesCta() {
   const whatsappHref = getWhatsAppHref(finalCtaButtons.whatsapp)
 
   return (
-    <section className="bg-gradient-to-br from-blue via-[#1a3de6] to-[#0f2bb8] font-sans text-white">
+    <section className="border-t border-white/10 bg-black font-sans text-white">
       <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-8 lg:py-28">
         <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={stagger}>
           <motion.p
             variants={fadeUp}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70"
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-accent"
           >
             {finalCtaIntro.label}
           </motion.p>
@@ -624,7 +645,7 @@ function ServicesCta() {
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg"
+            className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg"
           >
             {finalCtaIntro.description}
           </motion.p>
@@ -634,13 +655,13 @@ function ServicesCta() {
           >
             <a
               href={finalCtaButtons.discovery.href}
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-blue transition hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-primary transition hover:bg-accent/90"
             >
               {finalCtaButtons.discovery.label}
             </a>
             <a
               href={whatsappHref}
-              className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/15"
+              className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-accent/40 hover:text-accent"
             >
               {finalCtaButtons.whatsapp.label}
             </a>
@@ -650,7 +671,6 @@ function ServicesCta() {
     </section>
   )
 }
-
 export default function ServicesPage() {
   const [activeId, setActiveId] = useState(services[0].id)
 
@@ -665,7 +685,7 @@ export default function ServicesPage() {
 
       <MarqueeStrip />
 
-      <section className="bg-white font-sans text-primary">
+      <section className="bg-black font-sans text-white">
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
           <div className="lg:grid lg:grid-cols-[minmax(240px,300px)_1fr] lg:gap-16">
             <aside className="mb-8 lg:sticky lg:top-[calc(var(--navbar-height)+1.5rem)] lg:mb-0 lg:self-start">
@@ -676,8 +696,8 @@ export default function ServicesPage() {
                 variants={fadeUp}
                 className="mb-6 hidden lg:block"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue/60">Navigate</p>
-                <h2 className="mt-2 text-2xl font-bold text-primary">What we do</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Navigate</p>
+                <h2 className="mt-2 text-2xl font-bold text-white">What we do</h2>
               </motion.div>
               <MobileServiceNav activeId={activeId} onSelect={handleSelect} />
               <div className="mt-8 hidden lg:block">

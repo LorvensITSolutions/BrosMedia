@@ -1,16 +1,16 @@
 import StatsSection from '../framer/stats_section.jsx'
 
 const stats = [
-  { value: 10, label: 'Brands Built', suffix: '+', decimals: 0 },
-  { value: 5, label: 'Industries', decimals: 0 },
+  { value: 13, label: 'Brands Built', suffix: '+', decimals: 0 },
+  { value: 6, label: 'Industries', decimals: 0 },
   { value: 1, label: 'Of Execution', suffix: ' Yr', decimals: 0 },
   { value: 360, label: 'Brand Services', suffix: '°', decimals: 0 },
 ]
 
 export default function StatsBar() {
   return (
-    <section className="bg-black font-sans">
-      <div className="max-w-9xl">
+    <section className="relative overflow-hidden bg-black font-sans">
+      <div className="relative z-10 max-w-9xl">
         <StatsSection
           stats={stats}
           duration={2}

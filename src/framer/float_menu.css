@@ -1,0 +1,71 @@
+.float-menu {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.25rem;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .float-menu {
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+}
+
+.float-menu > * {
+  pointer-events: auto;
+}
+
+.float-menu-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 9999px;
+  background: #ebebeb;
+  color: #121212;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.float-menu-whatsapp-text {
+  padding-left: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.float-menu-whatsapp-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.float-menu-whatsapp-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .float-menu-whatsapp {
+    width: 40px !important;
+    padding: 8px;
+  }
+
+  .float-menu-whatsapp-text {
+    display: none;
+  }
+}

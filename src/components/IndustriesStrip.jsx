@@ -3,7 +3,7 @@ import { industriesStrip, industriesStripIntro } from '../data/industriesStrip'
 
 function Divider() {
   return (
-    <span className="mx-3 shrink-0 text-white/20 sm:mx-4" aria-hidden="true">
+    <span className="mx-4 shrink-0 text-white/20 sm:mx-5" aria-hidden="true">
       |
     </span>
   )
@@ -25,13 +25,15 @@ function IndustryItem({ industry, className = '' }) {
 }
 
 export default function IndustriesStrip() {
+  const marqueeItems = [...industriesStrip, ...industriesStrip]
+
   return (
     <section
       id="industries-strip"
-      className="bg-black font-sans"
+      className="relative bg-black font-sans"
       aria-label="Industries we serve"
     >
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
         <div className="flex justify-center px-2">
           <LetterSwap
             text={industriesStripIntro.label.toUpperCase()}
@@ -45,7 +47,7 @@ export default function IndustriesStrip() {
           />
         </div>
 
-        {/* Mobile: wrapped 2-column grid */}
+        {/* Mobile: wrapped grid */}
         <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:hidden">
           {industriesStrip.map((industry) => (
             <li
@@ -58,20 +60,24 @@ export default function IndustriesStrip() {
             </li>
           ))}
         </ul>
+      </div>
 
-        {/* Tablet / desktop: horizontal strip */}
-        <div className="relative mt-5 hidden sm:block">
-          <div className="overflow-x-auto [-ms-overflow-style:none] scrollbar-none lg:overflow-visible">
-            <ul className="flex w-max min-w-full items-center justify-center px-2 lg:w-full lg:px-0">
-              {industriesStrip.map((industry, index) => (
-                <li key={industry} className="flex items-center">
-                  {index > 0 && <Divider />}
-                  <IndustryItem industry={industry} className="whitespace-nowrap text-sm lg:text-base" />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      {/* Tablet / desktop: infinite marquee — full width, no clipping */}
+      <div className="relative mt-1 hidden overflow-hidden pb-2 sm:block sm:pb-4">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-black to-transparent sm:w-16" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-black to-transparent sm:w-16" />
+
+        <ul
+          className="animate-hero-marquee flex w-max items-center"
+          aria-label="Industries marquee"
+        >
+          {marqueeItems.map((industry, index) => (
+            <li key={`${industry}-${index}`} className="flex shrink-0 items-center">
+              {index > 0 && <Divider />}
+              <IndustryItem industry={industry} className="whitespace-nowrap text-sm lg:text-base" />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

@@ -1,4 +1,5 @@
 import { getWhatsAppHref } from './finalCta'
+import { contact } from './seo'
 
 export const contactIntro = {
   label: 'Contact Us',
@@ -63,6 +64,8 @@ export const contactDetails = [
   {
     label: 'Location',
     value: '1st Floor, Road No. 86, Jubilee Hills, Hyderabad, Telangana 500096',
+    href: contact.mapsUrl,
+    external: true,
   },
   {
     label: 'Working hours',

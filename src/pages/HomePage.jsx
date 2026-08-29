@@ -1,4 +1,5 @@
 import Hero from '../components/Hero'
+import WorkStreamSection from '../components/WorkStreamSection'
 import StatsBar from '../components/StatsBar'
 import About from '../components/About'
 import Services from '../components/Services'
@@ -11,7 +12,10 @@ import IndustriesStrip from '../components/IndustriesStrip'
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <div className="relative overflow-x-hidden">
+        <Hero />
+        <WorkStreamSection />
+      </div>
       <StatsBar />
       <About />
       <Services />

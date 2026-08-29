@@ -23,8 +23,8 @@ const stagger = {
 
 export default function ClientsTeaser() {
   return (
-    <section id="clients" className="bg-black font-sans text-white">
-      <div className="relative mx-auto max-w-7xl px-6 pt-16 lg:px-8 lg:pt-24">
+    <section id="clients" className="relative overflow-hidden bg-black font-sans text-white">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 lg:px-8 lg:pt-24">
         <motion.div
           initial="hidden"
           whileInView="visible"

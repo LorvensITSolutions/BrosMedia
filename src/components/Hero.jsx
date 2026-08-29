@@ -1,49 +1,242 @@
+import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity,
+} from 'framer-motion'
+import { ArrowRight, Play, Zap } from 'lucide-react'
 import { routes } from '../data/navigation'
-import ScrollZoomReveal from '../framer/scroll_zoom_reveal.jsx'
-import SmoothThreeDButton from '../framer/smooth_three_d_button.jsx'
+import HeroCinematicBackground from './hero/HeroCinematicBackground'
+import HeroDecorativeIcons from './hero/HeroDecorativeIcons'
+import HeroServiceTags from './hero/HeroServiceTags'
 
-const HERO_BG =
-  'https://res.cloudinary.com/dvruqkpqk/image/upload/v1783688056/wmremove-transformed_jlwarc.png'
+const SHOWREEL_URL =
+  'https://www.instagram.com/brosmedia.in?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=='
+
+function HeroMarketingVisual() {
+  return (
+    <div className="relative mx-auto mb-8 flex w-full max-w-5xl flex-col items-center px-4 sm:mb-10 sm:px-6">
+      <h1 className="sr-only">
+        Brosmedia digital marketing agency — branding, paid social, and conversion funnels
+      </h1>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="relative mx-auto w-full max-w-4xl px-2 sm:px-4"
+      >
+        <div className="relative z-10 flex flex-col items-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-accent sm:text-[0.65rem]">
+              Performance Marketing Studio
+            </span>
+          </div>
+
+          <div className="-rotate-1 text-center">
+            <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent sm:text-xs">
+              brosmedia.in
+            </p>
+            <p
+              className="text-[clamp(3.2rem,13vw,7.5rem)] font-black uppercase leading-[0.88] tracking-tighter"
+              style={{
+                color: 'transparent',
+                WebkitTextStroke: '1.5px #dfff00',
+              }}
+            >
+              UNSKIPPABLE
+            </p>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/55 sm:max-w-lg sm:text-base">
+              Branding, paid social &amp; brand systems - built to turn attention into revenue.
+            </p>
+            <motion.span
+              aria-hidden
+              className="mx-auto mt-4 block h-[3px] rounded-full bg-accent"
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: 80, opacity: 1 }}
+              transition={{ duration: 0.75, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </div>
+        </div>
+      </motion.div>
+
+      <HeroServiceTags />
+    </div>
+  )
+}
+
+const MARQUEE_ROWS = [
+  {
+    text: 'STOP BEING INVISIBLE ONLINE • WE DOMINATE ATTENTION •',
+    variant: 'solid',
+    baseVelocity: 3,
+  },
+  {
+    text: 'CINEMATIC ADS • OBSESSIVE CRAFT • HYPER-SCALABLE FUNNELS •',
+    variant: 'outline',
+    baseVelocity: -2.5,
+  },
+  {
+    text: 'UNIGNORABLE DIGITAL IMPACT • SCALE YOUR BRAND •',
+    variant: 'gradient',
+    baseVelocity: 3.5,
+  },
+]
+
+function wrap(min, max, value) {
+  const range = max - min
+  return ((((value - min) % range) + range) % range) + min
+}
+
+function VelocityMarquee({ text, variant = 'solid', baseVelocity = 8 }) {
+  const baseX = useMotionValue(0)
+  const { scrollY } = useScroll()
+  const scrollVelocity = useVelocity(scrollY)
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 55,
+    stiffness: 320,
+  })
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 1.8], {
+    clamp: false,
+  })
+
+  const x = useTransform(baseX, (value) => `${wrap(-20, -45, value)}%`)
+  const directionFactor = useRef(1)
+  const reduceMotion = useRef(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    reduceMotion.current = media.matches
+    const onChange = () => {
+      reduceMotion.current = media.matches
+    }
+    media.addEventListener('change', onChange)
+    return () => media.removeEventListener('change', onChange)
+  }, [])
+
+  useAnimationFrame((_, delta) => {
+    if (reduceMotion.current) return
+
+    const factor = velocityFactor.get()
+
+    if (factor < -0.05) directionFactor.current = -1
+    else if (factor > 0.05) directionFactor.current = 1
+
+    const scrollBoost = Math.min(Math.abs(factor), 1.8)
+    const speed = Math.abs(baseVelocity) * (0.25 + scrollBoost * 0.6)
+    const moveBy =
+      directionFactor.current * Math.sign(baseVelocity || 1) * speed * (delta / 1000)
+
+    baseX.set(baseX.get() + moveBy)
+  })
+
+  const itemClass =
+    variant === 'outline'
+      ? 'velocity-text-outline'
+      : variant === 'gradient'
+        ? 'text-blue'
+        : 'text-accent'
+
+  return (
+    <div className="scrollbar-hide relative overflow-hidden py-2 sm:py-2.5">
+      <div className="-rotate-2">
+        <motion.div className="flex w-max whitespace-nowrap will-change-transform" style={{ x }}>
+          {Array.from({ length: 4 }, (_, index) => (
+            <span
+              key={`${text}-${index}`}
+              className={`shrink-0 pr-6 text-[clamp(2.2rem,8.5vw,6.75rem)] font-black uppercase leading-[0.9] tracking-tight sm:pr-10 ${itemClass}`}
+            >
+              {text}
+            </span>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  )
+}
 
 export default function Hero() {
   return (
-    <section id="hero" aria-label="Brosmedia hero">
-      <h1 className="sr-only">
-        Brosmedia — Digital Marketing Agency in Hyderabad for branding, websites, social media, and
-        Meta ads
-      </h1>
-      <ScrollZoomReveal
-        image={{
-          src: HERO_BG,
-          alt: 'Brosmedia digital marketing team and creative workspace',
-        }}
-        leftText="BROS "
-        rightText="MEDIA"
-        textColor="#000000"
-        sideGap={70}
-        sideGapMobile={8}
-        backgroundColor="#ffffff"
-        liquidEtherColors={['#ffffff', '#ffffff', '#ffffff/1.05']}
-      >
-      {/*}  <div className="absolute inset-x-0 top-[56%] flex flex-col items-center px-6 text-center sm:top-[54%]">
-          <div className="pointer-events-auto mt-6 flex flex-col items-center gap-5 sm:mt-8 sm:flex-row sm:gap-6">
-            <SmoothThreeDButton
-              text="Start a project"
-              link={routes.contact}
-              variant="primary"
-              buttonWidth={230}
-              buttonHeight={64}
+    <section
+      id="hero"
+      aria-label="Brosmedia velocity hero"
+      className="scrollbar-hide relative z-10 flex min-h-svh w-full max-w-[100vw] flex-col justify-center overflow-x-hidden bg-[#070A0D] font-sans text-white"
+    >
+      <HeroCinematicBackground />
+      <HeroDecorativeIcons />
+
+      <div className="relative z-10 flex w-full flex-col justify-center pt-[var(--navbar-height)] pb-6 sm:pb-8">
+        <HeroMarketingVisual />
+
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full space-y-2 sm:space-y-3"
+        >
+          {MARQUEE_ROWS.map((row) => (
+            <VelocityMarquee
+              key={row.text}
+              text={row.text}
+              variant={row.variant}
+              baseVelocity={row.baseVelocity}
             />
-            <SmoothThreeDButton
-              text="View Our Work"
-              link={routes.ourWork}
-              variant="secondary"
-              buttonWidth={230}
-              buttonHeight={64}
-            />
-          </div>
-        </div>*/}
-      </ScrollZoomReveal>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-10 flex flex-col items-center justify-center gap-3 px-4 sm:mt-12 sm:flex-row sm:gap-4 sm:px-6"
+        >
+          <Link
+            to={routes.contact}
+            className="group inline-flex min-w-[210px] items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-primary transition hover:bg-accent/90"
+          >
+            Scale Your Brand
+            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+          </Link>
+          <a
+            href={SHOWREEL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-w-[210px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-accent/45 hover:text-accent"
+          >
+            <Play className="h-4 w-4 fill-current" />
+            Watch Showreel
+          </a>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 text-center text-[0.6rem] font-medium uppercase tracking-[0.14em] text-white/35 sm:text-[0.65rem]"
+        >
+          <span className="inline-flex items-center gap-1">
+            <Zap className="h-3 w-3 text-accent" strokeWidth={2.5} />
+            Free Strategy Call
+          </span>
+          <span aria-hidden className="text-white/20">
+            ·
+          </span>
+          <span>Hyderabad, IN</span>
+          <span aria-hidden className="text-white/20">
+            ·
+          </span>
+          <span>Remote-First Agency</span>
+        </motion.p>
+      </div>
     </section>
   )
 }

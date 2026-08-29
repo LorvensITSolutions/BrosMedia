@@ -43,6 +43,7 @@ export const contact = {
   postalCode: '500096',
   addressCountry: 'IN',
   addressDisplay: '1st Floor, Road No. 86, Jubilee Hills, Hyderabad, Telangana 500096',
+  mapsUrl: 'https://share.google/iACqLAI0aLf6P8Rec',
   areaServed: 'IN',
   openingHours: 'Mo-Sa 10:00-19:00',
   latitude: 17.4326,
@@ -53,10 +54,45 @@ export const contact = {
 export const socialProfiles = []
 
 export const seoPages = {
+  '/': {
+    title: defaultTitle,
+    description: defaultDescription,
+    path: '/',
+  },
   home: {
     title: defaultTitle,
     description: defaultDescription,
     path: '/',
+  },
+  '/services': {
+    title: 'Services | Brosmedia Digital Marketing Agency',
+    description:
+      'Branding, marketing, websites, and business consulting from Brosmedia — end-to-end digital services for growing brands in Hyderabad and across India.',
+    path: '/services',
+  },
+  '/about': {
+    title: 'About Brosmedia | Digital Marketing Agency in Hyderabad',
+    description:
+      'Meet Brosmedia — a Hyderabad-based digital marketing agency building brands with strategy, design, websites, and performance marketing.',
+    path: '/about',
+  },
+  '/our-work': {
+    title: 'Our Work | Brosmedia Case Studies & Projects',
+    description:
+      'Explore Brosmedia’s work across branding, websites, social media, Meta ads, and creative production for clients in India and beyond.',
+    path: '/our-work',
+  },
+  '/industries': {
+    title: 'Industries | Brosmedia Digital Marketing Expertise',
+    description:
+      'Brosmedia works across real estate, healthcare, fashion, and more — industry-focused branding and digital marketing from Hyderabad.',
+    path: '/industries',
+  },
+  '/contact': {
+    title: 'Contact Brosmedia | Start a Project',
+    description:
+      'Get in touch with Brosmedia in Jubilee Hills, Hyderabad. Tell us about your brand — we will reply with clear next steps.',
+    path: '/contact',
   },
 }
 
@@ -97,6 +133,7 @@ export function buildOrganizationSchema() {
       latitude: contact.latitude,
       longitude: contact.longitude,
     },
+    hasMap: contact.mapsUrl,
     areaServed: [
       {
         '@type': 'City',

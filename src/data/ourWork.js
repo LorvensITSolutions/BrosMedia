@@ -1,18 +1,23 @@
+import { featuredClients } from './featuredClients'
+
 export const ourWorkIntro = {
   label: 'Our Work',
   headline: 'Real brands. Real work. Real results.',
   description:
-    'From building brand identities from zero to managing full digital ecosystems — here is a snapshot of who we have worked with and what we built for them.',
+    'From PG and co-living brands in Hyderabad to pickleball and professional sports teams — plus real estate, healthcare, education, and fashion — here is who we have worked with and what we built for them.',
 }
 
 export const ourWorkStats = [
-  { value: '12', label: 'Clients served' },
-  { value: '10+', label: 'Industries' },
+  { value: '15', label: 'Clients served' },
+  { value: '11+', label: 'Industries' },
   { value: '9', label: 'Service types' },
   { value: '8', label: 'Live websites' },
 ]
 
 export const ourWorkMarqueeItems = [
+  'Narenn Living',
+  'Nellore Wolves',
+  'Vizag Seahawks',
   'MB Prime Projects',
   'Sasha Smiles',
   'Zarivaram',
@@ -26,6 +31,13 @@ export const ourWorkMarqueeItems = [
 ]
 
 export const portfolioClients = [
+  ...featuredClients.map((client) => ({
+    id: client.id,
+    client: client.name,
+    industry: `${client.industry}, ${client.location}`,
+    workDone: client.workDone,
+    website: client.website,
+  })),
   {
     id: 'mb-prime',
     client: 'MB Prime Projects',

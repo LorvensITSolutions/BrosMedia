@@ -6,7 +6,7 @@
 >
   <url>
     <loc>https://brosmedia.in/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://brosmedia.in/" />
@@ -16,5 +16,35 @@
       <image:title>Brosmedia — Digital Marketing Agency in Hyderabad</image:title>
       <image:caption>Brosmedia digital marketing agency logo and brand mark</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://brosmedia.in/services</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://brosmedia.in/about</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brosmedia.in/our-work</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brosmedia.in/industries</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brosmedia.in/contact</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

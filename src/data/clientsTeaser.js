@@ -1,11 +1,13 @@
+import { featuredClients, toClientTeaserItem } from './featuredClients'
+
 export const clientsTeaserIntro = {
   label: 'Clients Teaser',
   headline: 'Brands that trusted us',
   description:
-    'Real estate developers, healthcare clinics, education institutes, ethnic wear labels, food exporters, and tech companies — here is who we have built for.',
+    'From PG and co-living spaces in Hyderabad to pickleball and professional sports teams — plus real estate, healthcare, education, fashion, food exports, and tech brands we have built for.',
 }
 
-export const clientsTeaser = [
+const legacyClientsTeaser = [
   {
     name: 'MB Prime Projects',
     url: 'https://mbprimeprojects.com/projects/mb-prime-villas',
@@ -40,4 +42,10 @@ export const clientsTeaser = [
     url: 'https://lumiereluxe.in',
     logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134725/ChatGPT_Image_Dec_8_2025_10_15_15_AM_ghors1_iwrplf.png',
   },
+  
+]
+
+export const clientsTeaser = [
+  ...featuredClients.map(toClientTeaserItem),
+  ...legacyClientsTeaser,
 ]

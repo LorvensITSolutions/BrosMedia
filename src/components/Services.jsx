@@ -25,8 +25,8 @@ export default function Services() {
   }))
 
   return (
-    <section id="services" className="bg-black font-sans text-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+    <section id="services" className="relative overflow-hidden bg-black font-sans text-white">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
         <motion.div
           className="mb-10 max-w-xl sm:mb-12"
           initial="hidden"

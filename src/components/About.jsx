@@ -7,7 +7,7 @@ const ABOUT_IMAGE =
   'https://res.cloudinary.com/dvruqkpqk/image/upload/v1783690793/wmremove-transformed_5_f35bei.png'
 
 const ABOUT_COPY_1 =
-  'Brosmedia is built for businesses that are serious about their brand — and serious about growth. We are a focused agency based in Hyderabad, working across branding, digital marketing, creative production, and paid media. We do not do generic. Every brand we work with gets a strategy built around their industry, their audience, and their goals — and a team that stays hands-on from start to finish.'
+  'Brosmedia is built for businesses that are serious about their brand and serious about growth. We are a focused agency based in Hyderabad, working across branding, digital marketing, creative production, and paid media. We do not do generic. Every brand we work with gets a strategy built around their industry, their audience, and their goals and a team that stays hands-on from start to finish.'
 
 const SATISFACTION_COPY =
   'Client satisfaction rate built on trust, quality service, and proven results.'
@@ -126,8 +126,8 @@ function ArrowUpRight() {
 
 export default function About() {
   return (
-    <section id="about" className="bg-black font-sans text-white">
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-0 lg:px-8 lg:pt-24 lg:pb-0 ">
+    <section id="about" className="relative overflow-hidden bg-black font-sans text-white">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-0 lg:px-8 lg:pt-24 lg:pb-0 ">
         <motion.div
           className="grid gap-10 pb-12 lg:grid-cols-[3fr_7fr] lg:gap-12 lg:items-start"
           initial="hidden"

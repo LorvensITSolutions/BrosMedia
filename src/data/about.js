@@ -37,7 +37,7 @@ export const aboutStory = {
     {
       id: 'experience',
       year: 'Year one',
-      text: 'In our first year, we worked with over 10 brands across 5 industries. We have built brands from scratch, run paid ad campaigns, managed social media accounts, produced videos, and delivered websites. That experience across different sectors is what we bring to every new brief.',
+      text: 'In our first year, we worked with over 10 brands across real estate, co-living, sports, healthcare, education, and more. We have built brands from scratch, run paid ad campaigns, managed social media accounts, produced videos, and delivered websites. That experience across different sectors is what we bring to every new brief.',
       image:
         'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
       imageAlt: 'Team working on creative projects',
@@ -50,7 +50,7 @@ export const aboutPhilosophy = {
   title: 'What we believe',
   quote:
     'Branding is not just a logo. Marketing is not just posting on Instagram.',
-  body: 'We work with clients who understand that building a brand takes strategy, consistency, and quality execution — and we are here to provide all three. We start every engagement by understanding the business before we touch the design.',
+  body: 'We work with clients who understand that building a brand takes strategy, consistency, and quality execution and we are here to provide all three. We start every engagement by understanding the business before we touch the design.',
   splitCard: {
     image:
       'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1400&q=80',
@@ -78,7 +78,7 @@ export const aboutDifferentiators = {
     {
       id: 'in-house',
       title: 'In-house team',
-      text: 'Design, development, video, and ads — all done by us, no outsourcing.',
+      text: 'Design, development, video, and ads - all done by us, no outsourcing.',
       tags: ['Design', 'Development', 'Video', 'Paid media'],
       image:
         'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80',
@@ -136,7 +136,7 @@ export const aboutTeam = {
   label: 'Team',
   title: 'The people behind the work',
   description:
-    'Small, focused, and committed. Our team handles brand strategy, creative production, web development, and media — and we stay involved from brief to launch.',
+    'Small, focused, and committed. Our team handles brand strategy, creative production, web development, and media - and we stay involved from brief to launch.',
   placeholderNote: 'Team member names, roles, and photos coming soon.',
   buttonLabel: 'View Profile',
   members: [

@@ -6,14 +6,16 @@ export const industriesIntro = {
 }
 
 export const industriesStats = [
-  { value: '8', label: 'Sectors covered' },
-  { value: '12+', label: 'Active clients' },
+  { value: '10', label: 'Sectors covered' },
+  { value: '15+', label: 'Active clients' },
   { value: '100%', label: 'Sector-specific' },
   { value: 'HYD', label: 'Based in Hyderabad' },
 ]
 
 export const industriesMarqueeItems = [
   'Real Estate',
+  'Co-living',
+  'Sports',
   'Healthcare',
   'Education',
   'Fashion',
@@ -33,7 +35,7 @@ export const industries = [
       'Villas, plots, residential projects, and co-living spaces. Real estate buyers research extensively before they decide. We build brands and campaigns that stay visible throughout that entire journey.',
     whatWeDo:
       'Websites, Meta ad campaigns (lead gen + retargeting), social media management, creative production, video walkthroughs.',
-    clients: 'MB Prime Projects',
+    clients: 'MB Prime Projects, Narenn Living',
     insight: {
       label: 'What we know',
       text: 'Real estate is a long-consideration purchase. One ad is never enough. We build brand presence that compounds — retargeting warm leads, managing social proof, and keeping the brand visible while buyers are still making up their minds.',
@@ -103,6 +105,17 @@ export const industries = [
     clients: 'Andhra Machines Agencies',
     image:
       'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'sports',
+    title: 'Sports & Teams',
+    summary:
+      'Professional sports franchises, league teams, and match-day brands. Sports marketing demands energy, identity, and content that travels fast — on the ground and across social.',
+    whatWeDo:
+      'Team branding, match creatives, intro films, jersey and kit visuals, social reels, and campaign content.',
+    clients: 'Nellore Wolves (Pickleball), Vizag Seahawks',
+    image:
+      'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 'politics',

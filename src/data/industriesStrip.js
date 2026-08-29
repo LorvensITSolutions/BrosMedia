@@ -4,9 +4,11 @@ export const industriesStripIntro = {
 
 export const industriesStrip = [
   'Real Estate',
+  'Co-living',
+  'Sports',
   'Healthcare',
   'Education',
-  'Ethnic Wear',
+  'Boutique',
   'Food Exports',
   'Technology',
   'Industrial & B2B',

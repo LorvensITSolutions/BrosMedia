@@ -6,8 +6,8 @@ const viewport = { once: true, margin: '-80px' }
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-black font-sans">
-      <div className="mx-auto max-w-7xl px-5 pb-12 pt-4 sm:px-6 sm:pb-14 sm:pt-6 lg:px-8 lg:pb-16 lg:pt-8">
+    <section id="testimonials" className="relative overflow-hidden bg-black font-sans">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 pb-12 pt-4 sm:px-6 sm:pb-14 sm:pt-6 lg:px-8 lg:pb-16 lg:pt-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
