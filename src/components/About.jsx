@@ -147,7 +147,7 @@ export default function About() {
               <span className="text-sm font-medium text-accent">ABOUT US</span>
             </motion.div>
             <motion.p
-              className="mt-8 text-7xl font-bold tracking-tight text-white sm:text-8xl lg:text-9xl"
+              className="mt-6 text-5xl font-bold tracking-tight text-white sm:mt-8 sm:text-7xl lg:text-9xl"
               variants={scaleIn}
             >
               10+
@@ -191,14 +191,14 @@ export default function About() {
 
           <div className="flex flex-col gap-6">
             <motion.div
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 sm:p-10"
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-10"
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
               variants={slideRight}
             >
               <motion.p
-                className="text-5xl font-bold tracking-tight text-white sm:text-6xl"
+                className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewport}

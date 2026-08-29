@@ -46,7 +46,7 @@ export default function FaqSection() {
           className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(20,20,20,1)_0%,rgba(10,10,10,1)_100%)] p-4 sm:rounded-[32px] sm:p-8 lg:p-12"
         >
           <p
-            className="pointer-events-none absolute bottom-6 left-4 select-none text-[clamp(5rem,22vw,14rem)] font-bold leading-none sm:bottom-8 sm:left-8 lg:left-12"
+            className="pointer-events-none absolute bottom-6 left-4 hidden select-none text-[clamp(5rem,22vw,14rem)] font-bold leading-none sm:block sm:bottom-8 sm:left-8 lg:left-12"
             style={{
               color: 'transparent',
               WebkitTextStroke: '1.5px rgba(223, 255, 0, 0.22)',

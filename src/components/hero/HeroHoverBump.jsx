@@ -27,26 +27,26 @@ export default function HeroHoverBump() {
             src={bumpImages[0].src}
             alt={bumpImages[0].alt}
             floatDelay={bumpImages[0].floatDelay}
-            className="absolute -bottom-8 right-[4%] z-20 h-[110px] w-[110px] sm:-bottom-10 sm:right-[8%] sm:h-[140px] sm:w-[140px]"
+            className="absolute -bottom-8 right-[4%] z-0 hidden h-[110px] w-[110px] md:block sm:-bottom-10 sm:right-[8%] sm:h-[140px] sm:w-[140px]"
           />
           <HoverBumpImage
             src={bumpImages[1].src}
             alt={bumpImages[1].alt}
             floatDelay={bumpImages[1].floatDelay}
-            className="absolute -bottom-12 left-[6%] z-20 h-[100px] w-[100px] sm:-bottom-14 sm:left-[10%] sm:h-[130px] sm:w-[130px]"
+            className="absolute -bottom-12 left-[6%] z-0 hidden h-[100px] w-[100px] md:block sm:-bottom-14 sm:left-[10%] sm:h-[130px] sm:w-[130px]"
           />
           <HoverBumpImage
             src={bumpImages[2].src}
             alt={bumpImages[2].alt}
             floatDelay={bumpImages[2].floatDelay}
-            className="absolute -right-2 top-[18%] z-20 hidden h-[100px] w-[100px] sm:block sm:h-[120px] sm:w-[120px] md:-right-6"
+            className="absolute -right-2 top-[18%] z-0 hidden h-[100px] w-[100px] lg:block sm:h-[120px] sm:w-[120px] md:-right-6"
           />
 
-          <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent sm:text-xs">
+          <p className="relative z-10 mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent sm:text-xs">
             brosmedia.in
           </p>
           <p
-            className="relative z-10 text-[clamp(3.2rem,13vw,7.5rem)] font-black uppercase leading-[0.88] tracking-tighter"
+            className="relative z-10 max-w-full px-1 text-[clamp(2.15rem,10vw,7.5rem)] font-black uppercase leading-[0.88] tracking-tighter"
             style={{
               color: 'transparent',
               WebkitTextStroke: '1.5px #dfff00',
@@ -55,7 +55,7 @@ export default function HeroHoverBump() {
             UNSKIPPABLE
           </p>
           <p className="relative z-10 mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/55 sm:max-w-lg sm:text-base">
-            Branding, paid social &amp; brand systems — built to turn attention into revenue.
+            Branding, social &amp; brand systems — built to turn attention into revenue.
           </p>
           <motion.span
             aria-hidden

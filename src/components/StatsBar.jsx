@@ -21,15 +21,15 @@ export default function StatsBar() {
           numberColor="#dfff00"
           labelColor="rgba(255, 255, 255, 0.7)"
           background="#000000"
-          paddingTop={40}
-          paddingRight={32}
-          paddingBottom={40}
-          paddingLeft={32}
-          columnGap={150}
-          rowGap={32}
-          minItemWidth={120}
+          paddingTop={32}
+          paddingRight={24}
+          paddingBottom={32}
+          paddingLeft={24}
+          columnGap={80}
+          rowGap={24}
+          minItemWidth={100}
           font={{ fontSize: 40, fontWeight: 700, fontFamily: 'Montserrat, sans-serif' }}
-          labelFont={{ fontSize: 14, fontWeight: 500, fontFamily: 'Montserrat, sans-serif' }}
+          labelFont={{ fontSize: 13, fontWeight: 500, fontFamily: 'Montserrat, sans-serif' }}
         />
       </div>
     </section>

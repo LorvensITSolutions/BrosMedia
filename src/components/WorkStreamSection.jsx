@@ -201,7 +201,7 @@ export default function WorkStreamSection() {
     <section
       id="work-stream"
       aria-label="Brosmedia creative work stream"
-      className="relative z-0 -mt-2 overflow-x-hidden bg-black pb-6 sm:pb-8 md:pb-10"
+      className="relative z-0 -mt-2 hidden overflow-x-hidden bg-black pb-6 lg:block sm:pb-8 md:pb-10"
     >
       <ImageStreamHero
         images={HERO_IMAGES}
@@ -288,10 +288,10 @@ export default function WorkStreamSection() {
             viewport={{ once: true, amount: 0.5 }}
             className="px-1 text-center text-[0.65rem] leading-snug text-white/65 sm:text-xs sm:leading-5 md:text-sm md:leading-6"
           >
-            <span className="block whitespace-nowrap">
+            <span className="block max-sm:whitespace-normal sm:whitespace-nowrap">
               From celebrity campaigns to conversion-led brand systems
             </span>
-            <span className="block whitespace-nowrap">
+            <span className="block max-sm:whitespace-normal sm:whitespace-nowrap">
               scroll the stream to see the work that earns attention.
             </span>
           </motion.p>

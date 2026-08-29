@@ -137,25 +137,29 @@ export default function ContactSection() {
 
             <motion.div
               variants={fadeUp}
-              className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center"
+              className="mt-10 flex w-full flex-col gap-4 md:flex-row md:flex-wrap md:items-center"
             >
-              <EyeFollowButton
-                text="Start a project"
-                link={whatsappHref}
-                openInNewTab
-                buttonColor="#dfff00"
-                hoverColor="#ffffff"
-                textColor="#000000"
-                pupilColor="#000000"
-                eyeColor="#ffffff"
-              />
-              <SmoothThreeDButton
-                text="Email us"
-                link={emailHref}
-                variant="secondary"
-                buttonWidth={200}
-                buttonHeight={64}
-              />
+              <div className="w-full md:w-auto">
+                <EyeFollowButton
+                  text="Start a project"
+                  link={whatsappHref}
+                  openInNewTab
+                  buttonColor="#dfff00"
+                  hoverColor="#ffffff"
+                  textColor="#000000"
+                  pupilColor="#000000"
+                  eyeColor="#ffffff"
+                />
+              </div>
+              <div className="w-full md:w-auto">
+                <SmoothThreeDButton
+                  text="Email us"
+                  link={emailHref}
+                  variant="secondary"
+                  buttonWidth={200}
+                  buttonHeight={64}
+                />
+              </div>
             </motion.div>
 
             <motion.p variants={fadeUp} className="mt-6 text-sm text-white/40">

@@ -117,7 +117,7 @@ function MenuTrigger({ open, onToggle }) {
   return (
     <motion.button
       type="button"
-      className={`menu-trigger fixed right-4 top-[calc(var(--navbar-height)/2)] z-70 flex -translate-y-1/2 items-center justify-center rounded-full transition-colors sm:right-6 lg:right-8 ${
+      className={`menu-trigger fixed right-[calc(1rem+env(safe-area-inset-right,0px))] top-[calc(var(--navbar-height)/2)] z-70 flex -translate-y-1/2 items-center justify-center rounded-full transition-colors sm:right-[calc(1.5rem+env(safe-area-inset-right,0px))] lg:right-[calc(2rem+env(safe-area-inset-right,0px))] ${
         open
           ? 'h-12 w-12 border border-white/15 bg-white/[0.06] shadow-[0_0_24px_rgba(223,255,0,0.08)] backdrop-blur-md hover:border-accent/40 hover:bg-white/10'
           : 'h-11 w-11 p-2.5 hover:bg-white/5 sm:h-12 sm:w-12'
@@ -349,7 +349,7 @@ export default function DynamicNavbar() {
     <>
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
         <div
-          className={`pointer-events-auto flex h-[var(--navbar-height)] items-center px-4 sm:px-6 lg:px-8 ${
+          className={`pointer-events-auto flex h-[var(--navbar-height)] items-center px-[max(1rem,env(safe-area-inset-left))] sm:px-6 lg:px-8 ${
             open ? 'justify-end' : 'justify-between'
           }`}
         >
@@ -362,8 +362,8 @@ export default function DynamicNavbar() {
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-white p-0.5 sm:h-8 sm:w-8">
                 <img src={LOGO_URL} alt="" className="h-full w-full object-contain" />
               </span>
-              <span className="text-base font-black lowercase tracking-tight text-primary sm:text-lg">
-                brosmedia
+              <span className="text-base font-black  tracking-tight text-primary sm:text-lg">
+                BROSMEDIA
               </span>
             </Link>
           )}

@@ -13,7 +13,7 @@ import { ArrowRight, Play, Zap } from 'lucide-react'
 import { routes } from '../data/navigation'
 import HeroCinematicBackground from './hero/HeroCinematicBackground'
 import HeroDecorativeIcons from './hero/HeroDecorativeIcons'
-import HeroServiceTags from './hero/HeroServiceTags'
+
 
 const SHOWREEL_URL =
   'https://www.instagram.com/brosmedia.in?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=='
@@ -22,7 +22,7 @@ function HeroMarketingVisual() {
   return (
     <div className="relative mx-auto mb-8 flex w-full max-w-5xl flex-col items-center px-4 sm:mb-10 sm:px-6">
       <h1 className="sr-only">
-        Brosmedia digital marketing agency — branding, paid social, and conversion funnels
+        Brosmedia digital marketing agency — branding, social, and conversion funnels
       </h1>
 
       <motion.div
@@ -32,22 +32,12 @@ function HeroMarketingVisual() {
         className="relative mx-auto w-full max-w-4xl px-2 sm:px-4"
       >
         <div className="relative z-10 flex flex-col items-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-accent sm:text-[0.65rem]">
-              Performance Marketing Studio
-            </span>
-          </div>
+          
 
-          <div className="-rotate-1 text-center">
-            <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent sm:text-xs">
-              brosmedia.in
-            </p>
+          <div className="-rotate-1 pt-10 text-center sm:pt-14 md:pt-16">
+            
             <p
-              className="text-[clamp(3.2rem,13vw,7.5rem)] font-black uppercase leading-[0.88] tracking-tighter"
+              className="max-w-full px-1 text-[clamp(2.15rem,10vw,7.5rem)] font-black uppercase leading-[0.88] tracking-tighter"
               style={{
                 color: 'transparent',
                 WebkitTextStroke: '1.5px #dfff00',
@@ -56,7 +46,7 @@ function HeroMarketingVisual() {
               UNSKIPPABLE
             </p>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/55 sm:max-w-lg sm:text-base">
-              Branding, paid social &amp; brand systems - built to turn attention into revenue.
+              Branding, social &amp; brand systems - built to turn attention into revenue.
             </p>
             <motion.span
               aria-hidden
@@ -69,7 +59,7 @@ function HeroMarketingVisual() {
         </div>
       </motion.div>
 
-      <HeroServiceTags />
+      
     </div>
   )
 }
@@ -81,7 +71,7 @@ const MARQUEE_ROWS = [
     baseVelocity: 3,
   },
   {
-    text: 'CINEMATIC ADS • OBSESSIVE CRAFT • HYPER-SCALABLE FUNNELS •',
+    text: 'BRAND SYSTEMS • OBSESSIVE CRAFT • HYPER-SCALABLE FUNNELS •',
     variant: 'outline',
     baseVelocity: -2.5,
   },
@@ -147,13 +137,13 @@ function VelocityMarquee({ text, variant = 'solid', baseVelocity = 8 }) {
         : 'text-accent'
 
   return (
-    <div className="scrollbar-hide relative overflow-hidden py-2 sm:py-2.5">
+    <div className="scrollbar-hide relative overflow-hidden py-1 sm:py-2.5">
       <div className="-rotate-2">
         <motion.div className="flex w-max whitespace-nowrap will-change-transform" style={{ x }}>
           {Array.from({ length: 4 }, (_, index) => (
             <span
               key={`${text}-${index}`}
-              className={`shrink-0 pr-6 text-[clamp(2.2rem,8.5vw,6.75rem)] font-black uppercase leading-[0.9] tracking-tight sm:pr-10 ${itemClass}`}
+              className={`shrink-0 pr-4 text-[clamp(1.45rem,6vw,6.75rem)] font-black uppercase leading-[0.9] tracking-tight sm:pr-10 sm:text-[clamp(2.2rem,8.5vw,6.75rem)] ${itemClass}`}
             >
               {text}
             </span>
@@ -197,11 +187,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 flex flex-col items-center justify-center gap-3 px-4 sm:mt-12 sm:flex-row sm:gap-4 sm:px-6"
+          className="mt-8 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 px-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 sm:px-6"
         >
           <Link
             to={routes.contact}
-            className="group inline-flex min-w-[210px] items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-primary transition hover:bg-accent/90"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-primary transition hover:bg-accent/90 sm:w-auto sm:min-w-[210px]"
           >
             Scale Your Brand
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -210,7 +200,7 @@ export default function Hero() {
             href={SHOWREEL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-w-[210px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-accent/45 hover:text-accent"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-accent/45 hover:text-accent sm:w-auto sm:min-w-[210px]"
           >
             <Play className="h-4 w-4 fill-current" />
             Watch Showreel

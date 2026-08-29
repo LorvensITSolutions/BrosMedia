@@ -98,9 +98,10 @@ function StatItem({
   labelColor,
   labelTextTransform,
   gap,
+  compact = false,
 }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap, alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap, alignItems: 'center', maxWidth: compact ? 140 : undefined }}>
       <AnimatedNumber
         end={value}
         duration={duration}
@@ -122,6 +123,7 @@ function StatItem({
           lineHeight: 1.4,
           textAlign: 'center',
           textTransform: labelTextTransform,
+          maxWidth: compact ? 120 : undefined,
         }}
       >
         {label}
@@ -163,19 +165,34 @@ export default function StatsSection({
   const [started, setStarted] = useState(false)
   const [cellWidth, setCellWidth] = useState(minItemWidth)
   const [isMobile, setIsMobile] = useState(false)
+  const [isSmallMobile, setIsSmallMobile] = useState(false)
 
   const fontSize = font?.fontSize ?? 48
   const fontWeight = font?.fontWeight ?? 700
   const fontFamily = font?.fontFamily ?? 'Montserrat, sans-serif'
-  const activeColumnGap = isMobile ? Math.min(columnGap, 24) : columnGap
-  const activeRowGap = isMobile ? Math.max(rowGap, 36) : rowGap
+  const activeColumnGap = isMobile ? 12 : columnGap
+  const activeRowGap = isMobile ? 28 : rowGap
+  const activeFont = isMobile
+    ? { ...font, fontSize: isSmallMobile ? 28 : Math.min(fontSize, 32) }
+    : font
+  const activeLabelFont = isMobile
+    ? { ...labelFont, fontSize: Math.min(labelFont?.fontSize ?? 14, 12) }
+    : labelFont
 
   useEffect(() => {
-    const media = window.matchMedia('(max-width: 767px)')
-    const update = () => setIsMobile(media.matches)
+    const mobileMedia = window.matchMedia('(max-width: 767px)')
+    const smallMedia = window.matchMedia('(max-width: 399px)')
+    const update = () => {
+      setIsMobile(mobileMedia.matches)
+      setIsSmallMobile(smallMedia.matches)
+    }
     update()
-    media.addEventListener('change', update)
-    return () => media.removeEventListener('change', update)
+    mobileMedia.addEventListener('change', update)
+    smallMedia.addEventListener('change', update)
+    return () => {
+      mobileMedia.removeEventListener('change', update)
+      smallMedia.removeEventListener('change', update)
+    }
   }, [])
 
   useEffect(() => {
@@ -233,17 +250,17 @@ export default function StatsSection({
         columnGap: activeColumnGap,
         rowGap: activeRowGap,
         width: '100%',
-        paddingTop,
-        paddingRight: isMobile ? Math.min(paddingRight, 20) : paddingRight,
-        paddingBottom,
-        paddingLeft: isMobile ? Math.min(paddingLeft, 20) : paddingLeft,
+        paddingTop: isMobile ? Math.min(paddingTop, 28) : paddingTop,
+        paddingRight: isMobile ? Math.min(paddingRight, 16) : paddingRight,
+        paddingBottom: isMobile ? Math.min(paddingBottom, 28) : paddingBottom,
+        paddingLeft: isMobile ? Math.min(paddingLeft, 16) : paddingLeft,
         background,
         borderRadius,
         boxSizing: 'border-box',
       }}
     >
       {stats.map((stat, index) => {
-        const showDivider = divider && (isMobile ? index % 2 === 1 : index > 0)
+        const showDivider = divider && !isMobile && index > 0
 
         return (
           <div
@@ -253,7 +270,11 @@ export default function StatsSection({
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              width: isMobile ? `calc(50% - ${activeColumnGap / 2}px)` : cellWidth,
+              width: isSmallMobile
+                ? '100%'
+                : isMobile
+                  ? `calc(50% - ${activeColumnGap / 2}px)`
+                  : cellWidth,
               flexShrink: 0,
               boxSizing: 'border-box',
               paddingLeft: showDivider ? 12 : 0,
@@ -280,12 +301,13 @@ export default function StatsSection({
               separator={separator}
               duration={duration}
               shouldStart={started}
-              font={font}
+              font={activeFont}
               numberColor={numberColor}
-              labelFont={labelFont}
+              labelFont={activeLabelFont}
               labelColor={labelColor}
               labelTextTransform={labelTextTransform}
               gap={itemGap}
+              compact={isMobile}
             />
           </div>
         )
