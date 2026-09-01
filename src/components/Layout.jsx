@@ -32,7 +32,7 @@ export default function Layout() {
     <div className="min-h-screen overflow-x-hidden bg-black font-sans text-white">
       <Seo title={pageSeo.title} description={pageSeo.description} path={pageSeo.path} />
       <Navbar />
-      <main className="pb-20 sm:pb-24">
+      <main>
         <Outlet />
       </main>
       <Footer />

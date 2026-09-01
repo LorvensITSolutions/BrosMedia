@@ -48,8 +48,8 @@ export default function Footer() {
   const emailHref = `mailto:${footerIntro.email}?subject=${encodeURIComponent('Project inquiry — Brosmedia')}`
 
   return (
-    <footer className="footer-illucus border-t border-white/6 bg-[#0a0a0c] font-sans text-white">
-      <div className="mx-auto max-w-352 px-5 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-16">
+    <footer className="footer-illucus border-t border-white/6 bg-[#0a0a0c] pb-20 font-sans text-white sm:pb-24">
+      <div className="mx-auto max-w-352 px-5 pt-6 pb-8 sm:px-8 sm:pt-8 sm:pb-10 lg:px-12 lg:pt-10 lg:pb-12">
         <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-12">
           <div className="sm:col-span-2 lg:col-span-4">
             <Link

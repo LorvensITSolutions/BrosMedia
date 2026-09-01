@@ -4,7 +4,7 @@ export const clientsTeaserIntro = {
   label: 'Clients Teaser',
   headline: 'Brands that trusted us',
   description:
-    'From PG and co-living spaces in Hyderabad to pickleball and professional sports teams — plus real estate, healthcare, education, fashion, food exports, and tech brands we have built for.',
+    'From PG and co-living spaces in Hyderabad to pickleball and professional sports teams - plus real estate, healthcare, education, fashion, food exports, and tech brands we have built for.',
 }
 
 const legacyClientsTeaser = [

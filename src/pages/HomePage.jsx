@@ -14,8 +14,8 @@ export default function HomePage() {
     <>
       <div className="relative overflow-x-hidden">
         <Hero />
-        <WorkStreamSection />
       </div>
+      <WorkStreamSection />
       <StatsBar />
       <About />
       <Services />

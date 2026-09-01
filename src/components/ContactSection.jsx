@@ -111,7 +111,7 @@ export default function ContactSection() {
         aria-hidden
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+      <div className="relative mx-auto max-w-7xl px-5 pt-12 pb-4 sm:px-6 sm:pt-16 sm:pb-6 lg:px-8 lg:py-24">
         <div className="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
           <motion.div
             initial="hidden"

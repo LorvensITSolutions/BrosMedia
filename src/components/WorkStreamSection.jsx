@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ImageStreamHero } from '@/components/ui/image-stream-hero'
+import CreativeWorkGallery from '../framer/creative_work_gallery.jsx'
+import { useCreativeGalleryMetrics } from '../framer/useCreativeGalleryMetrics.js'
+import {
+  getPinPanelStyle,
+  useCreativeWorkScrollPin,
+} from '../framer/useCreativeWorkScrollPin.js'
 
 const HERO_IMAGES = [
   {
@@ -41,82 +46,6 @@ const fadeUp = {
     y: 0,
     transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
   }),
-}
-
-const HERO_LAYOUT = {
-  mobile: {
-    heightClass: 'h-svh min-h-[100svh]',
-    axis: 54,
-    speed: 22,
-    cards: 7,
-    path: {
-      perspective: 28,
-      cardWidth: 34,
-      cardHeight: 46,
-      birthHeight: 5.5,
-      exitHeight: 74,
-      railBirth: -16,
-      railExit: 54,
-      fan: 3.1,
-      turnBirth: 5,
-      turnExit: 24,
-    },
-  },
-  tablet: {
-    heightClass: 'h-svh min-h-[100svh]',
-    axis: 66,
-    speed: 20,
-    cards: 8,
-    path: {
-      perspective: 30,
-      cardWidth: 24,
-      cardHeight: 33,
-      birthHeight: 3.8,
-      exitHeight: 58,
-      railBirth: -12,
-      railExit: 46,
-      fan: 3.2,
-      turnBirth: 6,
-      turnExit: 26,
-    },
-  },
-  desktop: {
-    heightClass: 'h-svh min-h-[100svh]',
-    axis: 63,
-    speed: 20,
-    cards: 9,
-    path: {
-      perspective: 30,
-      cardWidth: 22,
-      cardHeight: 31,
-      birthHeight: 3.6,
-      exitHeight: 56,
-      railBirth: -11,
-      railExit: 48,
-      fan: 3.3,
-      turnBirth: 6,
-      turnExit: 28,
-    },
-  },
-}
-
-function useHeroLayout() {
-  const [layout, setLayout] = useState(HERO_LAYOUT.desktop)
-
-  useEffect(() => {
-    const pick = () => {
-      const width = window.innerWidth
-      if (width < 640) setLayout(HERO_LAYOUT.mobile)
-      else if (width < 1024) setLayout(HERO_LAYOUT.tablet)
-      else setLayout(HERO_LAYOUT.desktop)
-    }
-
-    pick()
-    window.addEventListener('resize', pick)
-    return () => window.removeEventListener('resize', pick)
-  }, [])
-
-  return layout
 }
 
 function ImageModal({ image, onClose }) {
@@ -160,33 +89,35 @@ function ImageModal({ image, onClose }) {
             exit={{ opacity: 0 }}
           />
 
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close image preview"
-            className="absolute right-3 top-[calc(var(--navbar-height)+0.75rem)] z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/60 text-lg font-semibold text-white backdrop-blur-md transition hover:bg-white/20 sm:right-6 sm:top-[calc(var(--navbar-height)+1rem)]"
-          >
-            ×
-          </button>
-
           <motion.div
-            className="relative z-[1] max-h-[min(calc(88svh-var(--navbar-height)),820px)] w-full max-w-[min(94vw,720px)] overflow-hidden rounded-xl bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] [transform-style:preserve-3d] sm:rounded-2xl"
+            className="relative z-[1] w-full max-w-[min(94vw,720px)]"
             initial={{ rotateY: -90, opacity: 0, scale: 0.88 }}
             animate={{ rotateY: 0, opacity: 1, scale: 1 }}
             exit={{ rotateY: 90, opacity: 0, scale: 0.88 }}
             transition={{ type: 'spring', stiffness: 120, damping: 16, mass: 0.85 }}
             onClick={(event) => event.stopPropagation()}
           >
-            <img
-              src={image.src}
-              alt={image.alt || 'Brosmedia creative'}
-              className="max-h-[min(calc(78svh-var(--navbar-height)),760px)] w-full object-contain"
-            />
-            {image.alt ? (
-              <p className="border-t border-white/10 bg-black/80 px-3 py-2.5 text-center text-[0.7rem] text-white/70 sm:px-4 sm:py-3 sm:text-sm">
-                {image.alt}
-              </p>
-            ) : null}
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close image preview"
+              className="absolute -right-2 -top-2 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/80 text-lg font-semibold leading-none text-white shadow-lg backdrop-blur-md transition hover:bg-white/20 sm:-right-3 sm:-top-3 sm:h-10 sm:w-10"
+            >
+              ×
+            </button>
+
+            <div className="max-h-[min(calc(88svh-var(--navbar-height)),820px)] overflow-hidden rounded-xl bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] sm:rounded-2xl">
+              <img
+                src={image.src}
+                alt={image.alt || 'Brosmedia creative'}
+                className="max-h-[min(calc(78svh-var(--navbar-height)),760px)] w-full object-contain"
+              />
+              {image.alt ? (
+                <p className="border-t border-white/10 bg-black/80 px-3 py-2.5 text-center text-[0.7rem] text-white/70 sm:px-4 sm:py-3 sm:text-sm">
+                  {image.alt}
+                </p>
+              ) : null}
+            </div>
           </motion.div>
         </motion.div>
       ) : null}
@@ -197,108 +128,85 @@ function ImageModal({ image, onClose }) {
 
 export default function WorkStreamSection() {
   const [activeImage, setActiveImage] = useState(null)
-  const layout = useHeroLayout()
+  const sectionRef = useRef(null)
+  const metrics = useCreativeGalleryMetrics(HERO_IMAGES.length)
+  const { progress, pinPhase } = useCreativeWorkScrollPin(
+    sectionRef,
+    metrics.scrollDistance,
+  )
+
+  const pinStyle = getPinPanelStyle(pinPhase, metrics.scrollDistance)
 
   return (
     <section
       id="work-stream"
+      ref={sectionRef}
       aria-label="Brosmedia creative work stream"
-      className="relative z-0 -mt-2 hidden overflow-x-hidden bg-black pb-6 lg:block sm:pb-8 md:pb-10"
+      className="relative z-0 bg-black"
+      style={{ height: metrics.sectionHeight }}
     >
-      <ImageStreamHero
-        images={HERO_IMAGES}
-        className={`${layout.heightClass} w-full max-w-[100vw] overflow-hidden bg-black`}
-        axis={layout.axis}
-        speed={layout.speed}
-        cards={layout.cards}
-        path={layout.path}
-        onImageClick={setActiveImage}
+      <div
+        className="relative w-full"
+        style={{ height: metrics.sectionHeightPx }}
       >
-        {/* Soft edge fades */}
         <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-16 bg-gradient-to-b from-black via-black/50 to-transparent sm:h-20 md:h-24"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-16 bg-gradient-to-t from-black via-black/50 to-transparent sm:h-20 md:h-24"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-[5] w-6 bg-gradient-to-r from-black/70 to-transparent sm:w-10 md:w-14"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 z-[5] w-6 bg-gradient-to-l from-black/70 to-transparent sm:w-10 md:w-14"
-        />
-
-        <div className="pointer-events-none relative z-10 flex h-full flex-col items-center justify-between px-4 pb-4 pt-12 sm:px-6 sm:pb-6 sm:pt-14 md:pb-8 md:pt-16">
-          <motion.div
-            className="mt-1 flex w-full max-w-[20rem] flex-col items-center text-center sm:mt-2 sm:max-w-md md:max-w-xl"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
-          >
-            <motion.span
-              custom={0.05}
-              variants={fadeUp}
-              className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-accent/50 bg-accent px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.14em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[0.65rem] sm:tracking-[0.2em]"
+          className="flex flex-col overflow-hidden bg-black"
+          style={pinStyle}
+        >
+          <div className="relative z-10 mx-auto w-full max-w-7xl shrink-0 px-4 pt-0 sm:px-6 sm:pt-1 lg:px-8">
+            <motion.div
+              className="mx-auto flex max-w-xl flex-col items-center text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
             >
               <motion.span
-                className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
-                animate={{ scale: [1, 1.35, 1], opacity: [1, 0.55, 1] }}
-                transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-              />
-              <span className="truncate">Work That Earns Eyes</span>
-            </motion.span>
-
-            <motion.div custom={0.18} variants={fadeUp} className="mt-2.5 sm:mt-3 md:mt-3.5">
-              <motion.p
-                aria-hidden="true"
-                className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 text-[clamp(1.65rem,9vw,2.4rem)] font-black uppercase leading-none tracking-tight text-accent sm:gap-x-3 sm:text-[clamp(2rem,6.5vw,3.25rem)] md:gap-x-3.5 md:text-[clamp(2.25rem,5.5vw,4rem)]"
-                animate={{ y: [0, -3, 0] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+                custom={0.05}
+                variants={fadeUp}
+                className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-accent/50 bg-accent px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.14em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[0.65rem] sm:tracking-[0.2em]"
               >
-                <span>Creative</span>
-                <span className="text-blue">Work</span>
+                <motion.span
+                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                  animate={{ scale: [1, 1.35, 1], opacity: [1, 0.55, 1] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <span className="truncate">Work That Earns Eyes</span>
+              </motion.span>
+
+              <motion.div custom={0.18} variants={fadeUp} className="mt-1.5 sm:mt-2">
+                <motion.p
+                  aria-hidden="true"
+                  className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 text-[clamp(1.5rem,8vw,2.4rem)] font-black uppercase leading-none tracking-tight text-accent sm:gap-x-3 sm:text-[clamp(2rem,6.5vw,3.25rem)]"
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <span>Creative</span>
+                  <span className="text-blue">Work</span>
+                </motion.p>
+              </motion.div>
+
+              <motion.p
+                custom={0.28}
+                variants={fadeUp}
+                className="mt-2 text-[0.65rem] text-white/50 sm:mt-2.5 sm:text-xs"
+              >
+                Scroll to explore the portfolio
               </motion.p>
             </motion.div>
+          </div>
 
-            <motion.div
-              custom={0.28}
-              variants={fadeUp}
-              className="mt-2.5 flex w-full flex-col items-center gap-2 sm:mt-3 md:mt-3.5"
-            >
-              <motion.span
-                className="h-[3px] rounded-full bg-accent"
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{
-                  width: layout === HERO_LAYOUT.mobile ? 48 : layout === HERO_LAYOUT.tablet ? 60 : 72,
-                  opacity: 1,
-                }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </motion.div>
-          </motion.div>
-
-          <motion.p
-            custom={0.38}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            className="px-1 text-center text-[0.65rem] leading-snug text-white/65 sm:text-xs sm:leading-5 md:text-sm md:leading-6"
-          >
-            <span className="block max-sm:whitespace-normal sm:whitespace-nowrap">
-              From celebrity campaigns to conversion-led brand systems
-            </span>
-            <span className="block max-sm:whitespace-normal sm:whitespace-nowrap">
-              scroll the stream to see the work that earns attention.
-            </span>
-          </motion.p>
+          <div className="relative mx-auto flex min-h-0 w-full max-w-7xl flex-1 items-start justify-center px-3 pb-6 sm:px-4 sm:pb-8 lg:px-6">
+            <CreativeWorkGallery
+              images={HERO_IMAGES}
+              scrollProgress={progress}
+              metrics={metrics}
+              onImageClick={setActiveImage}
+              borderRadius={14}
+              className="w-full"
+            />
+          </div>
         </div>
-      </ImageStreamHero>
+      </div>
 
       <ImageModal image={activeImage} onClose={() => setActiveImage(null)} />
     </section>

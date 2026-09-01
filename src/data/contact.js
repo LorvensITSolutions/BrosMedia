@@ -5,7 +5,7 @@ export const contactIntro = {
   label: 'Contact Us',
   headline: "Let's build something great together.",
   description:
-    'Whether you have a clear brief or just a rough idea — reach out. We will ask the right questions and give you an honest picture of what we can do for your brand.',
+    'Whether you have a clear brief or just a rough idea - reach out. We will ask the right questions and give you an honest picture of what we can do for your brand.',
 }
 
 export const contactEmail = 'brosmedia26@gmail.com'
@@ -69,7 +69,7 @@ export const contactDetails = [
   },
   {
     label: 'Working hours',
-    value: 'Monday to Saturday, 10 AM – 7 PM IST',
+    value: 'Monday to Saturday, 10 AM - 7 PM IST',
   },
 ]
 
