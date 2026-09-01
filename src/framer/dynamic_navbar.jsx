@@ -356,14 +356,11 @@ export default function DynamicNavbar() {
           {!open && (
             <Link
               to={routes.home}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-white/95 px-3 py-1.5 backdrop-blur-md transition hover:bg-white"
+              className="group inline-flex items-center rounded-full bg-white/95 p-1.5 backdrop-blur-md transition hover:bg-white sm:p-2"
               aria-label="Brosmedia home"
             >
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-white p-0.5 sm:h-8 sm:w-8">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-white p-0.5 sm:h-11 sm:w-11">
                 <img src={LOGO_URL} alt="" className="h-full w-full object-contain" />
-              </span>
-              <span className="text-base font-black  tracking-tight text-primary sm:text-lg">
-                BROSMEDIA
               </span>
             </Link>
           )}
