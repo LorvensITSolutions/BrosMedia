@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import {
   motion,
   useAnimationFrame,
@@ -9,8 +8,10 @@ import {
   useTransform,
   useVelocity,
 } from 'framer-motion'
-import { ArrowRight, Play, Zap } from 'lucide-react'
+import { Zap } from 'lucide-react'
 import { routes } from '../data/navigation'
+import NudgeButton from '../framer/nudge_button.jsx'
+import ShowreelButton from '../framer/showreel_button.jsx'
 import HeroCinematicBackground from './hero/HeroCinematicBackground'
 import HeroDecorativeIcons from './hero/HeroDecorativeIcons'
 
@@ -20,7 +21,7 @@ const SHOWREEL_URL =
 
 function HeroMarketingVisual() {
   return (
-    <div className="relative mx-auto mb-4 flex w-full max-w-5xl flex-col items-center px-4 sm:mb-10 sm:px-6">
+    <div className="relative mx-auto mb-2 flex w-full max-w-5xl flex-col items-center px-4 sm:mb-10 sm:px-6">
       <h1 className="sr-only">
         Brosmedia digital marketing agency — branding, social, and conversion funnels
       </h1>
@@ -164,7 +165,7 @@ export default function Hero() {
       <HeroCinematicBackground />
       <HeroDecorativeIcons />
 
-      <div className="relative z-10 flex w-full flex-col justify-start pt-[var(--navbar-height)] pb-2 sm:justify-center sm:pb-8">
+      <div className="relative z-10 flex w-full flex-col justify-start pt-[var(--navbar-height)] pb-0 sm:justify-center sm:pb-8">
         <HeroMarketingVisual />
 
         <motion.div
@@ -187,31 +188,25 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-5 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 px-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 sm:px-6"
+          className="mt-3 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 px-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 sm:px-6"
         >
-          <Link
-            to={routes.contact}
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-primary transition hover:bg-accent/90 sm:w-auto sm:min-w-[210px]"
-          >
-            Scale Your Brand
-            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-          </Link>
-          <a
-            href={SHOWREEL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-accent/45 hover:text-accent sm:w-auto sm:min-w-[210px]"
-          >
-            <Play className="h-4 w-4 fill-current" />
-            Watch Showreel
-          </a>
+          <NudgeButton
+            text="Scale Your Brand"
+            link={routes.contact}
+            buttonColor="#dfff00"
+            textColor="#000000"
+            arrowColor="#000000"
+            arrowWrapperColor="#ffffff"
+            fullWidth
+          />
+          <ShowreelButton href={SHOWREEL_URL} fullWidth />
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 pb-1 text-center text-[0.6rem] font-medium uppercase tracking-[0.14em] text-white/35 sm:mt-5 sm:pb-0 sm:text-[0.65rem]"
+          className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 pb-0 text-center text-[0.6rem] font-medium uppercase tracking-[0.14em] text-white/35 sm:mt-5 sm:pb-0 sm:text-[0.65rem]"
         >
           <span className="inline-flex items-center gap-1">
             <Zap className="h-3 w-3 text-accent" strokeWidth={2.5} />

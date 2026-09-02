@@ -133,16 +133,17 @@ export default function WorkStreamSection() {
   const { progress, pinPhase } = useCreativeWorkScrollPin(
     sectionRef,
     metrics.scrollDistance,
+    metrics.holdDistance,
   )
 
-  const pinStyle = getPinPanelStyle(pinPhase, metrics.scrollDistance)
+  const pinStyle = getPinPanelStyle(pinPhase, metrics.totalScrollDistance)
 
   return (
     <section
       id="work-stream"
       ref={sectionRef}
       aria-label="Brosmedia creative work stream"
-      className="relative z-0 bg-black"
+      className="relative z-0 bg-black max-sm:-mt-6 sm:mt-0"
       style={{ height: metrics.sectionHeight }}
     >
       <div
@@ -150,10 +151,10 @@ export default function WorkStreamSection() {
         style={{ height: metrics.sectionHeightPx }}
       >
         <div
-          className="flex flex-col overflow-hidden bg-black"
+          className="flex flex-col overflow-hidden bg-black max-sm:justify-center sm:justify-start"
           style={pinStyle}
         >
-          <div className="relative z-10 mx-auto w-full max-w-7xl shrink-0 px-4 pt-0 sm:px-6 sm:pt-1 lg:px-8">
+          <div className="relative z-10 mx-auto flex w-full max-w-7xl shrink-0 flex-col items-center px-3 pt-0 sm:px-6 sm:pt-1 lg:max-w-[1180px] lg:px-8 xl:max-w-[1400px] 2xl:max-w-[1680px]">
             <motion.div
               className="mx-auto flex max-w-xl flex-col items-center text-center"
               initial="hidden"
@@ -185,24 +186,18 @@ export default function WorkStreamSection() {
                 </motion.p>
               </motion.div>
 
-              <motion.p
-                custom={0.28}
-                variants={fadeUp}
-                className="mt-2 text-[0.65rem] text-white/50 sm:mt-2.5 sm:text-xs"
-              >
-                Scroll to explore the portfolio
-              </motion.p>
+              
             </motion.div>
           </div>
 
-          <div className="relative mx-auto flex min-h-0 w-full max-w-7xl flex-1 items-start justify-center px-3 pb-6 sm:px-4 sm:pb-8 lg:px-6">
+          <div className="relative mx-auto flex w-full max-w-7xl shrink-0 items-center justify-center px-1 pt-1 pb-1 sm:flex-1 sm:shrink sm:items-start sm:px-4 sm:pt-6 sm:pb-8 md:pt-8 lg:max-w-[1180px] lg:px-6 lg:pt-10 lg:pb-10 xl:max-w-[1400px] 2xl:max-w-[1680px] 2xl:px-8">
             <CreativeWorkGallery
               images={HERO_IMAGES}
               scrollProgress={progress}
               metrics={metrics}
               onImageClick={setActiveImage}
-              borderRadius={14}
-              className="w-full"
+              borderRadius={12}
+              className="creative-work-gallery-shell w-full"
             />
           </div>
         </div>

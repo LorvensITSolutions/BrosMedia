@@ -5,18 +5,10 @@ import Footer from './Footer'
 import Seo from './Seo'
 import FloatMenu from '../framer/float_menu.jsx'
 import { seoPages } from '../data/seo'
+import { scrollToSection } from '../data/navigation'
 
 function scrollToHash(hash) {
-  if (!hash) {
-    window.scrollTo(0, 0)
-    return
-  }
-
-  const id = hash.replace('#', '')
-  const el = document.getElementById(id)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
-  }
+  scrollToSection(hash || '#hero')
 }
 
 export default function Layout() {

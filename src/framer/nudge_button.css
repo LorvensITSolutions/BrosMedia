@@ -1,0 +1,120 @@
+.nudge-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: min-content;
+  max-width: 100%;
+  padding: var(--nudge-padding, 6px 6px 6px 18px);
+  border-radius: 40px;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: visible;
+  will-change: transform;
+  box-shadow:
+    0 0.36px 0.36px -1px rgba(0, 0, 0, 0.15),
+    0 1.37px 1.37px -2px rgba(0, 0, 0, 0.14),
+    0 6px 6px -3px rgba(0, 0, 0, 0.1);
+  transition:
+    gap 0.6s cubic-bezier(0.34, 1.2, 0.64, 1),
+    transform 0.2s ease;
+}
+
+.nudge-button--hovered {
+  gap: 25px;
+}
+
+.nudge-button:active {
+  transform: scale(0.98);
+}
+
+.nudge-button__text {
+  flex: none;
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.nudge-button__arrow-content {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0.42px 0.38px -0.83px rgba(0, 0, 0, 0.13),
+    inset 0 1.6px 1.44px -1.67px rgba(0, 0, 0, 0.13),
+    inset 0 7px 6.3px -2.5px rgba(0, 0, 0, 0.13);
+}
+
+.nudge-button__arrow-track {
+  display: flex;
+  align-items: center;
+  width: 72px;
+  height: 36px;
+  will-change: transform;
+}
+
+.nudge-button__arrow-slot {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.nudge-button__arrow-slot svg {
+  display: block;
+  flex: none;
+}
+
+.nudge-button--block {
+  width: 100%;
+}
+
+.nudge-button--block .nudge-button {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .nudge-button--block {
+    width: auto;
+  }
+
+  .nudge-button--block .nudge-button {
+    width: min-content;
+  }
+}
+
+@media (max-width: 639px) {
+  .nudge-button {
+    gap: 16px;
+    padding: 8px 8px 8px 20px;
+  }
+
+  .nudge-button--hovered {
+    gap: 20px;
+  }
+
+  .nudge-button__text {
+    font-size: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nudge-button {
+    transition: transform 0.2s ease;
+  }
+
+  .nudge-button__arrow-track {
+    transform: none !important;
+  }
+}

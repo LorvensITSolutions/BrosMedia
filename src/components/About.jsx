@@ -126,7 +126,7 @@ function ArrowUpRight() {
 
 export default function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-black font-sans text-white">
+    <section id="about" className="relative z-10 overflow-hidden bg-black font-sans text-white">
       <div className="relative z-10 mx-auto max-w-7xl px-5 pt-12 pb-0 sm:px-6 sm:pt-16 lg:px-8 lg:pt-24 lg:pb-0">
         <motion.div
           className="grid gap-10 pb-12 lg:grid-cols-[3fr_7fr] lg:gap-12 lg:items-start"
@@ -163,9 +163,8 @@ export default function About() {
           <div className="text-center lg:text-left">
             <GsapScrollRevealText
               text={ABOUT_COPY_1}
-              className="text-base leading-relaxed text-white/70 sm:text-lg lg:text-xl lg:leading-relaxed"
-              start="top 90%"
-              end="top 50%"
+              className="text-base leading-relaxed text-white/80 sm:text-lg lg:text-xl lg:leading-relaxed"
+              start="top 92%"
             />
           </div>
         </motion.div>
@@ -208,16 +207,14 @@ export default function About() {
               </motion.p>
               <GsapScrollRevealText
                 text={SATISFACTION_COPY}
-                className="mt-4 text-sm leading-relaxed text-white/60 sm:text-base"
+                className="mt-4 text-sm leading-relaxed text-white/70 sm:text-base"
                 start="top 92%"
-                end="top 55%"
                 stagger={0.1}
               />
               <GsapScrollRevealText
                 text={GROWTH_COPY}
                 className="mt-6 text-base font-semibold leading-relaxed text-white sm:text-lg"
                 start="top 90%"
-                end="top 52%"
                 stagger={0.09}
               />
             </motion.div>

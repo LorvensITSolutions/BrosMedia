@@ -5,13 +5,18 @@ import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger)
 
+function isInRevealZone(element, threshold = 0.9) {
+  const rect = element.getBoundingClientRect()
+  return rect.top < window.innerHeight * threshold && rect.bottom > 0
+}
+
 export default function GsapScrollRevealText({
   text,
   className = '',
   as: Tag = 'p',
   baseOpacity = 0.2,
   revealOpacity = 1,
-  scrub = 1.2,
+  scrub = false,
   start = 'top 88%',
   end = 'top 45%',
   stagger = 0.08,
@@ -21,26 +26,56 @@ export default function GsapScrollRevealText({
 
   useGSAP(
     () => {
-      const spans = containerRef.current?.querySelectorAll('[data-word]')
-      if (!spans?.length) return
+      const container = containerRef.current
+      const spans = container?.querySelectorAll('[data-word]')
+      if (!container || !spans?.length) return
 
-      gsap.fromTo(
-        spans,
-        { opacity: baseOpacity },
-        {
+      gsap.set(spans, { opacity: baseOpacity })
+
+      const reveal = () => {
+        gsap.to(spans, {
           opacity: revealOpacity,
-          ease: 'none',
+          duration: 0.65,
           stagger,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start,
-            end,
-            scrub,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        })
+      }
+
+      if (scrub) {
+        gsap.fromTo(
+          spans,
+          { opacity: baseOpacity },
+          {
+            opacity: revealOpacity,
+            ease: 'none',
+            stagger,
+            scrollTrigger: {
+              trigger: container,
+              start,
+              end,
+              scrub: typeof scrub === 'number' ? scrub : 1.2,
+              invalidateOnRefresh: true,
+            },
           },
-        },
-      )
+        )
+      } else {
+        ScrollTrigger.create({
+          trigger: container,
+          start,
+          onEnter: reveal,
+          once: true,
+          invalidateOnRefresh: true,
+        })
+      }
+
+      if (isInRevealZone(container)) {
+        reveal()
+      }
+
+      requestAnimationFrame(() => ScrollTrigger.refresh())
     },
-    { scope: containerRef, dependencies: [text] },
+    { scope: containerRef, dependencies: [text, start, end, stagger, baseOpacity, revealOpacity, scrub] },
   )
 
   return (

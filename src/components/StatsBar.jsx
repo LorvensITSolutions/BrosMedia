@@ -21,11 +21,11 @@ export default function StatsBar() {
           numberColor="#dfff00"
           labelColor="rgba(255, 255, 255, 0.7)"
           background="#000000"
-          paddingTop={32}
+          paddingTop={42}
           paddingRight={24}
           paddingBottom={32}
           paddingLeft={24}
-          mobilePaddingTop={12}
+          mobilePaddingTop={20}
           columnGap={80}
           rowGap={24}
           minItemWidth={100}

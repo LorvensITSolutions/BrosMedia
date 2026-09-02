@@ -1,18 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 import { useMotionValue } from 'framer-motion'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { getNavbarHeightPx, PANEL_HEIGHT } from './useCreativeGalleryMetrics.js'
 
 /**
  * Fixed pin + scroll progress for scroll-driven horizontal galleries.
  * Uses position:fixed while active because ancestor overflow-x breaks CSS sticky.
  */
-export function useCreativeWorkScrollPin(sectionRef, scrollDistance) {
+export function useCreativeWorkScrollPin(sectionRef, scrollDistance, holdDistance = 0) {
   const progress = useMotionValue(0)
   const rafRef = useRef(0)
   const [pinPhase, setPinPhase] = useState('before')
 
   useEffect(() => {
-    const distance = Math.max(scrollDistance, 1)
+    const horizontalDistance = Math.max(scrollDistance, 1)
+    const hold = Math.max(holdDistance, 0)
+    const totalDistance = hold + horizontalDistance
 
     const update = () => {
       const section = sectionRef.current
@@ -22,7 +25,7 @@ export function useCreativeWorkScrollPin(sectionRef, scrollDistance) {
       const sectionTop = section.offsetTop
       const scrollY = window.scrollY
       const pinStart = sectionTop - nav
-      const pinEnd = pinStart + distance
+      const pinEnd = pinStart + totalDistance
 
       let phase = 'before'
       let nextProgress = 0
@@ -32,14 +35,24 @@ export function useCreativeWorkScrollPin(sectionRef, scrollDistance) {
         nextProgress = 0
       } else if (scrollY <= pinEnd) {
         phase = 'pinned'
-        nextProgress = (scrollY - pinStart) / distance
+        const scrolled = scrollY - pinStart
+        if (scrolled <= hold) {
+          nextProgress = 0
+        } else {
+          nextProgress = Math.min(1, (scrolled - hold) / horizontalDistance)
+        }
       } else {
         phase = 'after'
         nextProgress = 1
       }
 
       progress.set(nextProgress)
-      setPinPhase((prev) => (prev === phase ? prev : phase))
+      setPinPhase((prev) => {
+        if (prev !== phase && phase === 'after') {
+          requestAnimationFrame(() => ScrollTrigger.refresh())
+        }
+        return prev === phase ? prev : phase
+      })
     }
 
     const onScroll = () => {
@@ -56,12 +69,16 @@ export function useCreativeWorkScrollPin(sectionRef, scrollDistance) {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
     }
-  }, [sectionRef, scrollDistance, progress])
+  }, [sectionRef, scrollDistance, holdDistance, progress])
 
   return { progress, pinPhase }
 }
 
-export function getPinPanelStyle(pinPhase, scrollDistance, navHeight = getNavbarHeightPx()) {
+export function getPinPanelStyle(
+  pinPhase,
+  totalScrollDistance,
+  navHeight = getNavbarHeightPx(),
+) {
   const base = {
     left: 0,
     right: 0,
@@ -81,6 +98,6 @@ export function getPinPanelStyle(pinPhase, scrollDistance, navHeight = getNavbar
   return {
     ...base,
     position: 'absolute',
-    top: pinPhase === 'after' ? scrollDistance : 0,
+    top: pinPhase === 'after' ? totalScrollDistance : 0,
   }
 }

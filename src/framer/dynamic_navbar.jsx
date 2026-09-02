@@ -1,10 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Phone } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { footerIntro, footerSocialLinks } from '../data/footer'
 import { contactEmail } from '../data/contact'
-import { navLinks, routes, isNavLinkActive } from '../data/navigation'
+import {
+  navLinks,
+  routes,
+  isNavLinkActive,
+  navigateToHomeSection,
+} from '../data/navigation'
 
 const LOGO_URL =
   'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134190/BrosMedia_Logo_1_nxpara.png'
@@ -214,6 +219,13 @@ function SidebarContact() {
 
 function SidebarMenu({ onClose }) {
   const { pathname, hash } = useLocation()
+  const navigate = useNavigate()
+
+  const handleNavClick = (event, link) => {
+    event.preventDefault()
+    onClose()
+    navigateToHomeSection(navigate, link.to)
+  }
 
   return (
     <motion.div
@@ -246,9 +258,13 @@ function SidebarMenu({ onClose }) {
         />
 
         <div className="relative z-10 flex shrink-0 items-center justify-between border-b border-white/8 px-5 pb-4 pt-5 sm:px-7 sm:pt-6">
-          <Link
-            to={routes.home}
-            onClick={onClose}
+          <a
+            href={routes.home}
+            onClick={(event) => {
+              event.preventDefault()
+              onClose()
+              navigateToHomeSection(navigate, routes.home)
+            }}
             className="group inline-flex items-center gap-2.5"
             aria-label="Brosmedia home"
           >
@@ -258,7 +274,7 @@ function SidebarMenu({ onClose }) {
             <span className="text-lg font-black lowercase tracking-tight text-white sm:text-xl">
               brosmedia
             </span>
-          </Link>
+          </a>
         </div>
 
         <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row">
@@ -276,9 +292,9 @@ function SidebarMenu({ onClose }) {
 
                 return (
                   <motion.li key={link.to} variants={itemVariants} className="overflow-visible">
-                    <Link
-                      to={link.to}
-                      onClick={onClose}
+                    <a
+                      href={link.to}
+                      onClick={(event) => handleNavClick(event, link)}
                       className="group flex items-center gap-3 rounded-lg px-1 py-2 transition-colors hover:bg-white/[0.03] sm:gap-4 sm:py-2.5"
                     >
                       <span
@@ -290,7 +306,7 @@ function SidebarMenu({ onClose }) {
                       </span>
                       <span className="min-w-0 flex-1 overflow-visible py-0.5">
                         <motion.span
-                          className={`block font-black lowercase leading-[1.15] tracking-tight transition-colors text-[clamp(1.25rem,2.8vw,1.85rem)] ${
+                          className={`block font-black leading-[1.15] tracking-tight transition-colors text-[clamp(1.25rem,2.8vw,1.85rem)] ${
                             isActive ? 'text-accent' : 'text-white group-hover:text-accent'
                           }`}
                           whileHover={{ x: 5 }}
@@ -299,7 +315,7 @@ function SidebarMenu({ onClose }) {
                           {link.label}
                         </motion.span>
                       </span>
-                    </Link>
+                    </a>
                   </motion.li>
                 )
               })}
@@ -328,6 +344,7 @@ function SidebarMenu({ onClose }) {
 
 export default function DynamicNavbar() {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -354,15 +371,19 @@ export default function DynamicNavbar() {
           }`}
         >
           {!open && (
-            <Link
-              to={routes.home}
+            <a
+              href={routes.home}
+              onClick={(event) => {
+                event.preventDefault()
+                navigateToHomeSection(navigate, routes.home)
+              }}
               className="group inline-flex items-center rounded-full bg-white/95 p-1.5 backdrop-blur-md transition hover:bg-white sm:p-2"
               aria-label="Brosmedia home"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-white p-0.5 sm:h-11 sm:w-11">
                 <img src={LOGO_URL} alt="" className="h-full w-full object-contain" />
               </span>
-            </Link>
+            </a>
           )}
           <div className="h-12 w-12 shrink-0 sm:w-14" aria-hidden />
         </div>

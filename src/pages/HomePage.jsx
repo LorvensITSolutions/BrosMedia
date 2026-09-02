@@ -1,5 +1,6 @@
 import Hero from '../components/Hero'
 import WorkStreamSection from '../components/WorkStreamSection'
+import ReelsWorkSection from '../components/ReelsWorkSection'
 import StatsBar from '../components/StatsBar'
 import About from '../components/About'
 import Services from '../components/Services'
@@ -16,6 +17,7 @@ export default function HomePage() {
         <Hero />
       </div>
       <WorkStreamSection />
+      <ReelsWorkSection />
       <StatsBar />
       <About />
       <Services />
