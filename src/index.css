@@ -335,6 +335,22 @@ body {
     0 0 0 1px rgba(223, 255, 0, 0.12);
 }
 
+.reels-work-carousel [class^='mc-'] .card.is-hovered,
+.reels-work-carousel [class^='mc-'] .card:hover {
+  border-color: rgba(223, 255, 0, 0.6) !important;
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.55),
+    0 0 0 2px rgba(223, 255, 0, 0.32),
+    0 0 36px rgba(223, 255, 0, 0.2) !important;
+  opacity: 1 !important;
+  z-index: 8 !important;
+}
+
+.reels-work-carousel [class^='mc-'] .card.is-hovered .info-panel .info-title,
+.reels-work-carousel [class^='mc-'] .card:hover .info-panel .info-title {
+  color: var(--reels-accent) !important;
+}
+
 .reels-work-carousel [class^='mc-'] .carousel-wrap {
   cursor: default !important;
   touch-action: auto !important;

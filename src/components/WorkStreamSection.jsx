@@ -7,6 +7,7 @@ import {
   getPinPanelStyle,
   useCreativeWorkScrollPin,
 } from '../framer/useCreativeWorkScrollPin.js'
+import ViewOnInstagramButton from '../framer/view_on_instagram_button.jsx'
 
 const HERO_IMAGES = [
   {
@@ -190,7 +191,7 @@ export default function WorkStreamSection() {
             </motion.div>
           </div>
 
-          <div className="relative mx-auto flex w-full max-w-7xl shrink-0 items-center justify-center px-1 pt-1 pb-1 sm:flex-1 sm:shrink sm:items-start sm:px-4 sm:pt-6 sm:pb-8 md:pt-8 lg:max-w-[1180px] lg:px-6 lg:pt-10 lg:pb-10 xl:max-w-[1400px] 2xl:max-w-[1680px] 2xl:px-8">
+          <div className="relative mx-auto flex w-full max-w-7xl shrink-0 flex-col items-center px-1 pt-1 pb-1 sm:flex-1 sm:shrink sm:px-4 sm:pt-6 sm:pb-4 md:pt-8 lg:max-w-[1180px] lg:px-6 lg:pt-10 lg:pb-6 xl:max-w-[1400px] 2xl:max-w-[1680px] 2xl:px-8">
             <CreativeWorkGallery
               images={HERO_IMAGES}
               scrollProgress={progress}
@@ -199,6 +200,15 @@ export default function WorkStreamSection() {
               borderRadius={12}
               className="creative-work-gallery-shell w-full"
             />
+            <motion.div
+              className="relative z-10 mt-3 flex w-full justify-center sm:mt-5"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <ViewOnInstagramButton />
+            </motion.div>
           </div>
         </div>
       </div>

@@ -61,7 +61,7 @@ export const reelsCarouselTheme = {
     mouseWheel: false,
     mouseWheelInvert: false,
     mouseWheelSpeed: 1,
-    hoverPause: false,
+    hoverPause: true,
     showNavText: false,
     showCounter: false,
     showReelLabel: false,

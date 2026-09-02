@@ -70,6 +70,41 @@ export default function InfiniteMediaCarousel({
 
   useEffect(() => {
     const root = rootRef.current
+    if (!root) return undefined
+
+    const clearHovered = () => {
+      root.querySelectorAll('.card.is-hovered').forEach((card) => {
+        card.classList.remove('is-hovered')
+      })
+    }
+
+    const onPointerOver = (event) => {
+      const card = event.target.closest('.card')
+      if (!card || !root.contains(card)) return
+      clearHovered()
+      card.classList.add('is-hovered')
+    }
+
+    const onPointerOut = (event) => {
+      const card = event.target.closest('.card')
+      if (!card || !root.contains(card)) return
+      const next = event.relatedTarget
+      if (next && card.contains(next)) return
+      card.classList.remove('is-hovered')
+    }
+
+    root.addEventListener('pointerover', onPointerOver)
+    root.addEventListener('pointerout', onPointerOut)
+
+    return () => {
+      root.removeEventListener('pointerover', onPointerOver)
+      root.removeEventListener('pointerout', onPointerOut)
+      clearHovered()
+    }
+  }, [items])
+
+  useEffect(() => {
+    const root = rootRef.current
     if (!root || !onVideoOpen) return undefined
 
     const handleClick = (event) => {

@@ -4,6 +4,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { getContactWhatsAppHref } from '../data/contact'
+import { BROS_MEDIA_INSTAGRAM_URL } from '../data/social.js'
 import './float_menu.css'
 
 const WHATSAPP_ICON =
@@ -11,7 +12,29 @@ const WHATSAPP_ICON =
 
 const spring = { type: 'spring', stiffness: 420, damping: 32, mass: 0.35 }
 
-function WhatsappButton({ href, text = 'Chat With Us Now' }) {
+function InstagramIcon() {
+  return (
+    <svg
+      className="float-menu-instagram-icon-svg"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.4" cy="6.6" r="1.1" fill="#ffffff" stroke="none" />
+    </svg>
+  )
+}
+
+function FloatExpandButton({
+  href,
+  text,
+  className,
+  iconClassName,
+  hoverBackground,
+  icon,
+}) {
   const [hovered, setHovered] = useState(false)
 
   return (
@@ -19,13 +42,13 @@ function WhatsappButton({ href, text = 'Chat With Us Now' }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="float-menu-whatsapp"
+      className={className}
       aria-label={text}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       animate={{
         width: hovered ? 'auto' : 40,
-        backgroundColor: hovered ? '#c7ffbf' : '#ebebeb',
+        backgroundColor: hovered ? hoverBackground : '#ebebeb',
       }}
       transition={spring}
       whileTap={{ scale: 0.96 }}
@@ -33,7 +56,7 @@ function WhatsappButton({ href, text = 'Chat With Us Now' }) {
       <AnimatePresence>
         {hovered && (
           <motion.span
-            className="float-menu-whatsapp-text"
+            className="float-menu-expand-text"
             initial={{ opacity: 0, width: 0 }}
             animate={{ opacity: 1, width: 'auto' }}
             exit={{ opacity: 0, width: 0 }}
@@ -43,19 +66,46 @@ function WhatsappButton({ href, text = 'Chat With Us Now' }) {
           </motion.span>
         )}
       </AnimatePresence>
-      <span className="float-menu-whatsapp-icon">
-        <img src={WHATSAPP_ICON} alt="" />
-      </span>
+      <span className={iconClassName}>{icon}</span>
     </motion.a>
+  )
+}
+
+function InstagramButton({ href, text = 'View on Instagram' }) {
+  return (
+    <FloatExpandButton
+      href={href}
+      text={text}
+      className="float-menu-instagram"
+      iconClassName="float-menu-instagram-icon"
+      hoverBackground="#ffe8f3"
+      icon={<InstagramIcon />}
+    />
+  )
+}
+
+function WhatsappButton({ href, text = 'Chat With Us Now' }) {
+  return (
+    <FloatExpandButton
+      href={href}
+      text={text}
+      className="float-menu-whatsapp"
+      iconClassName="float-menu-whatsapp-icon"
+      hoverBackground="#c7ffbf"
+      icon={<img src={WHATSAPP_ICON} alt="" />}
+    />
   )
 }
 
 export default function FloatMenu({
   whatsappLink = getContactWhatsAppHref(),
   whatsappText = 'Chat With Us Now',
+  instagramLink = BROS_MEDIA_INSTAGRAM_URL,
+  instagramText = 'View on Instagram',
 }) {
   return (
     <aside className="float-menu" aria-label="Quick contact">
+      <InstagramButton href={instagramLink} text={instagramText} />
       <WhatsappButton href={whatsappLink} text={whatsappText} />
     </aside>
   )

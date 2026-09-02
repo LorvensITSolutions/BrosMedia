@@ -55,7 +55,7 @@ function getLayout(width) {
   if (width < 768) {
     return {
       cardsVisible: 1.35,
-      gap: 14,
+      gap: 10,
       headerSpace: 102,
       maxContent: 720,
       horizontalPadding: 14,
@@ -74,7 +74,7 @@ function getLayout(width) {
   if (width < 1024) {
     return {
       cardsVisible: 2.2,
-      gap: 16,
+      gap: 11,
       headerSpace: 106,
       maxContent: 960,
       horizontalPadding: 16,
@@ -93,7 +93,7 @@ function getLayout(width) {
   if (width < 1280) {
     return {
       cardsVisible: 2.85,
-      gap: 18,
+      gap: 12,
       headerSpace: 110,
       maxContent: 1180,
       horizontalPadding: 20,
@@ -112,7 +112,7 @@ function getLayout(width) {
   if (width < 1536) {
     return {
       cardsVisible: 3.35,
-      gap: 20,
+      gap: 14,
       headerSpace: 114,
       maxContent: 1320,
       horizontalPadding: 24,
@@ -131,7 +131,7 @@ function getLayout(width) {
   if (width < 1920) {
     return {
       cardsVisible: 3.75,
-      gap: 22,
+      gap: 16,
       headerSpace: 118,
       maxContent: 1480,
       horizontalPadding: 28,
@@ -149,7 +149,7 @@ function getLayout(width) {
 
   return {
     cardsVisible: 4.15,
-    gap: 24,
+    gap: 18,
     headerSpace: 122,
     maxContent: 1680,
     horizontalPadding: 32,

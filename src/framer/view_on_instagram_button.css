@@ -1,0 +1,115 @@
+.instagram-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min-content;
+  max-width: 100%;
+  padding: 9px 20px 9px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.35s ease,
+    color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.instagram-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(223, 255, 0, 0.12) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.65s ease;
+}
+
+.instagram-cta:hover::before {
+  transform: translateX(120%);
+}
+
+.instagram-cta:hover {
+  border-color: rgba(223, 255, 0, 0.42);
+  color: #dfff00;
+  background: rgba(223, 255, 0, 0.07);
+  box-shadow:
+    0 0 0 1px rgba(223, 255, 0, 0.08),
+    0 0 28px rgba(223, 255, 0, 0.12);
+}
+
+.instagram-cta__icon-wrap {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f58529 0%, #dd2a7b 45%, #8134af 75%, #515bd4 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+.instagram-cta:hover .instagram-cta__icon-wrap {
+  transform: scale(1.06);
+}
+
+.instagram-cta__icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.8;
+}
+
+.instagram-cta__label {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.instagram-cta__arrow {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  font-size: 0.875rem;
+  line-height: 1;
+  opacity: 0.72;
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1),
+    opacity 0.35s ease;
+}
+
+.instagram-cta:hover .instagram-cta__arrow {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .instagram-cta,
+  .instagram-cta::before,
+  .instagram-cta__icon-wrap,
+  .instagram-cta__arrow {
+    transition: none;
+  }
+
+  .instagram-cta::before {
+    display: none;
+  }
+}
