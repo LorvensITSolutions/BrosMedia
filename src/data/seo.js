@@ -82,6 +82,12 @@ export const seoPages = {
       'Explore Brosmedia’s work across branding, websites, social media, Meta ads, and creative production for clients in India and beyond.',
     path: '/our-work',
   },
+  '/portfolio': {
+    title: 'Portfolio | Brosmedia Clients & Projects',
+    description:
+      'See Brosmedia’s client portfolio — real estate, healthcare, sports, fashion, and more. Branding, websites, social media, and Meta ads from Hyderabad.',
+    path: '/portfolio',
+  },
   '/industries': {
     title: 'Industries | Brosmedia Digital Marketing Expertise',
     description:

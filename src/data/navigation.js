@@ -1,7 +1,8 @@
 export const routes = {
   home: '/',
   services: '/#services',
-  ourWork: '/#work-stream',
+  portfolio: '/portfolio',
+  ourWork: '/portfolio',
   industries: '/#industries',
   about: '/#about',
   contact: '/#contact',
@@ -10,7 +11,7 @@ export const routes = {
 export const navLinks = [
   { label: 'Services', to: routes.services },
   { label: 'About', to: routes.about },
-  { label: 'Our Work', to: routes.ourWork },
+  { label: 'Portfolio', to: routes.portfolio },
   { label: 'Industries', to: routes.industries },
   { label: 'Contact', to: routes.contact },
 ]
@@ -38,14 +39,23 @@ export function scrollToSection(hash) {
   return false
 }
 
-/** Smooth-scroll to a homepage section (single-page inline navigation). */
+/** Navigate to a homepage hash section, or a full page route like /portfolio. */
 export function navigateToHomeSection(navigate, route) {
   const hash = getHashFromRoute(route)
 
-  if (route === routes.home || !hash) {
+  if (route === routes.home) {
     navigate('/')
     window.history.replaceState(null, '', '/')
     window.requestAnimationFrame(() => scrollToSection('#hero'))
+    return
+  }
+
+  // Full page routes (no hash) — e.g. /portfolio
+  if (!hash) {
+    navigate(route)
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'auto' })
+    })
     return
   }
 
@@ -58,6 +68,10 @@ export function navigateToHomeSection(navigate, route) {
 export function isNavLinkActive(linkTo, pathname, hash) {
   if (linkTo === routes.home) {
     return pathname === '/' && (!hash || hash === '#hero')
+  }
+
+  if (!linkTo.includes('#')) {
+    return pathname === linkTo
   }
 
   const targetHash = getHashFromRoute(linkTo)

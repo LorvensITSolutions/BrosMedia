@@ -23,13 +23,14 @@ export default function ViewOnInstagramButton({
   href = BROS_MEDIA_INSTAGRAM_URL,
   text = 'View on Instagram',
   className = '',
+  compact = false,
 }) {
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`instagram-cta font-sans ${className}`.trim()}
+      className={`instagram-cta font-sans${compact ? ' instagram-cta--compact' : ''} ${className}`.trim()}
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.98 }}
       transition={SPRING}

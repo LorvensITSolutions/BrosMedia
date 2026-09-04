@@ -101,6 +101,22 @@
   opacity: 1;
 }
 
+.instagram-cta--compact {
+  gap: 8px;
+  padding: 7px 16px 7px 8px;
+  font-size: 0.75rem;
+}
+
+.instagram-cta--compact .instagram-cta__icon-wrap {
+  width: 28px;
+  height: 28px;
+}
+
+.instagram-cta--compact .instagram-cta__icon {
+  width: 13px;
+  height: 13px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .instagram-cta,
   .instagram-cta::before,

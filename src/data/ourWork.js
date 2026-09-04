@@ -1,17 +1,15 @@
-import { featuredClients } from './featuredClients'
-
 export const ourWorkIntro = {
   label: 'Our Work',
   headline: 'Real brands. Real work. Real results.',
   description:
-    'From PG and co-living brands in Hyderabad to pickleball and professional sports teams — plus real estate, healthcare, education, and fashion — here is who we have worked with and what we built for them.',
+    'From PG and co-living brands in Hyderabad to pickleball and professional sports teams - plus real estate, healthcare, fashion, and NGOs - here is who we have worked with and what we built for them.',
 }
 
 export const ourWorkStats = [
-  { value: '15', label: 'Clients served' },
-  { value: '11+', label: 'Industries' },
+  { value: '11', label: 'Clients served' },
+  { value: '10+', label: 'Industries' },
   { value: '9', label: 'Service types' },
-  { value: '8', label: 'Live websites' },
+  { value: '9', label: 'Live websites' },
 ]
 
 export const ourWorkMarqueeItems = [
@@ -19,114 +17,165 @@ export const ourWorkMarqueeItems = [
   'Nellore Wolves',
   'Vizag Seahawks',
   'MB Prime Projects',
-  'Sasha Smiles',
-  'Zarivaram',
   'AMVI Foods',
-  'Lumiere Luxe',
-  'Viqantai',
-  'Arise Academy',
-  'Andhra Machines',
+  'GoClean Foundation',
+  'Sasha Clinic Group',
+  'Zarivaram',
   'Dista USA',
-  'Yalladorababu',
+  'Andhra Machines',
+  'Viqantai',
 ]
 
 export const portfolioClients = [
-  ...featuredClients.map((client) => ({
-    id: client.id,
-    client: client.name,
-    industry: `${client.industry}, ${client.location}`,
-    workDone: client.workDone,
-    website: client.website,
-  })),
-  {
-    id: 'mb-prime',
-    client: 'MB Prime Projects',
-    industry: 'Real Estate, Hyderabad',
+{
+    id: 'narenn-living',
+    client: 'Narenn Living PG',
+    industry: 'Premium PG accommodation',
+    goal: 'Needed a serious digital presence and lead pipeline to fill rooms',
+    whatWeDid:
+      'Video editing, creatives/posters, Meta ads, YouTube posting, 54-page SEO website, telecalling setup',
+    result: 'Increased bookings via SEO traffic + telecalling conversion',
     workDone:
-      'Website, social media management, Meta ads (Instagram & Facebook), carousels, static creatives, video editing',
-    website: 'mbprimeprojects.com',
+      'Video editing, creatives/posters, Meta ads, YouTube posting, 54-page SEO website, telecalling setup',
+    website: 'narennliving.com',
+    logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/Insta%20DP%20(1).png',
+    instagram: null,
   },
-  {
-    id: 'sasha-smiles',
-    client: 'Sasha Smiles',
-    industry: 'Dental Clinic',
-    workDone:
-      'Website design & development, carousel creatives, static graphics, video production',
-    website: 'sashasmiles.com',
-  },
-  {
-    id: 'sasha-slimming',
-    client: 'Sasha Slimming',
-    industry: 'Slimming & Aesthetics',
-    workDone:
-      'Website design & development, carousel creatives, static graphics, video production',
-    website: 'sashaslimming.com',
-  },
-  {
-    id: 'arise-academy',
-    client: 'Arise Academy',
-    industry: 'Education',
-    workDone: 'Carousel creatives, static design, video editing for social media',
+{
+    id: 'nellore-wolves',
+    client: 'Nellore Wolves',
+    industry: 'Sports (Andhra Pickle League)',
+    goal: 'Same league, needed the same level of content and social support',
+    whatWeDid: 'Creatives, posts, video editing, social media handling',
+    result: 'Consistent content and social presence through the season',
+    workDone: 'Creatives, posts, video editing, social media handling',
     website: null,
+    logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/WhatsApp+Image+2026-08-03+at+7.25.35+PM-Photoroom%201.png',
+    instagram:
+      'https://www.instagram.com/nellorewolvesofficial?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==',
   },
-  {
-    id: 'arise-delhi',
-    client: 'Arise Delhi Branch',
-    industry: 'Education',
-    workDone: 'Website design & development for Delhi branch',
-    website: 'arisedelhi.com',
+{
+    id: 'vizag-seahawks',
+    client: 'Vizag Seahawks',
+    industry: 'Sports (Andhra Pickle League)',
+    goal: 'Needed a digital marketing partner to build fan engagement/visibility',
+    whatWeDid: 'Creatives, posters, video editing, social media handling',
+    result: 'Ongoing digital presence and fan-facing content through the season',
+    workDone: 'Creatives, posters, video editing, social media handling',
+    website: null,
+    logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/WhatsApp+Image+2026-07-22+at+17.13.10%201%20(1).png',
+    instagram:
+      'https://www.instagram.com/vizagseahawksofficial?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==',
   },
-  {
+{
+    id: 'mb-prime',
+    client: 'MB Prime (Villas & Plots)',
+    industry: 'Real estate',
+    goal: 'Convert awareness into actual site visits and bookings across multiple launches',
+    whatWeDid:
+      'Creatives/posters/banners, video editing + theatre ads, Meta ads, YouTube/Instagram/Facebook posting, local ads (banners, TV, radio), telecalling setup, website + SEO',
+    result: 'Increased villa and plot bookings, full lead pipeline from ad to telecaller',
+    workDone:
+      'Creatives, video + theatre ads, Meta ads, social posting, local ads, telecalling, website + SEO',
+    website: 'mbprimeprojects.com',
+    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134726/sklmlogo_c2trtg_cndghd.png',
+    instagram: null,
+  },
+{
+    id: 'amvi-foods',
+    client: 'Amvi Foods',
+    industry: 'Food & agri exports',
+    goal: 'Wanted a stronger digital portfolio to present internationally',
+    whatWeDid: 'Video editing, creatives, social media handling, website, brochure design',
+    result: 'Stronger, more credible presence for an international audience',
+    workDone: 'Video editing, creatives, social media handling, website, brochure design',
+    website: 'amvifoods.com',
+    logo: 'https://res.cloudinary.com/dnvpasppl/image/upload/v1773392136/Screenshot_2026-03-04_114703-removebg-preview_a5xoie.png',
+    instagram: null,
+  },
+{
+    id: 'goclean-foundation',
+    client: 'GoClean Foundation',
+    industry: 'NGO (Section 8)',
+    goal: 'Needed a professional identity and print material for fundraising/outreach',
+    whatWeDid: 'Logo design, brochure design',
+    result: 'Credible identity supporting fundraising and outreach',
+    workDone: 'Logo design, brochure design',
+    website: null,
+    logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/Secondary%20Logo%20(1).png',
+    instagram: null,
+  },
+{
+    id: 'sasha-clinic-group',
+    client: 'Sasha Clinic Group',
+    industry: 'Healthcare (3 sub-brands)',
+    subBrands: ['Lumiere Luxe', 'Sasha Dental', 'Sasha Slimming'],
+    goal: 'Needed three separate identities/websites (Lumiere Luxe, Sasha Dental, Sasha Slimming) plus ongoing creative support to keep bookings flowing',
+    whatWeDid:
+      'Built 3 websites (one per brand), ongoing video editing, creatives/posters/banners for ad campaigns',
+    result: 'Increased bookings across all three',
+    workDone:
+      'Built 3 websites (one per brand), ongoing video editing, creatives/posters/banners for ad campaigns',
+    website: 'sashasmiles.com',
+    websites: [
+      { label: 'Sasha Smiles', href: 'sashasmiles.com' },
+      { label: 'Sasha Slimming', href: 'sashaslimming.com' },
+      { label: 'Lumiere Luxe', href: 'lumiereluxe.in' },
+    ],
+    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134725/ChatGPT_Image_Dec_8_2025_10_20_32_AM_e1ot2u_kc47qk.png',
+    instagram: null,
+  },
+{
     id: 'zarivaram',
     client: 'Zarivaram',
-    industry: 'Ethnic Wear & Sarees',
+    industry: 'Fashion / saree boutique',
+    goal: 'Turn online attention into actual store visits',
+    whatWeDid:
+      'Video editing, creative/poster design, Instagram posting, event planning (e.g. Mayabazar)',
+    result: 'Increased footfall — customers visiting the store to buy',
     workDone:
-      'Complete social media management, carousels, static creatives, video editing',
+      'Video editing, creative/poster design, Instagram posting, event planning (e.g. Mayabazar)',
     website: 'zarivaram.vercel.app',
+    logo: 'https://res.cloudinary.com/dvnplfu6z/image/upload/v1776921469/logo_1_rwdv9g.png',
+    instagram: null,
   },
-  {
-    id: 'andhra-machines',
-    client: 'Andhra Machines Agencies',
-    industry: 'Industrial E-commerce',
-    workDone: 'E-commerce website design & development',
-    website: 'andhramachinesagencies.com',
-  },
-  {
-    id: 'amvi-foods',
-    client: 'AMVI Foods',
-    industry: 'Food & Agri Exports',
-    workDone: 'Website, brochure design, video production',
-    website: 'amvifoods.com',
-  },
-  {
+{
     id: 'dista-usa',
-    client: 'Dista USA',
-    industry: 'Technology / SaaS',
-    workDone: 'Website creatives, app UI creatives, Meta ad creatives',
-    website: null,
+    client: 'DISTA',
+    industry: 'Delivery platform',
+    goal: 'App/product needed to feel as easy to use as it is functional',
+    whatWeDid: 'App & UI creative design, interface design, digital product creative assets',
+    result: 'More user-friendly website and app',
+    workDone: 'App & UI creative design, interface design, digital product creative assets',
+    website: 'distausa.com',
+    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134932/Dista_Logo_1_l0kgvo.png',
+    instagram: null,
   },
-  {
+{
+    id: 'andhra-machines',
+    client: 'Andhra Machines Store',
+    industry: 'E-commerce',
+    goal: 'Needed an online store',
+    whatWeDid: 'Full e-commerce website design & development',
+    result: 'A functioning online store',
+    workDone: 'Full e-commerce website design & development',
+    website: 'andhramachinesagencies.com',
+    logo: 'https://res.cloudinary.com/durbtkhbz/image/upload/v1765255577/logo_sewing_td6tcf.png',
+    instagram: null,
+  },
+{
     id: 'viqantai',
-    client: 'Viqantai',
-    industry: 'Brand Identity',
+    client: 'ViQantAI',
+    industry: 'Technology',
+    goal: 'Needed a brand built from scratch plus an active social media presence',
+    whatWeDid:
+      'Branding, logo design, color palette, set up social accounts, carousel/static post design, video editing',
+    result: 'Consistent brand identity with an active content pipeline, not a one-off logo drop',
     workDone:
-      'Logo design, color palette, full brand creative suite — identity built from scratch',
+      'Branding, logo design, color palette, social setup, carousel/static posts, video editing',
     website: null,
-  },
-  {
-    id: 'lumiere-luxe',
-    client: 'Lumiere Luxe',
-    industry: 'Luxury / Lifestyle',
-    workDone: 'Website design & development',
-    website: 'lumiereluxe.in',
-  },
-  {
-    id: 'yalladorababu',
-    client: 'Yalladorababu',
-    industry: 'Politics / Public Figure',
-    workDone:
-      'Politician portfolio website — profile, achievements, vision, constituency info, and contact',
-    website: 'yalladorababu.in',
+    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782133985/ViQant_Logo_bfy9f3.png',
+    instagram: null,
   },
 ]
 
@@ -134,7 +183,7 @@ export const deliverables = {
   label: 'Across our work we have delivered',
   title: 'What we have built',
   intro:
-    'Every engagement draws from this stack — tailored to what your brand actually needs. Nine ways we help businesses show up, convert, and grow.',
+    'Every engagement draws from this stack - tailored to what your brand actually needs. Nine ways we help businesses show up, convert, and grow.',
   items: [
     {
       id: 'brand-identities',
@@ -154,7 +203,7 @@ export const deliverables = {
       id: 'websites',
       title: 'Websites',
       description:
-        'Business sites, e-commerce stores, landing pages, and multi-branch platforms — built responsive and conversion-focused from day one.',
+        'Business sites, e-commerce stores, landing pages, and multi-branch platforms - built responsive and conversion-focused from day one.',
       layout: 'website',
       desktopImage:
         'https://res.cloudinary.com/dvruqkpqk/image/upload/v1781245679/Screenshot_2026-06-12_115745_fe9mip.png',
@@ -176,7 +225,7 @@ export const deliverables = {
       id: 'meta-ads',
       title: 'Meta ad campaigns',
       description:
-        'Lead generation, awareness, and retargeting campaigns on Instagram and Facebook — creative, targeting, and optimisation in one loop.',
+        'Lead generation, awareness, and retargeting campaigns on Instagram and Facebook - creative, targeting, and optimisation in one loop.',
       layout: 'meta-ads',
       phoneImage:
         'https://res.cloudinary.com/dvruqkpqk/image/upload/v1783677247/iPhone_eoxe5c.png',
@@ -191,7 +240,7 @@ export const deliverables = {
       id: 'creative-production',
       title: 'Creative production',
       description:
-        'Carousels, static creatives and reels – platform-specific and brand-consistent.',
+        'Carousels, static creatives and reels - platform-specific and brand-consistent.',
       layout: 'creative-production',
       cards: [
         'https://res.cloudinary.com/dvruqkpqk/image/upload/v1783678422/Group_1597880400_eukero.png',
@@ -215,7 +264,7 @@ export const deliverables = {
       id: 'video-production',
       title: 'Video production',
       description:
-        'Brand films, product videos, and social reels — scripted, shot, and edited to tell your story in motion.',
+        'Brand films, product videos, and social reels - scripted, shot, and edited to tell your story in motion.',
       layout: 'showcase',
       image:
         'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1400&q=80',
@@ -225,7 +274,7 @@ export const deliverables = {
       id: 'app-ui',
       title: 'App & UI creatives',
       description:
-        'App screens, banners, and product visuals for digital products — polished UI assets ready for development or ads.',
+        'App screens, banners, and product visuals for digital products - polished UI assets ready for development or ads.',
       layout: 'showcase',
       image:
         'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1400&q=80',
@@ -235,7 +284,7 @@ export const deliverables = {
       id: 'political-portfolios',
       title: 'Political portfolio websites',
       description:
-        'Personal branding sites for public figures — profile, achievements, vision, constituency info, and contact built for credibility.',
+        'Personal branding sites for public figures - profile, achievements, vision, constituency info, and contact built for credibility.',
       layout: 'website',
       desktopImage:
         'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80',

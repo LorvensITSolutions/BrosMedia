@@ -6,8 +6,8 @@ export const industriesIntro = {
 }
 
 export const industriesStats = [
-  { value: '10', label: 'Sectors covered' },
-  { value: '15+', label: 'Active clients' },
+  { value: '9', label: 'Sectors covered' },
+  { value: '14+', label: 'Active clients' },
   { value: '100%', label: 'Sector-specific' },
   { value: 'HYD', label: 'Based in Hyderabad' },
 ]
@@ -17,10 +17,11 @@ export const industriesMarqueeItems = [
   'Co-living',
   'Sports',
   'Healthcare',
-  'Education',
+  'NGO / Non-profit',
   'Fashion',
   'Food & Agri',
   'Technology',
+  'E-commerce',
   'Industrial B2B',
   'Politics',
   'Hyderabad',
@@ -55,15 +56,14 @@ export const industries = [
       'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    id: 'education',
-    title: 'Education',
+    id: 'ngo',
+    title: 'NGO & Non-profit',
     summary:
-      'Coaching institutes, academies, and training programmes. We help education brands communicate their value clearly — to students, parents, and institutional partners.',
-    whatWeDo:
-      'Website development, carousel creatives, social media graphics, promotional video editing.',
-    clients: 'Arise Academy, Arise Delhi Branch',
+      'Section 8 companies, foundations, and social-impact organisations. Donor trust starts with a clear identity and professional outreach materials — we help non-profits look as credible as the work they do.',
+    whatWeDo: 'Logo design, brand identity, donor-facing brochures, and print collateral.',
+    clients: 'GoClean Foundation',
     image:
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 'fashion',
@@ -88,11 +88,11 @@ export const industries = [
   },
   {
     id: 'technology',
-    title: 'Technology & SaaS',
+    title: 'E-commerce & Cross-border Retail',
     summary:
-      'Software products, apps, and digital platforms. We handle creative production and paid media for tech brands targeting Indian and international markets.',
+      'Online stores bringing global brands to Indian shoppers. We build creative and paid media that make product discovery feel premium and conversion-ready.',
     whatWeDo: 'Website creatives, app UI screen designs, Meta ad creatives.',
-    clients: 'Dista USA',
+    clients: 'Dista USA (distausa.com)',
     image:
       'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
   },

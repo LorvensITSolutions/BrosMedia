@@ -3,6 +3,7 @@ import { Clock, Mail, MapPin, MessageCircle } from 'lucide-react'
 import EyeFollowButton from '../framer/eye_follow_button.jsx'
 import LetterSwap from '../framer/letter_swap.jsx'
 import SmoothThreeDButton from '../framer/smooth_three_d_button.jsx'
+import MagicRings from './ui/MagicRings.jsx'
 import {
   contactDetails,
   contactEmail,
@@ -38,37 +39,39 @@ function ContactCard({ item }) {
   const isLongValue = item.value.length > 28
 
   const content = (
-    <>
+    <span className="relative flex items-start gap-3 sm:gap-4">
       <motion.span
-        className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg border border-accent/20 bg-accent/10 text-accent sm:mb-4 sm:h-11 sm:w-11 sm:rounded-xl"
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/20 bg-accent/10 text-accent sm:h-11 sm:w-11 sm:rounded-xl"
         whileHover={{ scale: 1.08, rotate: -4 }}
         transition={{ type: 'spring', stiffness: 400, damping: 18 }}
       >
         <Icon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.75} />
       </motion.span>
-      <p className="text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-white/40 sm:text-[0.65rem] sm:tracking-[0.16em]">
-        {item.label}
-      </p>
-      <p
-        className={`mt-1.5 font-semibold leading-snug text-white sm:mt-2 sm:text-[0.95rem] ${
-          isLongValue
-            ? 'text-[0.68rem] break-words sm:text-sm sm:leading-relaxed'
-            : 'text-xs sm:leading-relaxed'
-        }`}
-      >
-        {item.value}
-      </p>
-      {item.href && (
-        <span className="mt-2 inline-flex items-center gap-1 text-[0.65rem] font-semibold text-accent/70 transition group-hover:text-accent sm:mt-3 sm:text-xs">
-          Open
-          <span aria-hidden>→</span>
-        </span>
-      )}
-    </>
+      <span className="min-w-0 flex-1">
+        <p className="text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-white/40 sm:text-[0.65rem] sm:tracking-[0.16em]">
+          {item.label}
+        </p>
+        <p
+          className={`mt-1 font-semibold leading-snug text-white sm:mt-1.5 sm:text-[0.95rem] ${
+            isLongValue
+              ? 'text-[0.68rem] break-words sm:text-sm sm:leading-relaxed'
+              : 'text-xs sm:leading-relaxed'
+          }`}
+        >
+          {item.value}
+        </p>
+        {item.href && (
+          <span className="mt-1.5 inline-flex items-center gap-1 text-[0.65rem] font-semibold text-accent/70 transition group-hover:text-accent sm:mt-2 sm:text-xs">
+            Open
+            <span aria-hidden>→</span>
+          </span>
+        )}
+      </span>
+    </span>
   )
 
   const cardClass =
-    'group relative flex h-full min-h-[8.5rem] flex-col overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3.5 transition-colors hover:border-accent/30 hover:bg-white/[0.05] sm:min-h-0 sm:rounded-2xl sm:p-7'
+    'group relative flex h-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3.5 transition-colors hover:border-accent/30 hover:bg-white/[0.05] sm:rounded-2xl sm:p-6'
 
   return (
     <motion.li variants={fadeUp}>
@@ -84,7 +87,7 @@ function ContactCard({ item }) {
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(30,69,255,0.12),transparent_55%)] opacity-0 transition group-hover:opacity-100"
             aria-hidden
           />
-          <span className="relative">{content}</span>
+          {content}
         </motion.a>
       ) : (
         <motion.div
@@ -102,25 +105,43 @@ function ContactCard({ item }) {
 export default function ContactSection() {
   return (
     <section id="contact" className="relative overflow-hidden bg-black font-sans text-white">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(30,69,255,0.14),transparent_55%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(223,255,0,0.07),transparent_50%)]"
-        aria-hidden
-      />
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <MagicRings
+          color="#dfff00"
+          colorTwo="#8fa600"
+          ringCount={7}
+          speed={0.9}
+          attenuation={11}
+          lineThickness={2.2}
+          baseRadius={0.22}
+          radiusStep={0.09}
+          scaleRate={0.12}
+          opacity={0.75}
+          blur={0}
+          noiseAmount={0.06}
+          rotation={0}
+          ringGap={1.45}
+          fadeIn={0.7}
+          fadeOut={0.5}
+          followMouse
+          mouseInfluence={0.16}
+          hoverScale={1.12}
+          parallax={0.04}
+          clickBurst={false}
+          alphaMode="luminance"
+        />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-5 pt-12 pb-4 sm:px-6 sm:pt-16 sm:pb-6 lg:px-8 lg:py-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 pt-12 pb-4 sm:px-6 sm:pt-16 sm:pb-6 lg:px-8 lg:py-24">
         <div className="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
             variants={stagger}
-            className="lg:sticky lg:top-[calc(var(--navbar-height)+2rem)]"
+            className="relative lg:sticky lg:top-[calc(var(--navbar-height)+2rem)]"
           >
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="relative z-10">
               <LetterSwap
                 text={contactIntro.label.toUpperCase()}
                 className="text-xs font-semibold uppercase tracking-[0.2em]"

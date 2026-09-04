@@ -254,6 +254,29 @@ body {
   font-size: clamp(1.125rem, 2.5vw, 1.75rem);
 }
 
+.footer-watermark {
+  font-size: clamp(3rem, 14vw, 10.5rem);
+}
+
+@keyframes portfolio-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.portfolio-marquee {
+  animation: portfolio-marquee-scroll 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-marquee {
+    animation: none;
+  }
+}
+
 .footer-link:hover {
   color: var(--color-accent);
 }

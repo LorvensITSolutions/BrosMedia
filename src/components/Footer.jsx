@@ -48,8 +48,8 @@ export default function Footer() {
   const emailHref = `mailto:${footerIntro.email}?subject=${encodeURIComponent('Project inquiry — Brosmedia')}`
 
   return (
-    <footer className="footer-illucus border-t border-white/6 bg-[#0a0a0c] pb-20 font-sans text-white sm:pb-24">
-      <div className="mx-auto max-w-352 px-5 pt-6 pb-8 sm:px-8 sm:pt-8 sm:pb-10 lg:px-12 lg:pt-10 lg:pb-12">
+    <footer className="footer-illucus border-t border-white/6 bg-[#0a0a0c] font-sans text-white">
+      <div className="mx-auto max-w-352 px-5 pt-6 pb-0 sm:px-8 sm:pt-8 lg:px-12 lg:pt-10">
         <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-12">
           <div className="sm:col-span-2 lg:col-span-4">
             <Link
@@ -71,12 +71,7 @@ export default function Footer() {
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/45">
               {footerIntro.tagline}
             </p>
-            <p className="mt-5 text-xs text-white/30 sm:text-sm">
-              {year} © All Rights Reserved by {footerIntro.companyName}
-            </p>
           </div>
-
-        
 
           <nav className="lg:col-span-3" aria-label="Social and contact links">
             <FooterHeading>Connect</FooterHeading>
@@ -116,7 +111,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-8 border-t border-white/6 pt-10 sm:mt-14 sm:gap-10 sm:pt-12 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+        <div className="mt-6 flex flex-col gap-4 border-t border-white/6 pt-5 sm:mt-8 sm:flex-row sm:items-end sm:justify-between sm:gap-8 sm:pt-6 lg:gap-10">
           <a
             href={emailHref}
             className="footer-email group inline-flex max-w-full shrink-0 items-start gap-2"
@@ -144,6 +139,18 @@ export default function Footer() {
             </ul>
           </nav>
         </div>
+      </div>
+
+      <div className="relative mt-4 flex flex-col items-center justify-center overflow-hidden border-t border-white/6 pt-3 sm:mt-5 sm:pt-4">
+        <p
+          aria-hidden
+          className="footer-watermark pointer-events-none w-full select-none text-center font-black leading-none tracking-[-0.055em] text-accent"
+        >
+          BROSMEDIA
+        </p>
+        <p className="relative z-10 -mt-1 w-full px-5 text-center text-[0.7rem] leading-none text-white/55 sm:text-xs">
+          © {year} {footerIntro.companyName}. All rights reserved.
+        </p>
       </div>
     </footer>
   )

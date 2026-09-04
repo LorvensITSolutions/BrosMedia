@@ -7,7 +7,7 @@ export const industriesStrip = [
   'Co-living',
   'Sports',
   'Healthcare',
-  'Education',
+  'NGO / Non-profit',
   'Boutique',
   'Food Exports',
   'Technology',
