@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useMotionValue } from 'framer-motion'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { isProgrammaticScrolling } from '../data/navigation'
 import { getNavbarHeightPx, PANEL_HEIGHT } from './useCreativeGalleryMetrics.js'
 
 /**
@@ -48,7 +49,8 @@ export function useCreativeWorkScrollPin(sectionRef, scrollDistance, holdDistanc
 
       progress.set(nextProgress)
       setPinPhase((prev) => {
-        if (prev !== phase && phase === 'after') {
+        // Refreshing ScrollTrigger mid nav-scroll cancels the jump past this pin.
+        if (prev !== phase && phase === 'after' && !isProgrammaticScrolling()) {
           requestAnimationFrame(() => ScrollTrigger.refresh())
         }
         return prev === phase ? prev : phase

@@ -5,12 +5,15 @@ import { contact, siteTagline } from './seo'
 export const footerIntro = {
   companyName: 'Brosmedia',
   tagline: siteTagline,
-  address: contact.addressDisplay,
+  addressLines: [
+    '1st Floor, Road No. 86, Jubilee Hills,',
+    'Hyderabad, Telangana 500096',
+  ],
   mapsUrl: contact.mapsUrl,
   phone: contact.phoneDisplay,
   phoneHref: contact.phone,
   email: contactEmail,
-  workingHours: 'Monday to Saturday, 10 AM – 7 PM IST',
+  workingHours: 'Monday to Saturday, 10 AM - 7 PM IST',
 }
 
 export const footerNavLinks = navLinks

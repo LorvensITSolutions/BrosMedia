@@ -6,7 +6,7 @@
   --color-secondary: #dfff00;
   --color-accent: #dfff00;
   --color-blue: #1e45ff;
-  /* Blue on white/light surfaces; green (accent) on black/dark surfaces */
+  /* Dark: green accent on black. Light: blue accent on white. */
   --color-nav: #ffffff;
   --color-white: #ffffff;
 }
@@ -14,6 +14,29 @@
 :root {
   --navbar-height: calc(3.75rem + env(safe-area-inset-top, 0px));
   --nav-notch-radius: 1.25rem;
+  --page-bg: #000000;
+  --page-ink: #ffffff;
+  --page-muted: rgba(255, 255, 255, 0.55);
+  --page-border: rgba(255, 255, 255, 0.12);
+  --page-surface: rgba(255, 255, 255, 0.03);
+  --page-surface-hover: rgba(255, 255, 255, 0.05);
+  --page-surface-strong: #0a0a0c;
+  --accent-rgb: 223, 255, 0;
+  color-scheme: dark;
+}
+
+html[data-theme='light'] {
+  --page-bg: #ffffff;
+  --page-ink: #0a0a0c;
+  --page-muted: rgba(10, 10, 12, 0.58);
+  --page-border: rgba(10, 10, 12, 0.12);
+  --page-surface: rgba(10, 10, 12, 0.03);
+  --page-surface-hover: rgba(10, 10, 12, 0.05);
+  --page-surface-strong: #f3f3f0;
+  --color-accent: #1e45ff;
+  --color-secondary: #1e45ff;
+  --accent-rgb: 30, 69, 255;
+  color-scheme: light;
 }
 
 html,
@@ -22,6 +45,39 @@ body {
   max-width: 100%;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background: var(--page-bg);
+  color: var(--page-ink);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.theme-toggle {
+  position: fixed;
+  right: calc(1rem + env(safe-area-inset-right, 0px));
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 9999px;
+  background: #dfff00;
+  color: #000000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .theme-toggle {
+    right: calc(1.5rem + env(safe-area-inset-right, 0px));
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+html[data-theme='light'] .theme-toggle {
+  background: #1e45ff;
+  color: #ffffff;
 }
 
 html::-webkit-scrollbar,
@@ -271,10 +327,35 @@ body {
   animation: portfolio-marquee-scroll 28s linear infinite;
 }
 
+.portfolio-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 639px) {
+  .portfolio-marquee {
+    animation-duration: 38s;
+  }
+}
+
+@media (hover: none) {
+  .portfolio-marquee:hover {
+    animation-play-state: running;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .portfolio-marquee {
     animation: none;
   }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 .footer-link:hover {

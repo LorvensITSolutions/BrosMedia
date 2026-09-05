@@ -7,7 +7,6 @@ import {
   getPinPanelStyle,
   useCreativeWorkScrollPin,
 } from '../framer/useCreativeWorkScrollPin.js'
-import ViewOnInstagramButton from '../framer/view_on_instagram_button.jsx'
 
 const HERO_IMAGES = [
   {
@@ -200,15 +199,6 @@ export default function WorkStreamSection() {
               borderRadius={12}
               className="creative-work-gallery-shell w-full"
             />
-            <motion.div
-              className="relative z-10 mt-3 flex w-full justify-center sm:mt-5"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <ViewOnInstagramButton />
-            </motion.div>
           </div>
         </div>
       </div>

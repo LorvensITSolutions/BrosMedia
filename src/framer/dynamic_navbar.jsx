@@ -173,7 +173,9 @@ function SidebarContact() {
         Get in touch
       </p>
 
-      <p className="text-xs leading-relaxed text-white/50 sm:text-[0.8125rem]">{footerIntro.address}</p>
+      <p className="text-xs leading-relaxed text-white/50 sm:text-[0.8125rem]">
+        {footerIntro.addressLines.join(' ')}
+      </p>
 
       <div className="flex flex-col gap-3">
         <a
@@ -271,7 +273,7 @@ function SidebarMenu({ onClose }) {
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white p-1 transition-transform group-hover:scale-105 sm:h-9 sm:w-9">
               <img src={LOGO_URL} alt="" className="h-full w-full object-contain" />
             </span>
-            <span className="text-lg font-black lowercase tracking-tight text-white sm:text-xl">
+            <span className="text-base font-semibold lowercase tracking-tight text-white sm:text-lg">
               brosmedia
             </span>
           </a>
@@ -286,30 +288,22 @@ function SidebarMenu({ onClose }) {
             exit="exit"
           >
             <ul className="flex flex-col gap-0.5 pb-4">
-              {menuLinks.map((link, index) => {
+              {menuLinks.map((link) => {
                 const isActive = isNavLinkActive(link.to, pathname, hash)
-                const indexLabel = String(index + 1).padStart(2, '0')
 
                 return (
                   <motion.li key={link.to} variants={itemVariants} className="overflow-visible">
                     <a
                       href={link.to}
                       onClick={(event) => handleNavClick(event, link)}
-                      className="group flex items-center gap-3 rounded-lg px-1 py-2 transition-colors hover:bg-white/[0.03] sm:gap-4 sm:py-2.5"
+                      className="group flex items-center rounded-lg px-1 py-2 transition-colors hover:bg-white/[0.03] sm:py-2.5"
                     >
-                      <span
-                        className={`w-6 shrink-0 text-[0.65rem] font-semibold tracking-[0.18em] transition-colors sm:text-xs ${
-                          isActive ? 'text-accent' : 'text-white/30 group-hover:text-accent/70'
-                        }`}
-                      >
-                        {indexLabel}
-                      </span>
                       <span className="min-w-0 flex-1 overflow-visible py-0.5">
                         <motion.span
-                          className={`block font-black leading-[1.15] tracking-tight transition-colors text-[clamp(1.25rem,2.8vw,1.85rem)] ${
-                            isActive ? 'text-accent' : 'text-white group-hover:text-accent'
+                          className={`block text-[clamp(1.1rem,2.4vw,1.4rem)] font-semibold leading-snug tracking-tight transition-colors ${
+                            isActive ? 'text-accent' : 'text-white/90 group-hover:text-accent'
                           }`}
-                          whileHover={{ x: 5 }}
+                          whileHover={{ x: 4 }}
                           transition={springSnappy}
                         >
                           {link.label}
@@ -377,10 +371,10 @@ export default function DynamicNavbar() {
                 event.preventDefault()
                 navigateToHomeSection(navigate, routes.home)
               }}
-              className="group inline-flex items-center rounded-full bg-white/95 p-1.5 backdrop-blur-md transition hover:bg-white sm:p-2"
+              className="group inline-flex items-center rounded-full bg-white/95 p-1 backdrop-blur-md transition hover:bg-white sm:p-1.5"
               aria-label="Brosmedia home"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-white p-0.5 sm:h-11 sm:w-11">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white p-0.5 sm:h-10 sm:w-10">
                 <img src={LOGO_URL} alt="" className="h-full w-full object-contain" />
               </span>
             </a>

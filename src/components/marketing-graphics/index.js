@@ -1,5 +1,0 @@
-export { default as MarketingGraphic } from './MarketingGraphic'
-export { default as SectionDecor } from './SectionDecor'
-export { GRAPHICS } from './graphics'
-export * from './ServiceIcons'
-export * from './tokens'

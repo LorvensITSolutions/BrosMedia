@@ -1,37 +1,32 @@
-export const REEL_VIDEO_SRC =
-  'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/IMG_8402.MOV'
-
-export const EXAMPLE_INSTAGRAM_REEL = 'https://www.instagram.com/reel/DcoBZ9lEsGi/'
-
-/** Use hosted MP4/MOV for full-bleed cards. Instagram embeds cannot fill the card without their UI. */
-export const NARENN_REEL_VIDEO = REEL_VIDEO_SRC
-
-const reelClients = [
-  'Narenn Living',
-  'Hyderabad FC',
-  'Narenn Group',
-  'Urban Estates',
-  'Metro Kitchens',
-  'Skyline Motors',
-  'Greenleaf Organics',
-  'Apex Athletics',
-  'Studio Verse',
+/** Hosted MP4s for full-bleed reel cards. */
+export const REELS_VIDEOS = [
+  {
+    client: 'Narenn Living',
+    video: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/narenn_video.mp4',
+  },
+  {
+    client: 'Vizag Seahawks',
+    video: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/seahawks_video.mp4',
+  },
+  {
+    client: 'Nellore Wolves',
+    video: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/nellore_video.mp4',
+  },
+  {
+    client: 'MB Prime',
+    video: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/mbprime_video.mp4',
+  },
+  {
+    client: 'Zarivaram',
+    video: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/zarivaram_video.mp4',
+  },
 ]
 
-export const REELS_CAROUSEL_ITEMS = reelClients.map((client, index) => ({
+export const REELS_CAROUSEL_ITEMS = REELS_VIDEOS.map(({ client, video }) => ({
   mediaType: 'Video',
-  video: index === 0 ? NARENN_REEL_VIDEO : REEL_VIDEO_SRC,
+  video,
   title: client,
   description: '',
-  ...(index === 0
-    ? {
-        link: {
-          type: 'url',
-          url: EXAMPLE_INSTAGRAM_REEL,
-          target: '_blank',
-        },
-      }
-    : {}),
 }))
 
 export const reelsIntro = {

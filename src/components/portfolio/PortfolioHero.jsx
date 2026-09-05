@@ -1,40 +1,19 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import EyeFollowButton from '../../framer/eye_follow_button.jsx'
-import StarMovement from '../../framer/star_movement.jsx'
-import GlowCursor from '../ui/GlowCursor.jsx'
-import {
-  portfolioHeroCta,
-  portfolioHeroPreviews,
-  portfolioIntro,
-} from '../../data/portfolio'
+import { ChevronDown } from 'lucide-react'
+import { portfolioIntro } from '../../data/portfolio'
+import { useTheme } from '../../lib/ThemeProvider.jsx'
 
 const spring = { type: 'spring', stiffness: 100, damping: 20, mass: 0.7 }
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: spring },
-}
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.07, delayChildren: 0.04 } },
-}
-
-const HEADLINE_LINES = [
-  { text: 'Real brands.', accent: false },
-  { text: 'Real work.', accent: false },
-  { text: 'Real results.', accent: true },
-]
 
 const lineContainer = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.045, delayChildren: 0.08 },
+    transition: { staggerChildren: 0.04, delayChildren: 0.12 },
   },
 }
 
 const letterReveal = {
-  hidden: { y: '110%', opacity: 0 },
+  hidden: { y: '115%', opacity: 0 },
   visible: {
     y: '0%',
     opacity: 1,
@@ -42,14 +21,29 @@ const letterReveal = {
   },
 }
 
-function AnimatedHeadline() {
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { ...spring, delay: 0.35 } },
+}
+
+const TITLE_LINES = [
+  { text: 'OUR', accent: true },
+  { text: 'PORTFOLIO', accent: false },
+]
+
+function MotionTitle() {
   const reduceMotion = useReducedMotion()
+  const titleClass =
+    'text-center text-[clamp(2.55rem,13vw,7rem)] font-black uppercase leading-[0.88] tracking-[-0.03em] sm:text-[clamp(3rem,11vw,7rem)] sm:leading-[0.86]'
 
   if (reduceMotion) {
     return (
-      <h1 className="text-[clamp(2.55rem,7.5vw,4.85rem)] font-black leading-[0.92] tracking-tight text-white">
-        {HEADLINE_LINES.map((line) => (
-          <span key={line.text} className={`block ${line.accent ? 'text-accent' : ''}`}>
+      <h1 className={titleClass}>
+        {TITLE_LINES.map((line) => (
+          <span
+            key={line.text}
+            className={`block ${line.accent ? 'text-accent' : 'text-[var(--page-ink)]'}`}
+          >
             {line.text}
           </span>
         ))}
@@ -59,20 +53,22 @@ function AnimatedHeadline() {
 
   return (
     <motion.h1
-      aria-label="Real brands. Real work. Real results."
+      aria-label="Our Portfolio"
       variants={lineContainer}
-      className="text-[clamp(2.55rem,7.5vw,4.85rem)] font-black leading-[0.92] tracking-tight text-white"
+      initial="hidden"
+      animate="visible"
+      className={titleClass}
     >
-      {HEADLINE_LINES.map((line, lineIndex) => (
+      {TITLE_LINES.map((line, lineIndex) => (
         <motion.span
           key={line.text}
-          className={`block overflow-hidden ${line.accent ? 'text-accent' : ''}`}
+          className={`block overflow-hidden ${line.accent ? 'text-accent' : 'text-[var(--page-ink)]'}`}
           variants={{
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.028,
-                delayChildren: lineIndex * 0.12,
+                staggerChildren: 0.03,
+                delayChildren: lineIndex * 0.15,
               },
             },
           }}
@@ -83,9 +79,8 @@ function AnimatedHeadline() {
               variants={letterReveal}
               className="inline-block"
               aria-hidden="true"
-              style={char === ' ' ? { width: '0.28em' } : undefined}
             >
-              {char === ' ' ? '\u00A0' : char}
+              {char}
             </motion.span>
           ))}
         </motion.span>
@@ -94,158 +89,107 @@ function AnimatedHeadline() {
   )
 }
 
-function InfoCard() {
-  return (
-    <motion.div
-      variants={fadeUp}
-      className="mt-6 w-full max-w-lg rounded-[1.5rem] border border-white/10 bg-white/5 backdrop-blur-sm sm:mt-8 sm:max-w-[30rem]"
-    >
-      <p className="px-5 py-5 text-[0.92rem] leading-[1.55] text-white/70 sm:px-6 sm:py-6 sm:text-[0.98rem]">
-        {portfolioIntro.description}
-      </p>
-    </motion.div>
-  )
-}
-
-function ProjectCollage() {
-  const reduceMotion = useReducedMotion()
-
-  return (
-    <div className="relative mx-auto mt-2 h-[24rem] w-full max-w-[28rem] sm:mt-4 sm:h-[29rem] sm:max-w-[34rem] lg:mt-4 lg:h-[34rem] lg:max-w-none xl:h-[36rem]">
-      {portfolioHeroPreviews.map((preview, index) => (
-        <motion.article
-          key={preview.id}
-          className="absolute w-[54%] rounded-[1.15rem] bg-white/95 p-[0.55rem] shadow-[0_18px_40px_rgba(0,0,0,0.45)] sm:w-[52%] sm:rounded-[1.35rem] sm:p-2.5"
-          style={{
-            left: preview.x,
-            top: preview.y,
-            zIndex: preview.z,
-          }}
-          initial={{ opacity: 0, y: 30, rotate: preview.rotate * 0.4, scale: 0.94 }}
-          animate={{ opacity: 1, y: 0, rotate: preview.rotate, scale: 1 }}
-          transition={{ ...spring, delay: 0.16 + index * 0.09 }}
-          whileHover={
-            reduceMotion
-              ? undefined
-              : {
-                  y: -10,
-                  rotate: preview.rotate * 0.25,
-                  scale: 1.04,
-                  zIndex: 30,
-                  transition: { type: 'spring', stiffness: 260, damping: 18 },
-                }
-          }
-        >
-          <div className="relative overflow-hidden rounded-[0.85rem] bg-[#eef0ea] sm:rounded-[1rem]">
-            <img
-              src={preview.src}
-              alt={preview.alt}
-              className="aspect-[4/3.4] w-full object-cover"
-              loading={index > 1 ? 'lazy' : 'eager'}
-            />
-          </div>
-          <p className="mt-2 px-0.5 text-[0.68rem] font-medium tracking-wide text-[#8a8a8a]">
-            project preview
-          </p>
-        </motion.article>
-      ))}
-    </div>
-  )
-}
-
 export default function PortfolioHero({ onExplore }) {
-  const reduceMotion = useReducedMotion()
+  const { isLight } = useTheme()
+
+  const handleExplore = () => {
+    if (typeof onExplore === 'function') {
+      onExplore()
+      return
+    }
+    const el = document.getElementById('about-us')
+    if (!el) return
+    const navHeight = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--navbar-height') || '76',
+    )
+    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 12
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
 
   return (
-    <section className="relative overflow-hidden bg-black font-sans text-white">
-      <GlowCursor
-        className="h-auto min-h-full"
-        style={{ height: 'auto' }}
-        color="#dfff00"
-        secondaryColor="#8fa600"
-        trailLength={40}
-        trailWidth={8}
-        trailTaper={0.8}
-        followSpeed={0.16}
-        glowIntensity={1.9}
-        glowSpread={1.2}
-        hotspot={0.65}
-        brightness={1.25}
-        opacity={1}
-        pulseSpeed={1.1}
-        noiseStrength={0.035}
-        idleFade
-        idleTimeout={700}
-        fadeDuration={900}
-        blendMode="screen"
-        enabled={!reduceMotion}
-      >
-        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-          <StarMovement
-            starCount={220}
-            starSize={1.6}
-            starColor="#dfff00"
-            backgroundColor="#000000"
-            interactionRadius={200}
-            interactionStrength={5.5}
-            returnSpeed={0.08}
-          />
-        </div>
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[var(--page-bg)] font-sans text-[var(--page-ink)]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse at 50% 35%, rgba(var(--accent-rgb), ${isLight ? 0.18 : 0.14}), transparent ${isLight ? '58%' : '55%'})`,
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-16 top-1/4 h-48 w-48 rounded-full bg-accent/10 blur-3xl sm:-left-24 sm:h-72 sm:w-72"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-12 bottom-1/4 h-44 w-44 rounded-full bg-accent/8 blur-3xl sm:-right-20 sm:h-64 sm:w-64"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage:
+            'linear-gradient(var(--page-ink) 1px, transparent 1px), linear-gradient(90deg, var(--page-ink) 1px, transparent 1px)',
+          backgroundSize: '56px 56px',
+          maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 72%)',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--page-bg)] to-transparent sm:h-32"
+      />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-5 pb-12 pt-[calc(var(--navbar-height)+0.35rem)] sm:gap-10 sm:px-6 sm:pb-14 sm:pt-[calc(var(--navbar-height)+0.75rem)] lg:grid-cols-[1.15fr_0.95fr] lg:gap-6 lg:px-8 lg:pb-16 xl:gap-8 2xl:max-w-[1400px]">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="relative z-10 max-w-xl lg:max-w-none"
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 pb-28 pt-[calc(var(--navbar-height)+1.75rem)] text-center sm:px-6 sm:pb-24 sm:pt-[calc(var(--navbar-height)+2.5rem)]">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...spring, delay: 0.05 }}
+          className="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.26em] text-accent sm:mb-6 sm:text-xs sm:tracking-[0.28em]"
+        >
+          Brosmedia Work
+        </motion.p>
+
+        <MotionTitle />
+
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ ...spring, delay: 0.4 }}
+          className="mt-5 h-px w-14 origin-center bg-accent sm:mt-8 sm:w-20"
+        />
+
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="mt-5 max-w-sm text-[0.9rem] leading-relaxed text-[var(--page-muted)] sm:mt-7 sm:max-w-xl sm:text-base sm:leading-[1.7]"
+        >
+          {portfolioIntro.heroSubline}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...spring, delay: 0.55 }}
+          className="relative z-20 mt-8 sm:mt-12"
+        >
+          <button
+            type="button"
+            onClick={handleExplore}
+            aria-label="Scroll to About Us"
+            className="relative z-20 flex min-h-12 min-w-12 cursor-pointer items-center justify-center p-3 text-accent transition hover:opacity-80"
           >
-            <AnimatedHeadline />
-
-            <InfoCard />
-
-            <motion.div
-              variants={fadeUp}
-              className="mt-7 flex flex-col items-start gap-5 sm:mt-8 sm:flex-row sm:items-center sm:gap-7"
+            <motion.span
+              className="pointer-events-none block"
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <motion.div
-                className="rounded-full shadow-[0_0_0_7px_rgba(223,255,0,0.22)]"
-                whileHover={{ y: -3, scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={spring}
-              >
-                <EyeFollowButton
-                  text={portfolioHeroCta.primary}
-                  onClick={onExplore}
-                  buttonColor="#dfff00"
-                  hoverColor="#ffffff"
-                  textColor="#000000"
-                  pupilColor="#000000"
-                  eyeColor="#ffffff"
-                  className="portfolio-hero-cta"
-                />
-              </motion.div>
+              <ChevronDown className="h-8 w-8 sm:h-9 sm:w-9" strokeWidth={2.25} />
+            </motion.span>
+          </button>
+        </motion.div>
 
-              <motion.a
-                href={portfolioHeroCta.secondaryHref}
-                className="group relative inline-flex text-[0.95rem] font-semibold text-white"
-                whileHover={{ x: 4 }}
-                whileTap={{ scale: 0.98 }}
-                transition={spring}
-              >
-                <span>{portfolioHeroCta.secondary}</span>
-                <span
-                  aria-hidden
-                  className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100"
-                />
-              </motion.a>
-            </motion.div>
-          </motion.div>
-
-          <div className="relative z-10 w-full lg:pl-2">
-            <ProjectCollage />
-          </div>
-        </div>
-      </GlowCursor>
+        <p className="sr-only">{portfolioIntro.description}</p>
+      </div>
     </section>
   )
 }

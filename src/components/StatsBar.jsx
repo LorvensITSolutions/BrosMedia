@@ -1,9 +1,9 @@
 import StatsSection from '../framer/stats_section.jsx'
 
 const stats = [
-  { value: 13, label: 'Brands Built', suffix: '+', decimals: 0 },
-  { value: 6, label: 'Industries', decimals: 0 },
-  { value: 1, label: 'Of Execution', suffix: ' Yr', decimals: 0 },
+  { value: 12, label: 'Brands Built', suffix: '+', decimals: 0 },
+  { value: 9, label: 'Industries',suffix: '+', decimals: 0 },
+  { value: 1, label: 'Of Execution', suffix: '+ Yr', decimals: 0 },
   { value: 360, label: 'Brand Services', suffix: '°', decimals: 0 },
 ]
 

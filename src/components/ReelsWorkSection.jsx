@@ -8,7 +8,6 @@ import {
   reelsCarouselTheme,
   reelsIntro,
 } from '../data/reelsWork.js'
-import ViewOnInstagramButton from '../framer/view_on_instagram_button.jsx'
 
 const spring = { type: 'spring', stiffness: 80, damping: 22, mass: 0.8 }
 const viewport = { once: true, margin: '-80px' }
@@ -196,15 +195,6 @@ export default function ReelsWorkSection() {
           onVideoOpen={setActiveReel}
           minHeight={metrics.carouselMinHeight}
         />
-        <motion.div
-          className="mt-5 flex justify-center px-4 sm:mt-7"
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewport}
-          transition={{ ...spring, delay: 0.12 }}
-        >
-          <ViewOnInstagramButton />
-        </motion.div>
       </div>
 
       <ReelVideoModal reel={activeReel} onClose={() => setActiveReel(null)} />

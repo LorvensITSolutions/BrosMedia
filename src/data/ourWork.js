@@ -6,10 +6,21 @@ export const ourWorkIntro = {
 }
 
 export const ourWorkStats = [
-  { value: '11', label: 'Clients served' },
-  { value: '10+', label: 'Industries' },
-  { value: '9', label: 'Service types' },
-  { value: '9', label: 'Live websites' },
+  {
+    value: '11+',
+    label: 'Clients served',
+    icon: 'clients',
+  },
+  {
+    value: '10+',
+    label: 'Industries',
+    icon: 'industries',
+  },
+  {
+    value: '9+',
+    label: 'Live websites',
+    icon: 'websites',
+  },
 ]
 
 export const ourWorkMarqueeItems = [
@@ -132,7 +143,7 @@ export const portfolioClients = [
     goal: 'Turn online attention into actual store visits',
     whatWeDid:
       'Video editing, creative/poster design, Instagram posting, event planning (e.g. Mayabazar)',
-    result: 'Increased footfall — customers visiting the store to buy',
+    result: 'Increased footfall - customers visiting the store to buy',
     workDone:
       'Video editing, creative/poster design, Instagram posting, event planning (e.g. Mayabazar)',
     website: 'zarivaram.vercel.app',
