@@ -38,7 +38,7 @@ export const teamFounders = [
     shortName: 'Akhil',
     role: 'Co-Founder',
     bio: 'Drives growth and partnerships so Brosmedia stays sharp for every client.',
-    photo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/akhilsir-pic.jpeg',
+    photo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/akhilsir----pic.png',
     initials: 'AV',
   },
 ]
