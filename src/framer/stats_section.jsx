@@ -171,6 +171,7 @@ export default function StatsSection({
   background = 'transparent',
   borderRadius = 0,
   className = '',
+  fullWidth = false,
 }) {
   const ref = useRef(null)
   const [started, setStarted] = useState(false)
@@ -196,6 +197,8 @@ export default function StatsSection({
   }, [])
 
   useEffect(() => {
+    if (fullWidth) return undefined
+
     const calculate = () => {
       const max = Math.max(
         minItemWidth,
@@ -214,7 +217,7 @@ export default function StatsSection({
     }
 
     document.fonts.ready.then(calculate)
-  }, [stats, fontSize, fontWeight, fontFamily, separator, minItemWidth])
+  }, [stats, fontSize, fontWeight, fontFamily, separator, minItemWidth, fullWidth])
 
   useEffect(() => {
     if (!triggerOnView) {
@@ -244,15 +247,20 @@ export default function StatsSection({
       ref={ref}
       className={className}
       style={{
-        display: isMobile ? 'grid' : 'flex',
-        gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : undefined,
-        flexWrap: isMobile ? undefined : 'wrap',
+        display: fullWidth || isMobile ? 'grid' : 'flex',
+        gridTemplateColumns:
+          fullWidth && !isMobile
+            ? `repeat(${Math.max(stats.length, 1)}, minmax(0, 1fr))`
+            : fullWidth || isMobile
+              ? 'repeat(2, minmax(0, 1fr))'
+              : undefined,
+        flexWrap: fullWidth || isMobile ? undefined : 'wrap',
         justifyContent: 'center',
         columnGap: activeColumnGap,
         rowGap: activeRowGap,
         width: '100%',
-        maxWidth: isMobile ? 420 : undefined,
-        marginInline: isMobile ? 'auto' : undefined,
+        maxWidth: fullWidth ? '100%' : isMobile ? 420 : undefined,
+        marginInline: fullWidth ? 0 : isMobile ? 'auto' : undefined,
         paddingTop: isMobile ? (mobilePaddingTop ?? Math.min(paddingTop, 12)) : paddingTop,
         paddingRight: isMobile ? Math.min(paddingRight, 20) : paddingRight,
         paddingBottom: isMobile ? Math.min(paddingBottom, 24) : paddingBottom,
@@ -273,7 +281,7 @@ export default function StatsSection({
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              width: isMobile ? 'auto' : cellWidth,
+              width: fullWidth || isMobile ? '100%' : cellWidth,
               flexShrink: 0,
               boxSizing: 'border-box',
               paddingLeft: showDivider ? 12 : 0,

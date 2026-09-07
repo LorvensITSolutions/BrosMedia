@@ -161,28 +161,23 @@ export default function WorkStreamSection() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.4 }}
             >
-              <motion.span
+              <motion.p
                 custom={0.05}
                 variants={fadeUp}
-                className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-accent/50 bg-accent px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.14em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[0.65rem] sm:tracking-[0.2em]"
+                className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-accent"
               >
-                <motion.span
-                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
-                  animate={{ scale: [1, 1.35, 1], opacity: [1, 0.55, 1] }}
-                  transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-                />
-                <span className="truncate">Work That Earns Eyes</span>
-              </motion.span>
+                Work That Earns Eyes
+              </motion.p>
 
               <motion.div custom={0.18} variants={fadeUp} className="mt-1.5 sm:mt-2">
                 <motion.p
                   aria-hidden="true"
-                  className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 text-[clamp(1.5rem,8vw,2.4rem)] font-black uppercase leading-none tracking-tight text-accent sm:gap-x-3 sm:text-[clamp(2rem,6.5vw,3.25rem)]"
+                  className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 text-[clamp(1.5rem,8vw,2.4rem)] font-black uppercase leading-none tracking-tight text-white sm:gap-x-3 sm:text-[clamp(2rem,6.5vw,3.25rem)]"
                   animate={{ y: [0, -3, 0] }}
                   transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
                 >
                   <span>Creative</span>
-                  <span className="text-blue">Work</span>
+                  <span className="text-accent">Work</span>
                 </motion.p>
               </motion.div>
 

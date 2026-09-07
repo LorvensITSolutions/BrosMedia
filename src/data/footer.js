@@ -30,6 +30,11 @@ export const footerSocialLinks = [
     external: true,
   },
   {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/showcase/bros-media-in',
+    external: true,
+  },
+  {
     label: 'WhatsApp',
     href: getContactWhatsAppHref(),
     external: true,

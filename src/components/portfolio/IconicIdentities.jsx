@@ -42,24 +42,31 @@ function LogoCard({ client }) {
     </span>
   )
 
-  if (href) {
-    return (
-      <motion.a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        variants={scaleIn}
-        className={cardClass}
-        aria-label={client.client}
-      >
-        {inner}
-      </motion.a>
-    )
-  }
+  const media = href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cardClass}
+      aria-label={client.client}
+    >
+      {inner}
+    </a>
+  ) : (
+    <div className={cardClass}>{inner}</div>
+  )
 
   return (
-    <motion.div variants={scaleIn} className={cardClass}>
-      {inner}
+    <motion.div variants={scaleIn} className="flex flex-col items-center gap-2.5 text-center">
+      {media}
+      <div className="px-1">
+        <p className="text-xs font-semibold text-[var(--page-ink)] sm:text-sm">{client.client}</p>
+        {client.outcome ? (
+          <p className="mt-1 text-[0.65rem] leading-snug text-[var(--page-muted)] sm:text-xs">
+            {client.outcome}
+          </p>
+        ) : null}
+      </div>
     </motion.div>
   )
 }

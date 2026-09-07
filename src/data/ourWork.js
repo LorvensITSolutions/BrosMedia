@@ -51,32 +51,37 @@ export const portfolioClients = [
     website: 'narennliving.com',
     logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/Insta%20DP%20(1).png',
     instagram: null,
+    outcome: 'Filled beds with SEO + ads + telecalling pipeline',
   },
 {
     id: 'nellore-wolves',
     client: 'Nellore Wolves',
     industry: 'Sports (Andhra Pickle League)',
-    goal: 'Same league, needed the same level of content and social support',
+    goal: 'New APL franchise needed a full brand and fan presence from day one',
     whatWeDid: 'Creatives, posts, video editing, social media handling',
-    result: 'Consistent content and social presence through the season',
+    result:
+      'Launched a new sports franchise identity and kept season-long fan content consistent',
     workDone: 'Creatives, posts, video editing, social media handling',
     website: null,
     logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/WhatsApp+Image+2026-08-03+at+7.25.35+PM-Photoroom%201.png',
     instagram:
       'https://www.instagram.com/nellorewolvesofficial?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==',
+    outcome: 'New franchise → full brand + season-long fan presence',
   },
 {
     id: 'vizag-seahawks',
     client: 'Vizag Seahawks',
     industry: 'Sports (Andhra Pickle League)',
-    goal: 'Needed a digital marketing partner to build fan engagement/visibility',
+    goal: 'New APL franchise needed digital marketing to build fans and visibility from scratch',
     whatWeDid: 'Creatives, posters, video editing, social media handling',
-    result: 'Ongoing digital presence and fan-facing content through the season',
+    result:
+      'Built a debut-season franchise presence with match-day creatives and fan engagement',
     workDone: 'Creatives, posters, video editing, social media handling',
     website: null,
     logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/WhatsApp+Image+2026-07-22+at+17.13.10%201%20(1).png',
     instagram:
       'https://www.instagram.com/vizagseahawksofficial?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==',
+    outcome: 'New franchise → debut-season identity + fan engagement',
   },
 {
     id: 'mb-prime',

@@ -1,69 +1,40 @@
-import { featuredClients, toClientTeaserItem } from './featuredClients'
-
 export const clientsTeaserIntro = {
-  label: 'Clients Teaser',
-  headline: 'Brands that trusted us',
+  label: 'Industries',
+  headline: 'Work across sectors that need attention.',
   description:
-    'From PG and co-living spaces in Hyderabad to pickleball and professional sports teams - plus real estate, healthcare, fashion, food exports, NGOs, and tech brands we have built for.',
+    'Not a logo parade - verticals we actually ship for, with the outcome each one needs.',
 }
 
-const legacyClientsTeaser = [
+/** Results-led industry grid (replaces logo carousel). */
+export const industryResults = [
   {
-    name: 'MB Prime Projects',
-    url: 'https://mbprimeprojects.com/projects/mb-prime-villas',
-    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134726/sklmlogo_c2trtg_cndghd.png',
+    id: 'real-estate',
+    industry: 'Real estate',
+    proof: 'Campaign systems that turn curiosity into site visits',
   },
   {
-    name: 'GoClean Foundation',
-    logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/Secondary%20Logo%20(1).png',
+    id: 'sports',
+    industry: 'Sports franchises',
+    proof: 'New APL teams branded and launched from day one',
   },
   {
-    name: 'Sasha Smiles',
-    url: 'https://sashasmiles.com',
-    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134725/ChatGPT_Image_Dec_8_2025_10_20_32_AM_e1ot2u_kc47qk.png',
+    id: 'co-living',
+    industry: 'Co-living & PG',
+    proof: 'SEO sites + ads + telecalling that fill beds',
   },
   {
-    name: 'Sasha Slimming',
-    url: 'https://sashaslimming.com',
-    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134725/ChatGPT_Image_Dec_8_2025_10_22_29_AM_q09vhf_we6pis.png',
+    id: 'healthcare',
+    industry: 'Healthcare',
+    proof: 'Clinic brands and sites built for trust + bookings',
   },
   {
-    name: 'Lumiere Luxe',
-    url: 'https://lumiereluxe.in',
-    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134725/ChatGPT_Image_Dec_8_2025_10_15_15_AM_ghors1_iwrplf.png',
+    id: 'fashion',
+    industry: 'Fashion & retail',
+    proof: 'Premium presence that grows online enquiries',
   },
   {
-    name: 'Zarivaram',
-    url: 'https://zarivaram.vercel.app',
-    logo: 'https://res.cloudinary.com/dvnplfu6z/image/upload/v1776921469/logo_1_rwdv9g.png',
+    id: 'ngo',
+    industry: 'NGO & public',
+    proof: 'Clear identity and content that builds credibility',
   },
-  {
-    name: 'AMVI Foods',
-    url: 'https://amvifoods.com',
-    logo: 'https://res.cloudinary.com/dnvpasppl/image/upload/v1773392136/Screenshot_2026-03-04_114703-removebg-preview_a5xoie.png',
-  },
-  {
-    name: 'Dista USA',
-    url: 'https://distausa.com/',
-    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134932/Dista_Logo_1_l0kgvo.png',
-  },
-  {
-    name: 'Yalladorababu',
-    url: 'https://yalladorababu.in',
-    logo: 'https://yalladorababu.in/assets/favicon-D8j8vBOq.png',
-  },
-  {
-    name: 'Andhra Machines',
-    url: 'https://andhramachinesagencies.com',
-    logo: 'https://res.cloudinary.com/durbtkhbz/image/upload/v1765255577/logo_sewing_td6tcf.png',
-  },
-  {
-    name: 'Viqantai',
-    logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782133985/ViQant_Logo_bfy9f3.png',
-  },
-]
-
-export const clientsTeaser = [
-  ...featuredClients.map(toClientTeaserItem),
-  ...legacyClientsTeaser,
 ]

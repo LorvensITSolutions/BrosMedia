@@ -2,17 +2,18 @@ import StatsSection from '../framer/stats_section.jsx'
 
 const stats = [
   { value: 12, label: 'Brands Built', suffix: '+', decimals: 0 },
-  { value: 9, label: 'Industries',suffix: '+', decimals: 0 },
-  { value: 1, label: 'Of Execution', suffix: '+ Yr', decimals: 0 },
-  { value: 360, label: 'Brand Services', suffix: '°', decimals: 0 },
+  { value: 10, label: 'Cr Revenue Influenced*', prefix: '₹', suffix: '+', decimals: 0 },
+  { value: 6, label: 'Industries', suffix: '+', decimals: 0 },
+  { value: 1, label: 'Yr Of Execution', suffix: '+', decimals: 0 },
 ]
 
 export default function StatsBar() {
   return (
-    <section className="relative overflow-hidden bg-black px-4 font-sans sm:px-6">
-      <div className="relative z-10 mx-auto max-w-9xl">
+    <section className="relative w-full overflow-hidden bg-black font-sans">
+      <div className="relative z-10 w-full">
         <StatsSection
           stats={stats}
+          fullWidth
           duration={2}
           separator={false}
           triggerOnView
@@ -26,13 +27,16 @@ export default function StatsBar() {
           paddingBottom={32}
           paddingLeft={24}
           mobilePaddingTop={20}
-          columnGap={80}
+          columnGap={0}
           rowGap={24}
           minItemWidth={100}
           font={{ fontSize: 40, fontWeight: 700, fontFamily: 'Montserrat, sans-serif' }}
           labelFont={{ fontSize: 13, fontWeight: 500, fontFamily: 'Montserrat, sans-serif' }}
         />
       </div>
+      <p className="relative z-10 w-full px-4 pb-6 text-center text-[0.65rem] text-white/35 sm:px-6">
+        *Approx. client-side revenue influenced - not Brosmedia billing.
+      </p>
     </section>
   )
 }

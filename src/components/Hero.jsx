@@ -8,12 +8,9 @@ import {
   useTransform,
   useVelocity,
 } from 'framer-motion'
-import { Zap } from 'lucide-react'
-import { routes } from '../data/navigation'
-import NudgeButton from '../framer/nudge_button.jsx'
+import { PrimaryBookingButton } from './ui/HeroStyleCtas'
 import ShowreelButton from '../framer/showreel_button.jsx'
 import HeroCinematicBackground from './hero/HeroCinematicBackground'
-import HeroDecorativeIcons from './hero/HeroDecorativeIcons'
 
 
 const SHOWREEL_URL =
@@ -46,8 +43,9 @@ function HeroMarketingVisual() {
             >
               UNSKIPPABLE
             </p>
-            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/55 sm:max-w-lg sm:text-base">
-              Branding, social &amp; brand systems - built to turn attention into revenue.
+            <p className="mx-auto mt-3 max-w-lg px-1 text-sm leading-relaxed text-white/55 sm:max-w-xl sm:text-base">
+              We&apos;ve built 12+ brands across sports, real estate, fashion, and healthcare —
+              from zero to unforgettable.
             </p>
             <motion.span
               aria-hidden
@@ -163,7 +161,6 @@ export default function Hero() {
       className="scrollbar-hide relative z-10 flex min-h-0 w-full max-w-[100vw] flex-col justify-start overflow-x-hidden bg-[#070A0D] font-sans text-white sm:min-h-svh sm:justify-center"
     >
       <HeroCinematicBackground />
-      <HeroDecorativeIcons />
 
       <div className="relative z-10 flex w-full flex-col justify-start pt-[var(--navbar-height)] pb-0 sm:justify-center sm:pb-8">
         <HeroMarketingVisual />
@@ -190,15 +187,7 @@ export default function Hero() {
           transition={{ duration: 0.55, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
           className="mt-3 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 px-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 sm:px-6"
         >
-          <NudgeButton
-            text="Scale Your Brand"
-            link={routes.contact}
-            buttonColor="#dfff00"
-            textColor="#000000"
-            arrowColor="#000000"
-            arrowWrapperColor="#ffffff"
-            fullWidth
-          />
+          <PrimaryBookingButton fullWidth />
           <ShowreelButton href={SHOWREEL_URL} fullWidth />
         </motion.div>
 
@@ -208,10 +197,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 pb-0 text-center text-[0.6rem] font-medium uppercase tracking-[0.14em] text-white/35 sm:mt-5 sm:pb-0 sm:text-[0.65rem]"
         >
-          <span className="inline-flex items-center gap-1">
-            <Zap className="h-3 w-3 text-accent" strokeWidth={2.5} />
-            Free Strategy Call
-          </span>
+          <span>Free Strategy Call</span>
           <span aria-hidden className="text-white/20">
             ·
           </span>
@@ -219,7 +205,7 @@ export default function Hero() {
           <span aria-hidden className="text-white/20">
             ·
           </span>
-          <span>Remote-First Agency</span>
+          <span>Remote-Ready Across India</span>
         </motion.p>
       </div>
     </section>

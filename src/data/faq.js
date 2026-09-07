@@ -1,38 +1,42 @@
 export const faqIntro = {
-  label: 'FAQ',
-  title: 'Questions & Answers',
-  description: "Have more questions? Don't hesitate to reach out:",
+  label: "Let's talk",
+  title: 'About working with Brosmedia',
+  description:
+    'Straight answers to what brands usually ask before a first call - then book a free strategy session.',
 }
 
-export const faqItems = [
+/** Editorial objection-handling (replaces template FAQ accordion). */
+export const talkPoints = [
   {
-    id: 'get-started',
-    question: 'How do we get started?',
-    answer:
-      'A quick WhatsApp message or a short call is all it takes. We will schedule a free 30-minute discovery call to understand your brand and goals - no commitment required.',
+    id: 'start',
+    title: 'How we start',
+    body: 'A WhatsApp or a booked strategy call is enough. We spend 30 minutes on your brand, goals, and constraints - no pitch deck theatre, no commitment required.',
   },
   {
-    id: 'small-business',
-    question: 'Do you work with small businesses?',
-    answer:
-      'Yes. Most of our clients are small and growing businesses. What matters is not the size - it is whether you are serious about building your brand.',
+    id: 'size',
+    title: 'Small businesses welcome',
+    body: 'Most of our clients are growing brands, not mega-corps. What matters is whether you are serious about the brand - not how big the retainer looks on day one.',
   },
   {
     id: 'location',
-    question: 'Do you only work in Hyderabad?',
-    answer:
-      'No. We have worked with clients in Delhi and the US. Everything we do can be delivered remotely - we are just based in Hyderabad.',
+    title: 'Hyderabad-based, India-ready',
+    body: 'We work from Jubilee Hills and deliver remotely across India. Strategy calls, creatives, websites, and ads all run without needing you in the room.',
   },
   {
-    id: 'minimum-engagement',
-    question: 'What is your minimum engagement?',
-    answer:
-      'For project-based work - branding, websites, brochures - we quote per project with no minimum duration. For ongoing services like social media management or Meta ads, we work on monthly retainers.',
+    id: 'engagement',
+    title: 'Projects and retainers',
+    body: 'Branding, websites, and brochures are quoted per project. Social, ads, and ongoing content run on monthly retainers - clear scope, no fuzzy “minimum months” traps.',
   },
   {
     id: 'in-house',
-    question: 'Is all work done in-house?',
-    answer:
-      'Yes. Design, development, video, content, and ads are all handled by our team. We do not outsource.',
+    title: 'All work in-house',
+    body: 'Design, development, video, content, and ads stay with our team. You deal with one crew that owns the outcome.',
   },
 ]
+
+/** Kept for any legacy imports; prefer talkPoints. */
+export const faqItems = talkPoints.map((point) => ({
+  id: point.id,
+  question: point.title,
+  answer: point.body,
+}))

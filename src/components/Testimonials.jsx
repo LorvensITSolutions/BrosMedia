@@ -23,10 +23,10 @@ export default function Testimonials() {
             badgeColor="rgba(223, 255, 0, 0.9)"
             titleColor="#ffffff"
             descriptionColor="rgba(255, 255, 255, 0.6)"
-            cardBackground="#ffffff"
-            quoteColor="#111111"
-            nameColor="#111111"
-            roleColor="rgba(17, 17, 17, 0.55)"
+            cardBackground="#141414"
+            quoteColor="#ffffff"
+            nameColor="#ffffff"
+            roleColor="rgba(255, 255, 255, 0.55)"
             fadecolor="#000000"
           />
         </motion.div>

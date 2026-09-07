@@ -3,6 +3,9 @@ import WorkStreamSection from '../components/WorkStreamSection'
 import ReelsWorkSection from '../components/ReelsWorkSection'
 import StatsBar from '../components/StatsBar'
 import About from '../components/About'
+import FounderNote from '../components/FounderNote'
+import TeamSection from '../components/TeamSection'
+import FeaturedCaseStudy from '../components/FeaturedCaseStudy'
 import Services from '../components/Services'
 import ClientsTeaser from '../components/ClientsTeaser'
 import Testimonials from '../components/Testimonials'
@@ -20,6 +23,9 @@ export default function HomePage() {
       <ReelsWorkSection />
       <StatsBar />
       <About />
+      <FounderNote />
+      <TeamSection />
+      <FeaturedCaseStudy />
       <Services />
       <IndustriesStrip />
       <ClientsTeaser />

@@ -1,15 +1,12 @@
 import { motion } from 'framer-motion'
 import { Clock, Mail, MapPin, MessageCircle } from 'lucide-react'
-import EyeFollowButton from '../framer/eye_follow_button.jsx'
 import LetterSwap from '../framer/letter_swap.jsx'
-import SmoothThreeDButton from '../framer/smooth_three_d_button.jsx'
 import MagicRings from './ui/MagicRings.jsx'
 import {
   contactDetails,
-  contactEmail,
   contactIntro,
-  getContactWhatsAppHref,
 } from '../data/contact'
+import { EmailCtaButton, PrimaryBookingButton } from './ui/HeroStyleCtas'
 
 const spring = { type: 'spring', stiffness: 80, damping: 22, mass: 0.8 }
 const viewport = { once: true, margin: '-80px' }
@@ -24,9 +21,6 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.06 } },
 }
 
-const whatsappHref = getContactWhatsAppHref()
-const emailHref = `mailto:${contactEmail}`
-
 const CARD_ICONS = {
   WhatsApp: MessageCircle,
   Email: Mail,
@@ -36,55 +30,49 @@ const CARD_ICONS = {
 
 function ContactCard({ item }) {
   const Icon = CARD_ICONS[item.label] ?? Mail
-  const isLongValue = item.value.length > 28
 
   const content = (
-    <span className="relative flex items-start gap-3 sm:gap-4">
-      <motion.span
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/20 bg-accent/10 text-accent sm:h-11 sm:w-11 sm:rounded-xl"
-        whileHover={{ scale: 1.08, rotate: -4 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-      >
-        <Icon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.75} />
-      </motion.span>
-      <span className="min-w-0 flex-1">
-        <p className="text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-white/40 sm:text-[0.65rem] sm:tracking-[0.16em]">
-          {item.label}
-        </p>
-        <p
-          className={`mt-1 font-semibold leading-snug text-white sm:mt-1.5 sm:text-[0.95rem] ${
-            isLongValue
-              ? 'text-[0.68rem] break-words sm:text-sm sm:leading-relaxed'
-              : 'text-xs sm:leading-relaxed'
-          }`}
-        >
-          {item.value}
-        </p>
-        {item.href && (
-          <span className="mt-1.5 inline-flex items-center gap-1 text-[0.65rem] font-semibold text-accent/70 transition group-hover:text-accent sm:mt-2 sm:text-xs">
-            Open
-            <span aria-hidden>→</span>
-          </span>
-        )}
+    <span className="relative z-10 flex h-full flex-col gap-2.5">
+      <span className="flex items-center gap-3">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/25 bg-accent/10 text-accent">
+          <Icon className="h-4 w-4" strokeWidth={1.75} />
+        </span>
+        <span className="min-w-0 flex-1">
+          <p className="text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-white/40">
+            {item.label}
+          </p>
+          <p className="mt-0.5 text-sm font-semibold leading-snug text-white sm:text-[0.95rem]">
+            {item.value}
+          </p>
+        </span>
       </span>
+
+      {item.href ? (
+        <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent/40 bg-accent px-3 py-1 text-[0.7rem] font-semibold text-primary transition group-hover:gap-2 group-hover:bg-accent/90">
+          Open
+          <span aria-hidden>→</span>
+        </span>
+      ) : (
+        <span className="text-[0.7rem] text-white/30">Local time · IST</span>
+      )}
     </span>
   )
 
   const cardClass =
-    'group relative flex h-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3.5 transition-colors hover:border-accent/30 hover:bg-white/[0.05] sm:rounded-2xl sm:p-6'
+    'group relative flex h-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3.5 transition-colors hover:border-accent/35 hover:bg-white/[0.05] sm:p-4'
 
   return (
-    <motion.li variants={fadeUp}>
+    <motion.li variants={fadeUp} className="min-h-0">
       {item.href ? (
         <motion.a
           href={item.href}
           {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           className={cardClass}
-          whileHover={{ y: -6 }}
+          whileHover={{ y: -3 }}
           transition={{ type: 'spring', stiffness: 320, damping: 24 }}
         >
           <span
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(30,69,255,0.12),transparent_55%)] opacity-0 transition group-hover:opacity-100"
+            className="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-accent/10 blur-xl transition group-hover:bg-accent/20"
             aria-hidden
           />
           {content}
@@ -92,9 +80,13 @@ function ContactCard({ item }) {
       ) : (
         <motion.div
           className={cardClass}
-          whileHover={{ y: -6 }}
+          whileHover={{ y: -3 }}
           transition={{ type: 'spring', stiffness: 320, damping: 24 }}
         >
+          <span
+            className="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-accent/10 blur-xl transition group-hover:bg-accent/20"
+            aria-hidden
+          />
           {content}
         </motion.div>
       )}
@@ -166,33 +158,14 @@ export default function ContactSection() {
 
             <motion.div
               variants={fadeUp}
-              className="mt-10 flex w-full flex-col gap-4 md:flex-row md:flex-wrap md:items-center"
+              className="mt-10 flex w-full flex-col gap-3 sm:gap-4 md:flex-row md:flex-wrap md:items-center"
             >
-              <div className="w-full md:w-auto">
-                <EyeFollowButton
-                  text="Start a project"
-                  link={whatsappHref}
-                  openInNewTab
-                  buttonColor="#dfff00"
-                  hoverColor="#ffffff"
-                  textColor="#000000"
-                  pupilColor="#000000"
-                  eyeColor="#ffffff"
-                />
-              </div>
-              <div className="w-full md:w-auto">
-                <SmoothThreeDButton
-                  text="Email us"
-                  link={emailHref}
-                  variant="secondary"
-                  buttonWidth={200}
-                  buttonHeight={64}
-                />
-              </div>
+              <PrimaryBookingButton text="Book a strategy call" />
+              <EmailCtaButton />
             </motion.div>
 
             <motion.p variants={fadeUp} className="mt-6 text-sm text-white/40">
-              We typically reply within one business day. WhatsApp is fastest.
+              Free 30-min strategy call. WhatsApp is fastest — we typically reply within one business day.
             </motion.p>
           </motion.div>
 
@@ -201,6 +174,7 @@ export default function ContactSection() {
             whileInView="visible"
             viewport={viewport}
             variants={stagger}
+            className="pt-8 sm:pt-10 lg:pt-16"
           >
             <motion.p
               variants={fadeUp}
@@ -208,7 +182,7 @@ export default function ContactSection() {
             >
               Reach us directly
             </motion.p>
-            <ul className="grid grid-cols-2 gap-3 sm:gap-5">
+            <ul className="grid grid-cols-2 gap-3 sm:gap-4">
               {contactDetails.map((item) => (
                 <ContactCard key={item.label} item={item} />
               ))}

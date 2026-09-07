@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import GsapScrollRevealText from './GsapScrollRevealText'
-import { routes } from '../data/navigation'
+import { PrimaryBookingButton } from './ui/HeroStyleCtas'
 
 const ABOUT_IMAGE =
   'https://res.cloudinary.com/dvruqkpqk/image/upload/v1783690793/wmremove-transformed_5_f35bei.png'
@@ -9,11 +8,11 @@ const ABOUT_IMAGE =
 const ABOUT_COPY_1 =
   'Brosmedia is built for businesses that are serious about their brand and serious about growth. We are a focused agency based in Hyderabad, working across branding, digital marketing, creative production, and paid media. We do not do generic. Every brand we work with gets a strategy built around their industry, their audience, and their goals and a team that stays hands-on from start to finish.'
 
-const SATISFACTION_COPY =
-  'Client satisfaction rate built on trust, quality service, and proven results.'
+const REVENUE_COPY =
+  'Approx. client-side revenue influenced through branding, websites, social, and performance campaigns we run end to end.'
 
 const GROWTH_COPY =
-  'Elevate your brand with strategy, creativity, and measurable growth.'
+  'Strategy, creativity, and measurable growth — without the fluff.'
 
 const spring = { type: 'spring', stiffness: 80, damping: 22, mass: 0.8 }
 const easeOut = [0.25, 0.1, 0.25, 1]
@@ -116,14 +115,6 @@ function AboutIcon() {
   )
 }
 
-function ArrowUpRight() {
-  return (
-    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17 17 7M7 7h10v10" />
-    </svg>
-  )
-}
-
 export default function About() {
   return (
     <section id="about" className="relative z-10 overflow-hidden bg-black font-sans text-white">
@@ -150,7 +141,7 @@ export default function About() {
               className="mt-6 text-5xl font-bold tracking-tight text-white sm:mt-8 sm:text-7xl lg:text-9xl"
               variants={scaleIn}
             >
-              10+
+              12+
             </motion.p>
             <motion.p
               className="mt-2 text-lg font-semibold text-white/60 sm:text-xl"
@@ -203,10 +194,10 @@ export default function About() {
                 viewport={viewport}
                 transition={{ ...spring, delay: 0.15 }}
               >
-                98%
+                ₹10+ Cr
               </motion.p>
               <GsapScrollRevealText
-                text={SATISFACTION_COPY}
+                text={REVENUE_COPY}
                 className="mt-4 text-sm leading-relaxed text-white/70 sm:text-base"
                 start="top 92%"
                 stagger={0.1}
@@ -220,25 +211,14 @@ export default function About() {
             </motion.div>
 
             <motion.div
-              className="group flex items-center justify-center gap-5 lg:justify-start"
+              className="flex flex-col items-center gap-3 lg:items-start"
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
               variants={fadeUp}
             >
-              <Link to={routes.contact} className="group flex items-center gap-5">
-              <motion.span
-                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-secondary text-primary transition-transform group-hover:scale-105"
-                whileHover={{ scale: 1.08, rotate: -6 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-              >
-                <ArrowUpRight />
-              </motion.span>
-              <span className="leading-tight">
-                <span className="block text-sm font-medium text-white/60">Get in Touch</span>
-                <span className="block text-base font-semibold text-white">Start a Project</span>
-              </span>
-              </Link>
+             
+              <PrimaryBookingButton text="Book a Free 30-Min Strategy Call" />
             </motion.div>
           </div>
         </div>

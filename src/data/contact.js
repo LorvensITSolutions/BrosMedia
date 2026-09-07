@@ -1,20 +1,23 @@
-import { getWhatsAppHref } from './finalCta'
-import { contact } from './seo'
+﻿import { contact } from './seo'
 
-export const contactIntro = {
-  label: 'Contact Us',
-  headline: "Let's build something great together.",
-  description:
-    'Whether you have a clear brief or just a rough idea - reach out. We will ask the right questions and give you an honest picture of what we can do for your brand.',
+export function getWhatsAppHref({ number, message }) {
+  if (!number) return 'mailto:info@brosmedia.in'
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`
 }
 
-export const contactEmail = 'brosmedia26@gmail.com'
+export const contactIntro = {
+  label: 'Contact',
+  headline: "Let's build something great together.",
+  description:
+    'Whether you have a clear brief or just a rough idea — book a free 30-minute strategy call and we will map clear next steps for your brand.',
+}
+
+export const contactEmail = 'info@brosmedia.in'
 
 export const contactWhatsApp = {
-  // Country code + number, no + (e.g. 919876543210)
   number: '917013814030',
   display: '+91 70138 14030',
-  message: "Hi Brosmedia, I'd like to discuss a project.",
+  message: "Hi Brosmedia, I'd like to book a free strategy call.",
 }
 
 export function getContactWhatsAppHref() {
@@ -63,7 +66,7 @@ export const contactDetails = [
   },
   {
     label: 'Location',
-    value: '1st Floor, Road No. 86, Jubilee Hills, Hyderabad, Telangana 500096',
+    value: 'Hyderabad, Telangana',
     href: contact.mapsUrl,
     external: true,
   },

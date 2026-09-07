@@ -159,22 +159,17 @@ export default function ReelsWorkSection() {
           viewport={viewport}
           variants={stagger}
         >
-          <motion.span
+          <motion.p
             variants={fadeUp}
-            className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-accent/50 bg-accent px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.14em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[0.65rem] sm:tracking-[0.2em]"
+            className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-accent"
           >
-            <motion.span
-              className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
-              animate={{ scale: [1, 1.35, 1], opacity: [1, 0.55, 1] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            <span className="truncate">{reelsIntro.label}</span>
-          </motion.span>
+            {reelsIntro.label}
+          </motion.p>
 
           <motion.div variants={fadeUp} className="mt-1.5 sm:mt-2">
             <h2 className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 text-[clamp(1.5rem,8vw,2.4rem)] font-black uppercase leading-none tracking-tight sm:gap-x-3 sm:text-[clamp(2rem,6.5vw,3.25rem)]">
-              <span className="text-accent">{reelsIntro.headlineAccent}</span>
-              <span className="text-blue">{reelsIntro.headlineBlue}</span>
+              <span className="text-white">{reelsIntro.headlineAccent}</span>
+              <span className="text-accent">{reelsIntro.headlineBlue}</span>
             </h2>
           </motion.div>
 

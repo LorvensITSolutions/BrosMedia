@@ -53,6 +53,11 @@ function ProjectCard({ project, size = 'md' }) {
         >
           {project.description}
         </p>
+        {project.outcome ? (
+          <p className="mt-2 text-xs font-semibold leading-snug text-accent sm:text-sm">
+            {project.outcome}
+          </p>
+        ) : null}
         <a
           href={project.href}
           target="_blank"

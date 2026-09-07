@@ -1,15 +1,15 @@
 export const testimonialsIntro = {
-  label: 'Client Testimonials',
-  headline: 'What our clients say',
+  label: 'Client voices',
+  headline: 'Specific outcomes, not vague praise.',
   description:
-    'Real feedback from brands we have partnered with - across real estate, healthcare, education, and more.',
+    'What partners say when the work starts filling pipelines - not just looking pretty.',
 }
 
 export const testimonials = [
   {
-    headline: 'A polished presence that actually converts.',
+    headline: 'A presence that converts inquiries.',
     quote:
-      'Brosmedia understood our project positioning from day one. The website, creatives, and lead campaigns gave MB Prime a polished presence that actually converts inquiries.',
+      'Brosmedia understood our positioning from day one. The website, creatives, and lead campaigns gave MB Prime a polished presence that actually converts inquiries into site visits and bookings.',
     name: 'MB Prime Projects',
     designation: 'Real Estate · Srikakulam',
     image: {
@@ -18,7 +18,7 @@ export const testimonials = [
     },
   },
   {
-    headline: 'Our branding finally feels premium.',
+    headline: 'Patients notice before they walk in.',
     quote:
       'Professional, responsive, and detail-oriented. Our clinic branding and social content finally feel premium - patients notice the difference before they even walk in.',
     name: 'Sasha Smiles',
@@ -29,9 +29,9 @@ export const testimonials = [
     },
   },
   {
-    headline: 'Our brand finally looks as premium online as it does in-store.',
+    headline: 'Recognised instantly. Enquiries growing.',
     quote:
-      'Brosmedia captured Zarivaram’s identity beautifully — from the website to campaign visuals. Customers now recognise us instantly, and online enquiries have grown steadily since launch.',
+      'From the website to campaign visuals, Zarivaram finally looks as premium online as it does in-store. Customers recognise us instantly, and online enquiries have grown steadily since launch.',
     name: 'Zarivaram',
     designation: 'Ethnic Wear · Hyderabad',
     image: {

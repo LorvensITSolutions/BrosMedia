@@ -13,7 +13,7 @@ export const portfolioIntro = {
   description:
     'From PG and co-living brands in Hyderabad to professional sports teams, plus real estate, healthcare, fashion, and NGOs, here is who we have worked with and what we built.',
   heroSubline:
-    'Branding, websites, and campaigns from Brosmedia - real work for brands built to be seen, remembered, and grown.',
+    'Branding, websites, and campaigns from Brosmedia - 12+ brands built to be seen, remembered, and grown.',
 }
 
 export const portfolioHeroPreviews = [
@@ -57,7 +57,7 @@ export const portfolioHeroPreviews = [
 
 export const portfolioHeroCta = {
   primary: 'Explore our Work',
-  secondary: 'Book a Discovery Call',
+  secondary: 'Book a Free 30-Min Strategy Call',
   secondaryHref: finalCtaButtons.discovery.href,
 }
 
@@ -77,9 +77,9 @@ export const portfolioAboutWork = {
   ],
   stats: [
     { value: '12+', label: 'Brands Built' },
-    { value: '9+', label: 'Industries' },
+    { value: '₹10+ Cr', label: 'Revenue Influenced*' },
+    { value: '6+', label: 'Industries' },
     { value: '1+ Yr', label: 'Of Execution' },
-    { value: '360°', label: 'Branding & Marketing' },
   ],
 }
 
@@ -110,7 +110,8 @@ export const portfolioWebsiteFeatured = [
     id: 'web-narenn',
     title: 'Narenn Living',
     description:
-      'Premium co-living website with SEO pages, room discovery, and a lead pipeline built to fill beds in Madhapur.',
+      'Premium co-living website with SEO pages and a lead pipeline — built to fill beds in Madhapur.',
+    outcome: 'SEO + ads + telecalling → more room bookings',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/narennwebsite.png',
     href: 'https://narennliving.com',
   },
@@ -118,7 +119,8 @@ export const portfolioWebsiteFeatured = [
     id: 'web-mb-prime',
     title: 'MB Prime Projects',
     description:
-      'Landmark real estate site for villa and plot launches - polished presence that converts enquiries into site visits.',
+      'Landmark real estate site for villa and plot launches — polished presence that converts enquiries into site visits.',
+    outcome: 'Full launch funnel from ad creative to site visit',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/mbprimewebsite.png',
     href: 'https://mbprimeprojects.com',
   },
@@ -266,7 +268,7 @@ export const portfolioSocialFeatured = [
     id: 'social-nellore',
     name: 'Nellore Wolves',
     handle: '@nellorewolvesofficial',
-    status: 'Official APL franchise · Managed season-long social content',
+    status: 'New APL franchise · Built brand + season-long fan content from day one',
     href: 'https://www.instagram.com/nellorewolvesofficial',
     cta: 'View Profile',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/nellore-instgram.jpeg',
@@ -275,7 +277,7 @@ export const portfolioSocialFeatured = [
     id: 'social-vizag',
     name: 'Vizag Sea Hawks',
     handle: '@vizagseahawksofficial',
-    status: 'Official APL franchise · Fan engagement & match-day content',
+    status: 'New APL franchise · Debut-season identity, match-day creatives & fan engagement',
     href: 'https://www.instagram.com/vizagseahawksofficial',
     cta: 'View Profile',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/vizag_seahawks_instgram.jpeg',

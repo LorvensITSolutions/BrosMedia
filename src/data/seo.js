@@ -34,7 +34,7 @@ export const favicon =
   'https://res.cloudinary.com/dvruqkpqk/image/upload/v1781159780/Bros_Media_Logo_zfbess.png'
 
 export const contact = {
-  email: 'brosmedia26@gmail.com',
+  email: 'info@brosmedia.in',
   phone: '+917013814030',
   phoneDisplay: '+91 70138 14030',
   streetAddress: '1st Floor, Road No. 86, Jubilee Hills',
@@ -50,8 +50,11 @@ export const contact = {
   longitude: 78.4071,
 }
 
-/** Add profile URLs here when live — they appear in Organization sameAs. */
-export const socialProfiles = []
+/** Profile URLs for Organization sameAs (LinkedIn showcase, Instagram, etc.). */
+export const socialProfiles = [
+  'https://www.linkedin.com/showcase/bros-media-in',
+  'https://www.instagram.com/brosmedia.in',
+]
 
 export const seoPages = {
   '/': {
@@ -79,13 +82,13 @@ export const seoPages = {
   '/our-work': {
     title: 'Our Work | Brosmedia Case Studies & Projects',
     description:
-      'Explore Brosmedia’s work across branding, websites, social media, Meta ads, and creative production for clients in India and beyond.',
+      "Explore Brosmedia's work across branding, websites, social media, Meta ads, and creative production for clients in India and beyond.",
     path: '/our-work',
   },
   '/portfolio': {
     title: 'Portfolio | Brosmedia Clients & Projects',
     description:
-      'See Brosmedia’s client portfolio — real estate, healthcare, sports, fashion, and more. Branding, websites, social media, and Meta ads from Hyderabad.',
+      "See Brosmedia's client portfolio — real estate, healthcare, sports, fashion, and more. Branding, websites, social media, and Meta ads from Hyderabad.",
     path: '/portfolio',
   },
   '/industries': {
@@ -124,7 +127,7 @@ export function buildOrganizationSchema() {
     description: defaultDescription,
     email: contact.email,
     telephone: contact.phone,
-    foundingDate: '2025',
+    foundingDate: '2025-10',
     slogan: siteTagline,
     address: {
       '@type': 'PostalAddress',

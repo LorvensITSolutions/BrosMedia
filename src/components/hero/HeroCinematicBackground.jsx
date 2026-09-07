@@ -8,10 +8,8 @@ export default function HeroCinematicBackground() {
   const smoothX = useSpring(mouseX, { stiffness: 40, damping: 28 })
   const smoothY = useSpring(mouseY, { stiffness: 40, damping: 28 })
 
-  const glowX = useTransform(smoothX, [0, 1], [-18, 18])
-  const glowY = useTransform(smoothY, [0, 1], [-12, 12])
-  const gridX = useTransform(smoothX, [0, 1], [-6, 6])
-  const gridY = useTransform(smoothY, [0, 1], [-4, 4])
+  const glowX = useTransform(smoothX, [0, 1], [-14, 14])
+  const glowY = useTransform(smoothY, [0, 1], [-10, 10])
 
   useEffect(() => {
     const el = containerRef.current?.closest('#hero')
@@ -35,22 +33,12 @@ export default function HeroCinematicBackground() {
       <div className="hero-cinematic-base absolute inset-0" />
 
       <motion.div
-        className="hero-cinematic-glow-green absolute inset-0"
+        className="hero-cinematic-glow-accent absolute inset-0"
         style={{ x: glowX, y: glowY }}
-      />
-      <motion.div
-        className="hero-cinematic-glow-blue absolute inset-0"
-        style={{ x: glowX, y: glowY }}
-      />
-
-      <motion.div
-        className="hero-cinematic-grid absolute inset-0"
-        style={{ x: gridX, y: gridY }}
       />
 
       <div className="hero-cinematic-haze absolute inset-0" />
       <div className="hero-cinematic-vignette absolute inset-0" />
-      <div className="hero-cinematic-center-clear absolute inset-0" />
       <div className="hero-cinematic-grain absolute inset-0" />
     </div>
   )

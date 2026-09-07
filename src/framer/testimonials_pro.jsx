@@ -31,7 +31,7 @@ function TestimonialProCard({
   return (
     <article className="w-full shrink-0">
       <div
-        className="rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.08)] sm:p-6"
+        className="border border-white/10 p-5 sm:p-6"
         style={{ backgroundColor: cardBackground }}
       >
         <p
@@ -212,18 +212,13 @@ export default function TestimonialsPro({
         variants={stagger}
         className="text-center"
       >
-        <motion.div variants={fadeUp} className="flex justify-center">
-          <span
-            className="inline-flex rounded-full border px-3.5 py-1.5 text-xs font-medium"
-            style={{
-              backgroundColor: badgeBackground,
-              borderColor: badgeBorder,
-              color: badgeColor,
-            }}
-          >
-            {sectionLabel}
-          </span>
-        </motion.div>
+        <motion.p
+          variants={fadeUp}
+          className="text-[0.65rem] font-semibold uppercase tracking-[0.22em]"
+          style={{ color: badgeColor }}
+        >
+          {sectionLabel}
+        </motion.p>
 
         <motion.h2
           variants={fadeUp}
