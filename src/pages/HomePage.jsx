@@ -11,7 +11,7 @@ import ClientsTeaser from '../components/ClientsTeaser'
 import Testimonials from '../components/Testimonials'
 import FaqSection from '../components/FaqSection'
 import ContactSection from '../components/ContactSection'
-import IndustriesStrip from '../components/IndustriesStrip'
+
 
 export default function HomePage() {
   return (
@@ -27,7 +27,6 @@ export default function HomePage() {
       <TeamSection />
       <FeaturedCaseStudy />
       <Services />
-      <IndustriesStrip />
       <ClientsTeaser />
       <Testimonials />
       <FaqSection />

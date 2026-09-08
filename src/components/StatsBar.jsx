@@ -2,7 +2,7 @@ import StatsSection from '../framer/stats_section.jsx'
 
 const stats = [
   { value: 12, label: 'Brands Built', suffix: '+', decimals: 0 },
-  { value: 10, label: 'Cr Revenue Influenced*', prefix: '₹', suffix: '+', decimals: 0 },
+  { value: 12, label: 'Cr Revenue Influenced*', prefix: '₹', suffix: '+', decimals: 0 },
   { value: 6, label: 'Industries', suffix: '+', decimals: 0 },
   { value: 1, label: 'Yr Of Execution', suffix: '+', decimals: 0 },
 ]
@@ -30,8 +30,8 @@ export default function StatsBar() {
           columnGap={0}
           rowGap={24}
           minItemWidth={100}
-          font={{ fontSize: 40, fontWeight: 700, fontFamily: 'Montserrat, sans-serif' }}
-          labelFont={{ fontSize: 13, fontWeight: 500, fontFamily: 'Montserrat, sans-serif' }}
+          font={{ fontSize: 40, fontWeight: 700, fontFamily: 'DM Sans, sans-serif' }}
+          labelFont={{ fontSize: 13, fontWeight: 500, fontFamily: 'DM Sans, sans-serif' }}
         />
       </div>
       <p className="relative z-10 w-full px-4 pb-6 text-center text-[0.65rem] text-white/35 sm:px-6">

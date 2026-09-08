@@ -1,19 +1,12 @@
 import { motion } from 'framer-motion'
 import FluidCardStack from '../framer/fluid_card_stack.jsx'
 import { services, servicesIntro } from '../data/services'
-
-const spring = { type: 'spring', stiffness: 80, damping: 22, mass: 0.8 }
-const viewport = { once: true, margin: '-80px' }
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: spring },
-}
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-}
+import {
+  SECTION_HEADING_CLASS,
+  scrollFadeUp,
+  scrollStagger,
+  scrollViewport,
+} from '../lib/scrollMotion'
 
 export default function Services() {
   const items = services.map((service) => ({
@@ -26,25 +19,23 @@ export default function Services() {
 
   return (
     <section id="services" className="relative overflow-hidden bg-black font-sans text-white">
-      <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+      <div className="section-pad relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <motion.div
-          className="mb-10 max-w-xl sm:mb-12"
+          className="mb-8 max-w-xl sm:mb-10"
           initial="hidden"
           whileInView="visible"
-          viewport={viewport}
-          variants={stagger}
+          viewport={scrollViewport}
+          variants={scrollStagger}
         >
           <motion.p
-            variants={fadeUp}
+            variants={scrollFadeUp}
             className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary/90"
           >
             {servicesIntro.label}
           </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            className="mt-3 text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
-          >
-            {servicesIntro.headline}
+          <motion.h2 variants={scrollFadeUp} className={SECTION_HEADING_CLASS}>
+            <span className="text-white">{servicesIntro.headlineBefore} </span>
+            <span className="text-accent">{servicesIntro.headlineAccent}</span>
           </motion.h2>
         </motion.div>
 

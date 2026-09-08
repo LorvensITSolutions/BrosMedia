@@ -1,6 +1,8 @@
 export const faqIntro = {
   label: "Let's talk",
   title: 'About working with Brosmedia',
+  headlineBefore: 'About working with',
+  headlineAccent: 'Brosmedia',
   description:
     'Straight answers to what brands usually ask before a first call - then book a free strategy session.',
 }

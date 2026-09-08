@@ -99,10 +99,7 @@ export default function PortfolioHero({ onExplore }) {
     }
     const el = document.getElementById('about-us')
     if (!el) return
-    const navHeight = parseFloat(
-      getComputedStyle(document.documentElement).getPropertyValue('--navbar-height') || '76',
-    )
-    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 12
+    const top = el.getBoundingClientRect().top + window.scrollY - 16
     window.scrollTo({ top, behavior: 'smooth' })
   }
 
@@ -138,7 +135,7 @@ export default function PortfolioHero({ onExplore }) {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--page-bg)] to-transparent sm:h-32"
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 pb-28 pt-[calc(var(--navbar-height)+1.75rem)] text-center sm:px-6 sm:pb-24 sm:pt-[calc(var(--navbar-height)+2.5rem)]">
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 pb-28 pt-8 text-center sm:px-6 sm:pb-24 sm:pt-10">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

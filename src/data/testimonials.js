@@ -1,6 +1,8 @@
 export const testimonialsIntro = {
   label: 'Client voices',
   headline: 'Specific outcomes, not vague praise.',
+  headlineBefore: 'Specific outcomes,',
+  headlineAccent: 'not vague praise.',
   description:
     'What partners say when the work starts filling pipelines - not just looking pretty.',
 }

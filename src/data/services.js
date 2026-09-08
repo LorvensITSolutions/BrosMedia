@@ -1,6 +1,8 @@
 export const servicesIntro = {
   label: 'Our Services',
   headline: 'Everything your brand needs to grow.',
+  headlineBefore: 'Everything your brand needs',
+  headlineAccent: 'to grow',
   description:
     'From strategy and identity to websites, content, and campaigns — we deliver end-to-end brand and marketing services built around your business goals.',
 }

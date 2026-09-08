@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Montserrat", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-anton: "Anton", sans-serif;
   --color-primary: #000000;
   --color-secondary: #dfff00;
   --color-accent: #dfff00;
@@ -135,6 +137,19 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .section-heading,
+  section h1,
+  section h2,
+  .section-title {
+    letter-spacing: -0.01em;
+  }
+}
+
 section[id] {
   scroll-margin-top: calc(var(--navbar-height) + 1rem);
 }
@@ -144,6 +159,32 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Section titles: Helvetica Neue, uppercase, team-scale weight */
+section h1,
+section h2,
+.section-title,
+.section-heading {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.section-pad {
+  padding-block: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-pad {
+    padding-block: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-block: 4rem;
+  }
 }
 
 .sr-only {
@@ -306,7 +347,9 @@ body {
 }
 
 .footer-watermark {
+  font-family: var(--font-anton);
   font-size: clamp(3rem, 14vw, 10.5rem);
+  font-weight: 400;
 }
 
 @keyframes portfolio-marquee-scroll {
@@ -367,7 +410,8 @@ body {
 .reels-work-carousel [class^='mc-'] {
   font-family: var(--font-sans);
   background: transparent !important;
-  --carousel-h: calc(var(--card-h) + 28px);
+  /* Leave room for active-card scale (up to ~1.08) + shadow so edges are not clipped */
+  --carousel-h: calc(var(--card-h) * 1.12 + 40px);
 }
 
 .reels-work-carousel [class^='mc-'] .top-bar {
@@ -454,7 +498,11 @@ body {
   cursor: default !important;
   touch-action: auto !important;
   overscroll-behavior: auto !important;
-  margin-top: -0.25rem;
+  margin-top: 0;
+  padding-block: 0.25rem 0.75rem;
+  box-sizing: content-box;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
 }
 
 .reels-work-carousel [class^='mc-'] .card video {
@@ -516,9 +564,20 @@ body {
 }
 
 .reels-work-carousel .nav-btn,
-.reels-work-carousel [class^='mc-'] .nav-btn,
-.reels-work-carousel [class^='mc-'] .media-controls {
+.reels-work-carousel [class^='mc-'] .nav-btn {
   pointer-events: auto;
+}
+
+.reels-work-carousel [class^='mc-'] .media-controls,
+.reels-work-carousel [class^='mc-'] .card.has-audio .media-controls,
+.reels-work-carousel [class^='mc-'] .sound-btn,
+.reels-work-carousel [class^='mc-'] .play-btn,
+.reels-work-carousel [class^='mc-'] .autoplay-toggle {
+  display: none !important;
+}
+
+.reels-work-carousel [class^='mc-'] .card.has-audio .info-panel {
+  padding-bottom: 16px !important;
 }
 
 .reels-work-carousel [class^='mc-'] .expand-btn {
@@ -541,7 +600,8 @@ body {
   display: none !important;
 }
 
-.reels-work-carousel [class^='mc-'] .control-bar {
+.reels-work-carousel [class^='mc-'] .control-bar,
+.reels-work-carousel [class^='mc-'] .static-control-bar {
   display: none !important;
 }
 
@@ -586,11 +646,12 @@ body {
 
 @media (max-width: 639px) {
   .reels-work-section--mobile .reels-work-carousel {
-    --carousel-h: calc(var(--card-h) + 20px);
+    --carousel-h: calc(var(--card-h) * 1.08 + 36px);
   }
 
   .reels-work-section--mobile .reels-work-carousel [class^='mc-'] .carousel-wrap {
     margin-top: 0;
+    padding-block: 0.65rem;
   }
 
   .reels-work-section--mobile .reels-work-carousel [class^='mc-'] .card {
@@ -631,7 +692,7 @@ body {
 
 @media (min-width: 1536px) {
   .reels-work-section--wide .reels-work-carousel {
-    --carousel-h: calc(var(--card-h) + 32px);
+    --carousel-h: calc(var(--card-h) * 1.12 + 48px);
   }
 
   .reels-work-section--wide .reels-work-carousel [class^='mc-'] .info-panel {

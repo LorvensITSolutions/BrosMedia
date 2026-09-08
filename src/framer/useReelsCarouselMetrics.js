@@ -171,7 +171,8 @@ export function computeReelsCarouselMetrics(width) {
     cardWidth = Math.round(cardHeight / REEL_HEIGHT_RATIO)
   }
 
-  const carouselMinHeight = Math.max(layout.minCarouselHeight, cardHeight + 36)
+  const scaleRoom = Math.ceil(cardHeight * (layout.maxScale - 1) + 48)
+  const carouselMinHeight = Math.max(layout.minCarouselHeight, cardHeight + scaleRoom)
 
   return {
     cardWidth,

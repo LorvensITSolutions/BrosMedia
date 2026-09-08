@@ -11,7 +11,7 @@ export const portfolioIntro = {
   label: 'Portfolio',
   headline: ourWorkIntro.headline,
   description:
-    'From PG and co-living brands in Hyderabad to professional sports teams, plus real estate, healthcare, fashion, and NGOs, here is who we have worked with and what we built.',
+    'From hospitality brands in Hyderabad to professional sports teams, plus real estate, healthcare, fashion, and NGOs, here is who we have worked with and what we built.',
   heroSubline:
     'Branding, websites, and campaigns from Brosmedia - 12+ brands built to be seen, remembered, and grown.',
 }
@@ -77,7 +77,7 @@ export const portfolioAboutWork = {
   ],
   stats: [
     { value: '12+', label: 'Brands Built' },
-    { value: '₹10+ Cr', label: 'Revenue Influenced*' },
+    { value: '₹12+ Cr', label: 'Revenue Influenced*' },
     { value: '6+', label: 'Industries' },
     { value: '1+ Yr', label: 'Of Execution' },
   ],
@@ -88,7 +88,7 @@ export const portfolioSectionIntro = {
   headlineAccent: 'Real Work.',
   headlineAfter: 'Brands Across Industries.',
   description:
-    'From co-living and sports teams to real estate, healthcare, fashion, NGOs, and more - here is who we built for.',
+    'From hospitality and sports teams to real estate, healthcare, fashion, NGOs, and more - here is who we built for.',
 }
 
 export const portfolioFeaturedIntro = {
@@ -102,7 +102,7 @@ export const portfolioIconicIntro = {
   headlineAccent: 'Iconic Identities',
 }
 
-const ICONIC_FEATURED_IDS = ['narenn-living', 'vizag-seahawks', 'nellore-wolves']
+const ICONIC_FEATURED_IDS = ['narenn-living', 'nellore-wolves', 'mb-prime']
 
 /** Featured website cards (2-up) + other websites */
 export const portfolioWebsiteFeatured = [
@@ -110,7 +110,7 @@ export const portfolioWebsiteFeatured = [
     id: 'web-narenn',
     title: 'Narenn Living',
     description:
-      'Premium co-living website with SEO pages and a lead pipeline — built to fill beds in Madhapur.',
+      'Premium hospitality website with SEO pages and a lead pipeline — built to fill beds in Madhapur.',
     outcome: 'SEO + ads + telecalling → more room bookings',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/narennwebsite.png',
     href: 'https://narennliving.com',
@@ -119,8 +119,8 @@ export const portfolioWebsiteFeatured = [
     id: 'web-mb-prime',
     title: 'MB Prime Projects',
     description:
-      'Landmark real estate site for villa and plot launches — polished presence that converts enquiries into site visits.',
-    outcome: 'Full launch funnel from ad creative to site visit',
+      'Social + Meta ads + TeleCRM — villa & plot bookings.',
+    outcome: 'Social + Meta ads + TeleCRM\nto villa & plot bookings',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/mbprimewebsite.png',
     href: 'https://mbprimeprojects.com',
   },
@@ -259,7 +259,7 @@ export const portfolioSocialFeatured = [
     id: 'social-narenn',
     name: 'Narenn Living',
     handle: '@narennliving',
-    status: '4,050 followers · Premium PG & co-living presence in Hyderabad',
+    status: '4,050 followers · Hospitality presence in Hyderabad',
     href: 'https://www.instagram.com/narennliving',
     cta: 'View Profile',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/narenn_instgram_new.png',

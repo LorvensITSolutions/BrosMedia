@@ -21,28 +21,14 @@ export function getHashFromRoute(route) {
   return hashIndex >= 0 ? route.slice(hashIndex) : ''
 }
 
-function getNavbarOffset() {
-  if (typeof window === 'undefined') return 76
-  const raw = getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')
-  const parsed = parseFloat(raw)
-  return Number.isFinite(parsed) ? parsed : 76
+function getScrollOffset() {
+  // Nav is not sticky — only leave a little breathing room above sections.
+  return 16
 }
 
-/** True while a nav-driven scroll is in progress (skips pin ScrollTrigger.refresh). */
-let programmaticScrollUntil = 0
-
-export function isProgrammaticScrolling() {
-  return typeof performance !== 'undefined' && performance.now() < programmaticScrollUntil
-}
-
-/**
- * Scroll to a homepage section by hash.
- * Uses instant positioning for long jumps so Creative Work's scroll-pin
- * (and ScrollTrigger.refresh) cannot interrupt mid-smooth-scroll.
- */
+/** Scroll to a homepage section by hash. */
 export function scrollToSection(hash, options = {}) {
   if (!hash || hash === '#hero') {
-    programmaticScrollUntil = performance.now() + 400
     window.scrollTo({ top: 0, behavior: options.behavior ?? 'auto' })
     return true
   }
@@ -51,14 +37,13 @@ export function scrollToSection(hash, options = {}) {
   const el = document.getElementById(id)
   if (!el) return false
 
-  const nav = getNavbarOffset()
-  const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - nav - 12)
+  const nav = getScrollOffset()
+  const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - nav)
   const distance = Math.abs(top - window.scrollY)
-  // Pin section is multi-viewport tall — smooth scroll often dies at reels.
+  // Long jumps use instant scroll so mid-page motion sections don't interrupt.
   const behavior =
     options.behavior ?? (distance > window.innerHeight * 1.25 ? 'auto' : 'smooth')
 
-  programmaticScrollUntil = performance.now() + (behavior === 'smooth' ? 1000 : 450)
   window.scrollTo({ top, behavior })
   return true
 }

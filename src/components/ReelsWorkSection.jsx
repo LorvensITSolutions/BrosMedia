@@ -151,7 +151,7 @@ export default function ReelsWorkSection() {
         className="pointer-events-none absolute inset-0 hero-cinematic-glow-blue opacity-30"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-3 pt-3 pb-5 sm:px-6 sm:pt-16 sm:pb-8 lg:max-w-[1180px] lg:px-8 lg:pt-20 lg:pb-10 xl:max-w-[1400px] 2xl:max-w-[1680px]">
+      <div className="relative z-10 mx-auto max-w-7xl px-3 pt-8 pb-2 sm:px-6 sm:pt-10 sm:pb-2 lg:max-w-[1180px] lg:px-8 lg:pt-12 xl:max-w-[1400px] 2xl:max-w-[1680px]">
         <motion.div
           className="mx-auto flex max-w-xl flex-col items-center text-center"
           initial="hidden"
@@ -167,7 +167,7 @@ export default function ReelsWorkSection() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-1.5 sm:mt-2">
-            <h2 className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 text-[clamp(1.5rem,8vw,2.4rem)] font-black uppercase leading-none tracking-tight sm:gap-x-3 sm:text-[clamp(2rem,6.5vw,3.25rem)]">
+            <h2 className="section-heading flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 text-[clamp(1.35rem,3.5vw,2.1rem)] font-black uppercase leading-none tracking-tight sm:gap-x-3">
               <span className="text-white">{reelsIntro.headlineAccent}</span>
               <span className="text-accent">{reelsIntro.headlineBlue}</span>
             </h2>
@@ -175,14 +175,14 @@ export default function ReelsWorkSection() {
 
           <motion.p
             variants={fadeUp}
-            className="mt-1.5 max-w-md text-sm text-white/55 sm:mt-3 sm:text-base"
+            className="mt-1.5 max-w-md text-sm text-white/55 sm:mt-2 sm:text-base"
           >
             {reelsIntro.subline}
           </motion.p>
         </motion.div>
       </div>
 
-      <div className="relative z-10 w-full mt-1 pb-4 sm:mt-2 sm:pb-12 lg:pb-14">
+      <div className="relative z-10 w-full overflow-visible pb-8 pt-0 sm:pb-10 lg:pb-12">
         <InfiniteMediaCarousel
           key={`${metrics.cardWidth}x${metrics.cardHeight}`}
           items={REELS_CAROUSEL_ITEMS}

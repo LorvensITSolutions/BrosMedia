@@ -20,7 +20,7 @@ function HeroMarketingVisual() {
   return (
     <div className="relative mx-auto mb-2 flex w-full max-w-5xl flex-col items-center px-4 sm:mb-10 sm:px-6">
       <h1 className="sr-only">
-        Brosmedia digital marketing agency — branding, social, and conversion funnels
+        Brosmedia digital marketing agency - branding, social, and conversion funnels
       </h1>
 
       <motion.div
@@ -44,7 +44,7 @@ function HeroMarketingVisual() {
               UNSKIPPABLE
             </p>
             <p className="mx-auto mt-3 max-w-lg px-1 text-sm leading-relaxed text-white/55 sm:max-w-xl sm:text-base">
-              We&apos;ve built 12+ brands across sports, real estate, fashion, and healthcare —
+              We&apos;ve built 12+ brands across sports, real estate, fashion, and healthcare -
               from zero to unforgettable.
             </p>
             <motion.span
@@ -162,7 +162,7 @@ export default function Hero() {
     >
       <HeroCinematicBackground />
 
-      <div className="relative z-10 flex w-full flex-col justify-start pt-[var(--navbar-height)] pb-0 sm:justify-center sm:pb-8">
+      <div className="relative z-10 flex w-full flex-col justify-start pt-2 pb-0 sm:justify-center sm:pb-8 sm:pt-4">
         <HeroMarketingVisual />
 
         <motion.div

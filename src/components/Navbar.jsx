@@ -1,5 +1,5 @@
-import DynamicNavbar from '../framer/dynamic_navbar.jsx'
+import MonoNav from '../framer/mono_nav.jsx'
 
 export default function Navbar() {
-  return <DynamicNavbar />
+  return <MonoNav />
 }

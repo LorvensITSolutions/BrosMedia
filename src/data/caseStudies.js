@@ -2,7 +2,7 @@ export const narennCaseStudy = {
   id: 'narenn-living',
   label: 'Featured case study',
   client: 'Narenn Living',
-  industry: 'Premium PG & co-living · Hyderabad',
+  industry: 'Hospitality · Hyderabad',
   website: 'https://narennliving.com',
   logo: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/Insta%20DP%20(1).png',
   image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/narennwebsite.png',
@@ -10,8 +10,10 @@ export const narennCaseStudy = {
     'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/narenn_instgram_new.png',
   socialHandle: '@narennliving',
   socialHref: 'https://www.instagram.com/narennliving',
-  socialStatus: '4,050 followers · Premium PG & co-living presence in Hyderabad',
-  headline: 'From empty rooms to a lead machine',
+  socialStatus: '4,050 followers · Hospitality presence in Hyderabad',
+  headline: 'Empty rooms to a lead machine',
+  headlineBefore: 'Empty rooms to a',
+  headlineAccent: 'lead machine',
   brief:
     'Narenn Living needed a serious digital presence and a real lead pipeline to fill beds in Madhapur - not just pretty posts.',
   whatWeDid: [

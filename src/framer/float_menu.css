@@ -33,6 +33,7 @@
 }
 
 .float-menu-instagram,
+.float-menu-linkedin,
 .float-menu-whatsapp {
   display: flex;
   align-items: center;
@@ -50,6 +51,7 @@
 }
 
 .float-menu-instagram-icon,
+.float-menu-linkedin-icon,
 .float-menu-whatsapp-icon {
   display: flex;
   flex-shrink: 0;
@@ -64,6 +66,16 @@
   background: linear-gradient(135deg, #f58529 0%, #dd2a7b 45%, #8134af 75%, #515bd4 100%);
 }
 
+.float-menu-linkedin-icon {
+  border-radius: 50%;
+  background: #0a66c2;
+}
+
+.float-menu-whatsapp-icon {
+  border-radius: 50%;
+  background: #25d366;
+}
+
 .float-menu-instagram-icon-svg {
   width: 14px;
   height: 14px;
@@ -72,14 +84,15 @@
   stroke-width: 1.8;
 }
 
-.float-menu-whatsapp-icon img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
+.float-menu-linkedin-icon-svg,
+.float-menu-whatsapp-icon-svg {
+  width: 15px;
+  height: 15px;
 }
 
 @media (hover: none), (pointer: coarse) {
   .float-menu-instagram,
+  .float-menu-linkedin,
   .float-menu-whatsapp {
     width: 40px !important;
     padding: 8px;

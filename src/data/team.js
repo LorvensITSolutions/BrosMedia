@@ -2,7 +2,7 @@ export const founderNote = {
   label: 'Founder note',
   founded: 'October 2025',
   founderName: 'Satyendra Yalla',
-  founderTitle: 'Co-Founder, Brosmedia',
+  founderTitle: 'Co-Founder',
   letter: [
     'Somewhere along the way, "good enough" became the industry standard.',
     'I noticed it before I even had a business. Agencies treating clients like line items. Beautiful decks that led nowhere. Reports designed to impress, not inform. Businesses trusting someone with their brand and getting back something hollow.',

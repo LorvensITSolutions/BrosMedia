@@ -12,10 +12,6 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       framer: path.resolve(__dirname, './src/lib/framer-shim.js'),
-      ogl: path.resolve(__dirname, 'node_modules/ogl/src/index.js'),
     },
-  },
-  optimizeDeps: {
-    include: ['ogl'],
   },
 })

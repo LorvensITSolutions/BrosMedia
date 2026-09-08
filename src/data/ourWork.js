@@ -2,17 +2,17 @@ export const ourWorkIntro = {
   label: 'Our Work',
   headline: 'Real brands. Real work. Real results.',
   description:
-    'From PG and co-living brands in Hyderabad to pickleball and professional sports teams - plus real estate, healthcare, fashion, and NGOs - here is who we have worked with and what we built for them.',
+    'From hospitality brands in Hyderabad to pickleball and professional sports teams - plus real estate, healthcare, fashion, and NGOs - here is who we have worked with and what we built for them.',
 }
 
 export const ourWorkStats = [
   {
-    value: '11+',
+    value: '12+',
     label: 'Clients served',
     icon: 'clients',
   },
   {
-    value: '10+',
+    value: '6+',
     label: 'Industries',
     icon: 'industries',
   },
@@ -41,7 +41,7 @@ export const portfolioClients = [
 {
     id: 'narenn-living',
     client: 'Narenn Living PG',
-    industry: 'Premium PG accommodation',
+    industry: 'Hospitality',
     goal: 'Needed a serious digital presence and lead pipeline to fill rooms',
     whatWeDid:
       'Video editing, creatives/posters, Meta ads, YouTube posting, 54-page SEO website, telecalling setup',
@@ -89,13 +89,14 @@ export const portfolioClients = [
     industry: 'Real estate',
     goal: 'Convert awareness into actual site visits and bookings across multiple launches',
     whatWeDid:
-      'Creatives/posters/banners, video editing + theatre ads, Meta ads, YouTube/Instagram/Facebook posting, local ads (banners, TV, radio), telecalling setup, website + SEO',
-    result: 'Increased villa and plot bookings, full lead pipeline from ad to telecaller',
+      'Social media marketing, Meta ads, TeleCRM connection, creatives/posters/banners, video editing + theatre ads, YouTube/Instagram/Facebook posting, local ads, website + SEO',
+    result: 'Increased villa and plot bookings through ads, social, and TeleCRM follow-up',
     workDone:
-      'Creatives, video + theatre ads, Meta ads, social posting, local ads, telecalling, website + SEO',
+      'Social media marketing, Meta ads, TeleCRM, creatives, video + theatre ads, social posting, local ads, website + SEO',
     website: 'mbprimeprojects.com',
     logo: 'https://res.cloudinary.com/dvruqkpqk/image/upload/v1782134726/sklmlogo_c2trtg_cndghd.png',
     instagram: null,
+    outcome: 'Social + Meta ads + TeleCRM\nto villa & plot bookings',
   },
 {
     id: 'amvi-foods',

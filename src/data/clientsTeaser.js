@@ -1,6 +1,8 @@
 export const clientsTeaserIntro = {
   label: 'Industries',
   headline: 'Work across sectors that need attention.',
+  headlineBefore: 'Work across sectors that',
+  headlineAccent: 'need attention',
   description:
     'Not a logo parade - verticals we actually ship for, with the outcome each one needs.',
 }
@@ -18,8 +20,8 @@ export const industryResults = [
     proof: 'New APL teams branded and launched from day one',
   },
   {
-    id: 'co-living',
-    industry: 'Co-living & PG',
+    id: 'hospitality',
+    industry: 'Hospitality',
     proof: 'SEO sites + ads + telecalling that fill beds',
   },
   {

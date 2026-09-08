@@ -26,7 +26,7 @@ export default function FounderNote() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(223,255,0,0.08),transparent_50%)]"
       />
 
-      <div className="relative z-10 mx-auto max-w-5xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <div className="section-pad relative z-10 mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <motion.blockquote
           initial="hidden"
           whileInView="visible"
@@ -37,9 +37,7 @@ export default function FounderNote() {
           <p className="text-xl font-semibold leading-snug tracking-tight text-white sm:text-2xl lg:text-[1.75rem] lg:leading-snug">
             “{founderNote.pullQuote}”
           </p>
-          <footer className="mt-4 text-sm text-white/50">
-            - {founderNote.founderName}, {founderNote.founderTitle}
-          </footer>
+          
         </motion.blockquote>
 
         <motion.div
@@ -68,7 +66,8 @@ export default function FounderNote() {
             variants={fadeUp}
             className="mt-8 text-sm font-semibold text-white"
           >
-            - {founderNote.founderName}, {founderNote.founderTitle}
+            - {founderNote.founderName},{' '}
+            <span className="font-medium text-white/50">{founderNote.founderTitle}</span>
           </motion.p>
         </motion.div>
       </div>

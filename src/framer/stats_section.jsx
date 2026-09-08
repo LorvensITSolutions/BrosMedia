@@ -68,7 +68,7 @@ function AnimatedNumber({
         fontVariantNumeric: 'tabular-nums',
         fontSize: font?.fontSize ?? 48,
         fontWeight: font?.fontWeight ?? 700,
-        fontFamily: font?.fontFamily ?? 'Montserrat, sans-serif',
+        fontFamily: font?.fontFamily ?? 'DM Sans, sans-serif',
         fontStyle: font?.fontStyle ?? 'normal',
         color: numberColor,
         lineHeight: 1,
@@ -126,7 +126,7 @@ function StatItem({
         style={{
           fontSize: labelFont?.fontSize ?? 14,
           fontWeight: labelFont?.fontWeight ?? 500,
-          fontFamily: labelFont?.fontFamily ?? 'Montserrat, sans-serif',
+          fontFamily: labelFont?.fontFamily ?? 'DM Sans, sans-serif',
           fontStyle: labelFont?.fontStyle ?? 'normal',
           color: labelColor,
           lineHeight: 1.35,
@@ -152,9 +152,9 @@ export default function StatsSection({
   duration = 2,
   separator = true,
   triggerOnView = true,
-  font = { fontSize: 48, fontWeight: 700, fontFamily: 'Montserrat, sans-serif' },
+  font = { fontSize: 48, fontWeight: 700, fontFamily: 'DM Sans, sans-serif' },
   numberColor = '#000000',
-  labelFont = { fontSize: 14, fontWeight: 500, fontFamily: 'Montserrat, sans-serif' },
+  labelFont = { fontSize: 14, fontWeight: 500, fontFamily: 'DM Sans, sans-serif' },
   labelColor = '#888888',
   labelTextTransform = 'none',
   itemGap = 8,
@@ -174,13 +174,13 @@ export default function StatsSection({
   fullWidth = false,
 }) {
   const ref = useRef(null)
-  const [started, setStarted] = useState(false)
+  const [started, setStarted] = useState(() => !triggerOnView)
   const [cellWidth, setCellWidth] = useState(minItemWidth)
   const [isMobile, setIsMobile] = useState(false)
 
   const fontSize = font?.fontSize ?? 48
   const fontWeight = font?.fontWeight ?? 700
-  const fontFamily = font?.fontFamily ?? 'Montserrat, sans-serif'
+  const fontFamily = font?.fontFamily ?? 'DM Sans, sans-serif'
   const activeColumnGap = isMobile ? 16 : columnGap
   const activeRowGap = isMobile ? 20 : rowGap
   const activeFont = isMobile ? { ...font, fontSize: 34 } : font
@@ -220,10 +220,7 @@ export default function StatsSection({
   }, [stats, fontSize, fontWeight, fontFamily, separator, minItemWidth, fullWidth])
 
   useEffect(() => {
-    if (!triggerOnView) {
-      setStarted(true)
-      return undefined
-    }
+    if (!triggerOnView || started) return undefined
 
     const el = ref.current
     if (!el) return undefined
@@ -240,7 +237,7 @@ export default function StatsSection({
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [triggerOnView])
+  }, [triggerOnView, started])
 
   return (
     <div

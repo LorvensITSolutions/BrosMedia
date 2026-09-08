@@ -136,5 +136,3 @@ export default function Seo({
 
   return null
 }
-
-export { siteUrl }

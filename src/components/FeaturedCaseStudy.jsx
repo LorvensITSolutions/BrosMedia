@@ -2,19 +2,12 @@ import { motion } from 'framer-motion'
 import { narennCaseStudy } from '../data/caseStudies'
 import NudgeButton from '../framer/nudge_button.jsx'
 import { HERO_NUDGE_PROPS, SecondaryCtaButton } from './ui/HeroStyleCtas'
-
-const spring = { type: 'spring', stiffness: 90, damping: 22, mass: 0.7 }
-const viewport = { once: true, margin: '-60px' }
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: spring },
-}
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
-}
+import {
+  SECTION_HEADING_CLASS,
+  scrollFadeUp,
+  scrollStagger,
+  scrollViewport,
+} from '../lib/scrollMotion'
 
 export default function FeaturedCaseStudy() {
   const study = narennCaseStudy
@@ -30,24 +23,24 @@ export default function FeaturedCaseStudy() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(223,255,0,0.07),transparent_55%)]"
       />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <div className="section-pad relative z-10 mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={viewport}
-          variants={stagger}
+          viewport={scrollViewport}
+          variants={scrollStagger}
           className="mx-auto max-w-3xl text-center"
         >
           <motion.p
-            variants={fadeUp}
+            variants={scrollFadeUp}
             className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-accent"
           >
             {study.label}
           </motion.p>
 
           <motion.div
-            variants={fadeUp}
-            className="mt-6 flex flex-col items-center gap-4"
+            variants={scrollFadeUp}
+            className="mt-5 flex flex-col items-center gap-3"
           >
             <img
               src={study.logo}
@@ -63,27 +56,25 @@ export default function FeaturedCaseStudy() {
             </div>
           </motion.div>
 
-          <motion.h2
-            variants={fadeUp}
-            className="mt-6 text-[clamp(1.65rem,4.5vw,2.85rem)] font-black tracking-tight"
-          >
-            {study.headline}
+          <motion.h2 variants={scrollFadeUp} className={SECTION_HEADING_CLASS}>
+            <span className="text-white">{study.headlineBefore} </span>
+            <span className="text-accent">{study.headlineAccent}</span>
           </motion.h2>
         </motion.div>
 
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={viewport}
-          variants={stagger}
-          className="mt-10 grid gap-8 sm:mt-12 lg:grid-cols-2 lg:items-stretch lg:gap-12"
+          viewport={scrollViewport}
+          variants={scrollStagger}
+          className="mt-8 grid gap-8 sm:mt-10 lg:grid-cols-2 lg:items-stretch lg:gap-10"
         >
           <motion.a
-            variants={fadeUp}
+            variants={scrollFadeUp}
             href={study.socialHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex min-h-[16rem] flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] lg:min-h-0 lg:h-full"
+            className="group relative block min-h-[16rem] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] lg:min-h-0 lg:h-full"
             aria-label={`${study.socialHandle} on Instagram`}
           >
             <img
@@ -92,45 +83,33 @@ export default function FeaturedCaseStudy() {
               className="absolute inset-0 h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
               loading="lazy"
             />
-            <div className="relative mt-auto border-t border-white/10 bg-black/75 px-4 py-3 backdrop-blur-sm sm:px-5">
-              <p className="text-sm font-semibold text-accent">
-                {study.socialHandle}
-              </p>
-              <p className="mt-1 text-xs leading-relaxed text-white/55">
-                {study.socialStatus}
-              </p>
-              <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-white transition group-hover:gap-2.5">
-                {study.socialCtaLabel}
-                <span aria-hidden>→</span>
-              </span>
-            </div>
           </motion.a>
 
-          <motion.div variants={stagger} className="flex h-full flex-col">
+          <motion.div variants={scrollStagger} className="flex h-full flex-col">
             <motion.p
-              variants={fadeUp}
+              variants={scrollFadeUp}
               className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/40"
             >
               The brief
             </motion.p>
             <motion.p
-              variants={fadeUp}
+              variants={scrollFadeUp}
               className="mt-3 text-base leading-relaxed text-white/70"
             >
               {study.brief}
             </motion.p>
 
             <motion.p
-              variants={fadeUp}
-              className="mt-8 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/40"
+              variants={scrollFadeUp}
+              className="mt-7 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/40"
             >
               What we did
             </motion.p>
-            <motion.ul variants={stagger} className="mt-3 space-y-2.5">
+            <motion.ul variants={scrollStagger} className="mt-3 space-y-2.5">
               {study.whatWeDid.map((item) => (
                 <motion.li
                   key={item}
-                  variants={fadeUp}
+                  variants={scrollFadeUp}
                   className="flex gap-2.5 text-sm leading-relaxed text-white/70"
                 >
                   <span
@@ -143,8 +122,8 @@ export default function FeaturedCaseStudy() {
             </motion.ul>
 
             <motion.div
-              variants={fadeUp}
-              className="mt-8 grid grid-cols-1 gap-3"
+              variants={scrollFadeUp}
+              className="mt-7 grid grid-cols-1 gap-3"
             >
               {study.results.map((row) => (
                 <div
@@ -162,15 +141,15 @@ export default function FeaturedCaseStudy() {
             </motion.div>
 
             <motion.p
-              variants={fadeUp}
-              className="mt-6 text-sm font-semibold leading-relaxed text-white sm:text-base"
+              variants={scrollFadeUp}
+              className="mt-5 text-sm font-semibold leading-relaxed text-white sm:text-base"
             >
               {study.resultLine}
             </motion.p>
 
             <motion.div
-              variants={fadeUp}
-              className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+              variants={scrollFadeUp}
+              className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
             >
               <NudgeButton
                 text={study.ctaLabel}

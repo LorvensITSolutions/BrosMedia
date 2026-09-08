@@ -179,10 +179,10 @@ export default function TestimonialsPro({
   items = [],
   sectionLabel = 'Testimonials',
   sectionTitle = 'What our users say',
+  sectionTitleBefore = '',
+  sectionTitleAccent = '',
   sectionDescription = '',
   backgroundColor = 'transparent',
-  badgeBackground = 'rgba(255, 255, 255, 0.06)',
-  badgeBorder = 'rgba(255, 255, 255, 0.12)',
   badgeColor = 'rgba(255, 255, 255, 0.85)',
   titleColor = '#ffffff',
   descriptionColor = 'rgba(255, 255, 255, 0.6)',
@@ -203,6 +203,8 @@ export default function TestimonialsPro({
     roleColor,
   }
 
+  const hasSplitTitle = Boolean(sectionTitleBefore && sectionTitleAccent)
+
   return (
     <div className={`font-sans ${className}`} style={{ backgroundColor, ...style }}>
       <motion.div
@@ -222,10 +224,17 @@ export default function TestimonialsPro({
 
         <motion.h2
           variants={fadeUp}
-          className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
-          style={{ color: titleColor }}
+          className="section-heading mt-5 text-[clamp(1.35rem,3.5vw,2.1rem)] font-black uppercase tracking-tight"
+          style={hasSplitTitle ? undefined : { color: titleColor }}
         >
-          {sectionTitle}
+          {hasSplitTitle ? (
+            <>
+              <span className="text-white">{sectionTitleBefore} </span>
+              <span className="text-accent">{sectionTitleAccent}</span>
+            </>
+          ) : (
+            sectionTitle
+          )}
         </motion.h2>
 
         {sectionDescription ? (
@@ -298,6 +307,8 @@ export function TestimonialsProFromData({
       items={gridItems}
       sectionLabel={intro.label || 'Testimonials'}
       sectionTitle={intro.headline || 'What our clients say'}
+      sectionTitleBefore={intro.headlineBefore || ''}
+      sectionTitleAccent={intro.headlineAccent || ''}
       sectionDescription={intro.description || ''}
       {...props}
     />

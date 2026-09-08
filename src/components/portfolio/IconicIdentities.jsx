@@ -62,7 +62,7 @@ function LogoCard({ client }) {
       <div className="px-1">
         <p className="text-xs font-semibold text-[var(--page-ink)] sm:text-sm">{client.client}</p>
         {client.outcome ? (
-          <p className="mt-1 text-[0.65rem] leading-snug text-[var(--page-muted)] sm:text-xs">
+          <p className="mt-1 whitespace-pre-line text-[0.65rem] leading-snug text-[var(--page-muted)] sm:text-xs">
             {client.outcome}
           </p>
         ) : null}
@@ -163,7 +163,7 @@ export default function IconicIdentities() {
           whileInView="visible"
           viewport={viewport}
           variants={fadeUp}
-          className="text-center text-[clamp(1.55rem,6.5vw,3rem)] font-black tracking-tight"
+          className="section-heading text-center text-[clamp(1.35rem,3.8vw,2.25rem)] font-black uppercase tracking-tight lg:whitespace-nowrap"
         >
           <span className="text-[var(--page-ink)]">{portfolioIconicIntro.headlineBefore} </span>
           <span className="text-accent">{portfolioIconicIntro.headlineAccent}</span>

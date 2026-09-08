@@ -104,7 +104,7 @@ export const reelsCarouselTheme = {
   },
   headerTypography: {
     headerTitleFont: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'DM Sans',
       fontSize: 36,
       fontWeight: 900,
       textAlign: 'left',
@@ -114,7 +114,7 @@ export const reelsCarouselTheme = {
     headerTitleTextTransform: 'uppercase',
     headerTitleColor: '#ffffff',
     headerDescFont: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'DM Sans',
       fontSize: 14,
       fontWeight: 500,
       textAlign: 'left',
@@ -126,7 +126,7 @@ export const reelsCarouselTheme = {
   },
   titleTypography: {
     titleFont: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'DM Sans',
       fontSize: 15,
       fontWeight: 700,
       textAlign: 'left',
@@ -137,7 +137,7 @@ export const reelsCarouselTheme = {
   },
   descTypography: {
     descFont: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'DM Sans',
       fontSize: 13,
       fontWeight: 400,
       textAlign: 'left',
@@ -148,7 +148,7 @@ export const reelsCarouselTheme = {
   },
   counterTypography: {
     counterFont: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'DM Sans',
       fontSize: 11,
       fontWeight: 700,
       textAlign: 'left',
@@ -190,7 +190,7 @@ export const reelsCarouselTheme = {
   },
   overlayTitleTypography: {
     overlayTitleFont: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'DM Sans',
       fontSize: 24,
       fontWeight: 700,
       textAlign: 'left',
@@ -201,7 +201,7 @@ export const reelsCarouselTheme = {
   },
   overlayDescTypography: {
     overlayDescFont: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'DM Sans',
       fontSize: 14,
       fontWeight: 400,
       textAlign: 'left',

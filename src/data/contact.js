@@ -8,8 +8,10 @@ export function getWhatsAppHref({ number, message }) {
 export const contactIntro = {
   label: 'Contact',
   headline: "Let's build something great together.",
+  headlineBefore: "Let's build something",
+  headlineAccent: 'great together',
   description:
-    'Whether you have a clear brief or just a rough idea — book a free 30-minute strategy call and we will map clear next steps for your brand.',
+    'Whether you have a clear brief or just a rough idea, book a free 30 min Strategy Call and we will map clear next steps for your brand.',
 }
 
 export const contactEmail = 'info@brosmedia.in'

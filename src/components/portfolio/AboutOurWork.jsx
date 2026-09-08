@@ -52,7 +52,7 @@ export default function AboutOurWork() {
 
           <motion.h2
             variants={fadeUp}
-            className="mt-2.5 text-center text-[clamp(1.65rem,6.5vw,3.35rem)] font-black tracking-tight sm:mt-3"
+            className="section-heading mt-2.5 text-center text-[clamp(1.35rem,3.8vw,2.25rem)] font-black uppercase tracking-tight sm:mt-3 lg:whitespace-nowrap"
           >
             {titleBefore ? (
               <span className="text-[var(--page-ink)]">{titleBefore} </span>
