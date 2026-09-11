@@ -53,6 +53,28 @@
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
     <meta name="theme-color" content="#000000" />
+    <style id="seo-static-hide">
+      html,
+      body {
+        background: #000;
+        margin: 0;
+      }
+      #root {
+        min-height: 100vh;
+        background: #000;
+      }
+      #seo-static {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+    </style>
     <meta name="format-detection" content="telephone=yes" />
     <meta name="geo.region" content="IN-TG" />
     <meta name="geo.placename" content="Jubilee Hills, Hyderabad" />
@@ -363,6 +385,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MBLFV8"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <div id="seo-static"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

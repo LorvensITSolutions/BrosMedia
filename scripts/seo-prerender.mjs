@@ -160,7 +160,8 @@ function navHtml() {
 }
 
 function wrapArticle(inner) {
-  return `<article id="seo-prerender" style="background:#000;color:#fff;font-family:system-ui,sans-serif;line-height:1.55;padding:1.25rem 1.5rem 3rem;max-width:72rem;margin:0 auto">${navHtml()}${inner}</article>`
+  // Kept in the HTML for crawlers; visually hidden via critical CSS (#seo-static).
+  return `<article id="seo-prerender">${navHtml()}${inner}</article>`
 }
 
 function homeBody() {
@@ -234,18 +235,37 @@ function sectionBody(title, description, sectionsHtml) {
   <p><a href="${siteUrl}/">Home</a> · <a href="${siteUrl}/portfolio">Portfolio</a> · <a href="${siteUrl}/contact">Contact</a></p>`)
 }
 
+const SEO_HIDE_STYLE = `<style id="seo-static-hide">html,body{background:#000;margin:0}#root{min-height:100vh;background:#000}#seo-static{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}</style>`
+
+function ensureCriticalCss(html) {
+  if (html.includes('id="seo-static-hide"')) return html
+  return html.replace('</head>', `    ${SEO_HIDE_STYLE}\n  </head>`)
+}
+
 function injectRoot(html, body) {
-  if (html.includes('<!--seo-prerender-start-->')) {
-    return html.replace(
-      /<!--seo-prerender-start-->[\s\S]*?<!--seo-prerender-end-->/,
-      `<!--seo-prerender-start-->${body}<!--seo-prerender-end-->`,
+  let next = ensureCriticalCss(html)
+
+  // Prefer a dedicated SEO node outside #root so React never flashes it.
+  if (next.includes('id="seo-static"')) {
+    return next.replace(
+      /<div id="seo-static">[\s\S]*?<\/div>(\s*)<div id="root">/,
+      `<div id="seo-static">${body}</div>$1<div id="root">`,
     )
   }
 
-  if (html.includes('<div id="root"></div>')) {
-    return html.replace(
+  // Migrate older builds that injected into #root.
+  if (next.includes('<!--seo-prerender-start-->')) {
+    next = next.replace(
+      /<div id="root"><!--seo-prerender-start-->[\s\S]*?<!--seo-prerender-end--><\/div>/,
+      `<div id="seo-static">${body}</div>\n    <div id="root"></div>`,
+    )
+    return next
+  }
+
+  if (next.includes('<div id="root"></div>')) {
+    return next.replace(
       '<div id="root"></div>',
-      `<div id="root"><!--seo-prerender-start-->${body}<!--seo-prerender-end--></div>`,
+      `<div id="seo-static">${body}</div>\n    <div id="root"></div>`,
     )
   }
 
