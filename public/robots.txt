@@ -1,5 +1,5 @@
-# Brosmedia — https://www.brosmedia.in
-# https://www.brosmedia.in/robots.txt
+# Brosmedia — https://brosmedia.in
+# https://brosmedia.in/robots.txt
 
 User-agent: *
 Allow: /
@@ -43,5 +43,5 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
-Sitemap: https://www.brosmedia.in/sitemap.xml
-Host: https://www.brosmedia.in
+Sitemap: https://brosmedia.in/sitemap.xml
+Host: https://brosmedia.in
