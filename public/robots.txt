@@ -1,23 +1,11 @@
-# Brosmedia — https://brosmedia.in
-# https://brosmedia.in/robots.txt
+# Brosmedia — https://www.brosmedia.in
+# https://www.brosmedia.in/robots.txt
 
 User-agent: *
 Allow: /
-Disallow: /cdn-cgi/
-Disallow: /*?*utm_
-Disallow: /*?*fbclid=
-Disallow: /*?*gclid=
 
-# AI / search crawlers (explicit allow)
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
+# Common AI crawlers — allowed so Brosmedia content can surface in AI search
+# (ChatGPT Search, Perplexity, Claude, Google AI Overviews).
 User-agent: GPTBot
 Allow: /
 
@@ -30,10 +18,19 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 User-agent: Applebot
 Allow: /
 
-# Block aggressive scrapers that add no search value
+# Soft-throttle aggressive SEO scrapers
 User-agent: AhrefsBot
 Crawl-delay: 10
 
@@ -46,5 +43,5 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
-Sitemap: https://brosmedia.in/sitemap.xml
-Host: https://brosmedia.in
+Sitemap: https://www.brosmedia.in/sitemap.xml
+Host: https://www.brosmedia.in

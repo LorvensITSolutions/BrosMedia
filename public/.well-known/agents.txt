@@ -1,0 +1,16 @@
+# agents.txt — draft-car-agents-txt-wellknown-00
+# Brosmedia is a brochure/marketing site with no transactional API today,
+# so this confirms the site is open to AI agents for browsing and
+# answering client questions. Add Capability blocks later if you wire
+# up a booking form, lead API, or chatbot endpoint.
+
+Spec-Version: 1.0
+Site-Name: Brosmedia
+Site-URL: https://www.brosmedia.in
+Site-Description: Digital marketing agency in Hyderabad offering branding, websites, social media, Meta ads, and creative production.
+Site-Contact: mailto:info@brosmedia.in
+
+Allow: /
+Disallow: /admin/*
+
+Agent: *

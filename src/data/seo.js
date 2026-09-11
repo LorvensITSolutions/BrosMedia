@@ -1,5 +1,6 @@
 import { faqItems } from './faq'
 import { services } from './services'
+import { portfolioClients, ourWorkIntro } from './ourWork'
 
 export const siteUrl = 'https://brosmedia.in'
 
@@ -288,3 +289,93 @@ export function buildServiceListSchema() {
     })),
   }
 }
+
+export function buildBreadcrumbSchema(items) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  }
+}
+
+/** Homepage-focused WebPage + local business landing schema extras. */
+export function buildHomePageSchema({
+  title = defaultTitle,
+  description = defaultDescription,
+} = {}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${siteUrl}/#webpage`,
+    url: `${siteUrl}/`,
+    name: title,
+    description,
+    isPartOf: { '@id': `${siteUrl}/#website` },
+    about: { '@id': `${siteUrl}/#organization` },
+    mainEntity: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'en-IN',
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: ogImage,
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'h2'],
+    },
+    hasPart: [
+      { '@id': `${siteUrl}/#services` },
+      { '@id': `${siteUrl}/#faq` },
+    ],
+  }
+}
+
+/** Portfolio CollectionPage with client case highlights as an ItemList. */
+export function buildPortfolioPageSchema({
+  title = seoPages['/portfolio'].title,
+  description = seoPages['/portfolio'].description,
+} = {}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${absoluteUrl('/portfolio')}#webpage`,
+    url: absoluteUrl('/portfolio'),
+    name: title,
+    description,
+    isPartOf: { '@id': `${siteUrl}/#website` },
+    about: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'en-IN',
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: ogImage,
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      '@id': `${absoluteUrl('/portfolio')}#clients`,
+      name: ourWorkIntro.headline,
+      description: ourWorkIntro.description,
+      numberOfItems: portfolioClients.length,
+      itemListElement: portfolioClients.map((client, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: client.client,
+        description: [client.goal, client.whatWeDid, client.result]
+          .filter(Boolean)
+          .join(' '),
+        url: absoluteUrl('/portfolio'),
+        item: {
+          '@type': 'CreativeWork',
+          name: client.client,
+          about: client.industry,
+          description: client.result || client.outcome || client.whatWeDid,
+          provider: { '@id': `${siteUrl}/#organization` },
+        },
+      })),
+    },
+  }
+}
+

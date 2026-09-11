@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "name": "Brosmedia",
+  "url": "https://www.brosmedia.in",
+  "description": "Digital marketing agency in Hyderabad offering branding, websites, social media, Meta ads, and creative production for growing businesses across India.",
+  "contact": {
+    "email": "info@brosmedia.in",
+    "phone": "+91 70138 14030",
+    "address": "1st Floor, Road No. 86, Jubilee Hills, Hyderabad, Telangana 500096"
+  },
+  "sameAs": [
+    "https://www.instagram.com/brosmedia.in",
+    "https://www.linkedin.com/showcase/bros-media-in"
+  ],
+  "llms": "https://www.brosmedia.in/llms.txt",
+  "llmsFull": "https://www.brosmedia.in/llms-full.txt",
+  "sitemap": "https://www.brosmedia.in/sitemap.xml",
+  "pages": [
+    { "path": "/", "title": "Home", "type": "homepage" },
+    { "path": "/portfolio", "title": "Portfolio", "type": "portfolio" },
+    { "path": "/services", "title": "Services", "type": "services" },
+    { "path": "/about", "title": "About", "type": "about" },
+    { "path": "/industries", "title": "Industries", "type": "industries" },
+    { "path": "/contact", "title": "Contact", "type": "contact" }
+  ],
+  "services": [
+    "Branding",
+    "Marketing",
+    "Websites & Portals",
+    "Business Consulting"
+  ],
+  "industries": [
+    "Real estate",
+    "Sports franchises",
+    "Hospitality",
+    "Healthcare",
+    "Fashion & retail",
+    "NGO & public"
+  ],
+  "policy": {
+    "aiTraining": "allow",
+    "aiCitation": "allow",
+    "scrapingCommercialReuse": "ask"
+  }
+}

@@ -1,0 +1,30 @@
+# Brosmedia
+
+> Brosmedia is a digital marketing agency based in Jubilee Hills, Hyderabad, offering branding, website development, social media management, Meta ads, video editing, creative design, and business consulting for clients across healthcare, real estate, hospitality, food export, sports, fashion, technology, and non-profit sectors.
+
+Brosmedia has delivered 12+ brand builds across 6+ industries, with a full-stack offering spanning websites, paid ads, content production, and on-ground marketing (including theatre ads and telecalling lead setup for some clients).
+
+## Services
+- [Branding](https://www.brosmedia.in/services): Positioning, naming, visual identity, brand guidelines, and messaging frameworks.
+- [Marketing](https://www.brosmedia.in/services): Meta & Google ads, social media management, campaign strategy, and performance reporting.
+- [Websites & Portals](https://www.brosmedia.in/services): Responsive websites, customer portals, landing pages, and performance-focused builds.
+- [Business Consulting](https://www.brosmedia.in/services): Growth strategy, market positioning, go-to-market planning, and brand audits.
+
+## Client Work
+- [Portfolio](https://www.brosmedia.in/portfolio): Full client roster and case highlights.
+- [Sasha Clinic Group](https://www.brosmedia.in/portfolio): Websites for Lumiere Luxe, Sasha Dental, and Sasha Slimming plus ongoing ad creatives — increased bookings across all three.
+- [Narenn Living](https://www.brosmedia.in/portfolio): 54-page SEO website, Meta ads, video, creatives, and telecalling lead setup for a premium hospitality / PG brand.
+- [MB Prime Villas & Plots](https://www.brosmedia.in/portfolio): Social, Meta ads, TeleCRM, creatives, video/theatre ads, website and SEO for real estate launches.
+- [Amvi Foods](https://www.brosmedia.in/portfolio): Video, creatives, social, website, and brochure design for an AP-based food exporter.
+- [Vizag Seahawks & Nellore Wolves](https://www.brosmedia.in/portfolio): Digital marketing partner for two Andhra Pickle League teams — creatives, posters, video, social handling.
+- [ViQantAI](https://www.brosmedia.in/portfolio): Brand identity from scratch plus active social content pipeline.
+
+## About
+- [About Brosmedia](https://www.brosmedia.in/about): Agency background, founders, and positioning.
+- [Industries](https://www.brosmedia.in/industries): Real estate, sports, hospitality, healthcare, fashion & retail, NGO & public.
+- [Contact](https://www.brosmedia.in/contact): Jubilee Hills, Hyderabad. +91 70138 14030 · info@brosmedia.in
+
+## Optional
+- [AI catalog](https://www.brosmedia.in/ai-catalog.json): Machine-readable site summary for AI agents.
+- [Full content index](https://www.brosmedia.in/llms-full.txt): Expanded page-level copy for AI systems.
+- [humans.txt](https://www.brosmedia.in/humans.txt): Team and site credits.

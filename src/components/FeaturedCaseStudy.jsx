@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { narennCaseStudy } from '../data/caseStudies'
 import NudgeButton from '../framer/nudge_button.jsx'
-import { HERO_NUDGE_PROPS, SecondaryCtaButton } from './ui/HeroStyleCtas'
+import { HERO_NUDGE_PROPS } from './ui/heroCtaProps'
+import { SecondaryCtaButton } from './ui/HeroStyleCtas'
 import {
   SECTION_HEADING_CLASS,
   scrollFadeUp,

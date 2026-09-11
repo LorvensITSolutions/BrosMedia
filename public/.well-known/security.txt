@@ -1,0 +1,9 @@
+# security.txt — https://securitytxt.org / RFC 9116
+# If you find a security issue with brosmedia.in, please report it responsibly.
+
+Contact: mailto:info@brosmedia.in
+Contact: tel:+91-70138-14030
+Expires: 2027-09-10T00:00:00.000Z
+Preferred-Languages: en, te, hi
+Canonical: https://www.brosmedia.in/.well-known/security.txt
+Policy: https://www.brosmedia.in/security-policy

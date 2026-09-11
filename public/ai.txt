@@ -1,0 +1,24 @@
+# ai.txt — informal convention (Spawning / AI crawler policy)
+#
+# Brosmedia wants to be found and cited by AI search tools
+# (ChatGPT Search, Perplexity, Claude, Gemini) so prospects can discover
+# the agency. Default policy: allow indexing and citation of public pages.
+# Flip specific lines to Disallow later only if abuse becomes a problem.
+
+User-Agent: *
+Allow: /
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: ChatGPT-User
+Allow: /
+
+User-Agent: ClaudeBot
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /

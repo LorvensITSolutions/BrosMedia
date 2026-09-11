@@ -20,11 +20,12 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="/services" element={<Navigate to={routes.services} replace />} />
-          <Route path="/about" element={<Navigate to={routes.about} replace />} />
+          {/* Section URLs stay on HomePage so crawlers + users get real content at these paths */}
+          <Route path="/services" element={<HomePage />} />
+          <Route path="/about" element={<HomePage />} />
+          <Route path="/industries" element={<HomePage />} />
+          <Route path="/contact" element={<HomePage />} />
           <Route path="/our-work" element={<Navigate to={routes.portfolio} replace />} />
-          <Route path="/industries" element={<Navigate to={routes.industries} replace />} />
-          <Route path="/contact" element={<Navigate to={routes.contact} replace />} />
           <Route path="*" element={<Navigate to={routes.home} replace />} />
         </Route>
       </Routes>

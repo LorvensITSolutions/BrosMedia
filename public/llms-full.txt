@@ -1,0 +1,163 @@
+# Brosmedia — Full Content Index (llms-full.txt)
+# Updated: 2026-09-10
+# Source of truth: live marketing site content (home + portfolio).
+
+# Home
+
+Brosmedia is a digital marketing agency in Hyderabad offering branding, websites, social media, Meta ads, and creative production for growing businesses across India.
+
+Hero positioning: UNSKIPPABLE. We've built 12+ brands across sports, real estate, fashion, and healthcare — from zero to unforgettable.
+
+Taglines used on site:
+- STOP BEING INVISIBLE ONLINE • WE DOMINATE ATTENTION
+- BRAND SYSTEMS • OBSESSIVE CRAFT • HYPER-SCALABLE FUNNELS
+- UNIGNORABLE DIGITAL IMPACT • SCALE YOUR BRAND
+
+Stats highlighted on site:
+- 12+ Brands Built
+- ₹12+ Cr Revenue Influenced* (approx. client-side revenue influenced — not Brosmedia billing)
+- 6+ Industries
+- 1+ Yr Of Execution
+
+# About
+
+Founded October 2025 in Jubilee Hills, Hyderabad.
+Co-founders: Satyendra Yalla, Dr. Navaneeth, Akhil Varma.
+
+Founder note (Satyendra Yalla, Co-Founder):
+Somewhere along the way, "good enough" became the industry standard. Agencies treating clients like line items. Beautiful decks that led nowhere. Reports designed to impress, not inform. Businesses trusting someone with their brand and getting back something hollow.
+
+I didn't come from another agency. I didn't have a mentor who handed me a playbook. I started Brosmedia because I genuinely believed that if someone just cared — actually cared, the way you care about something that has your name on it — the work would be different.
+
+I think it is. I hope you feel that when you work with us.
+
+Pull quote: Most agencies show up. We show up and give a damn. That's rarer than it sounds.
+
+# Services
+
+Everything your brand needs to grow.
+From strategy and identity to websites, content, and campaigns — we deliver end-to-end brand and marketing services built around your business goals.
+
+## Branding
+Positioning, naming, visual identity, and brand systems that make your business look credible — and memorable — from day one.
+Highlights: Brand positioning, Logo & identity systems, Brand guidelines, Messaging frameworks.
+
+## Marketing
+Paid media, social management, and creative campaigns that keep your brand visible — and your pipeline active.
+Highlights: Meta & Google ads, Social media management, Campaign strategy, Performance reporting.
+
+## Websites & Portals
+Responsive websites and digital portals designed to convert — polished on desktop, fast on mobile, built for real users.
+Highlights: Website design & development, Customer portals, Landing pages, Performance-focused builds.
+
+## Business Consulting
+Hands-on strategy and consulting to align your brand, marketing, and growth goals — with clear direction and practical next steps.
+Highlights: Growth strategy, Market positioning, Go-to-market planning, Brand & business audits.
+
+Process: Discover → Build → Launch.
+
+# Industries
+
+Work across sectors that need attention.
+Not a logo parade — verticals we actually ship for, with the outcome each one needs.
+
+- Real estate — Campaign systems that turn curiosity into site visits
+- Sports franchises — New APL teams branded and launched from day one
+- Hospitality — SEO sites + ads + telecalling that fill beds
+- Healthcare — Clinic brands and sites built for trust + bookings
+- Fashion & retail — Premium presence that grows online enquiries
+- NGO & public — Clear identity and content that builds credibility
+
+# Portfolio / Client Work
+
+Real brands. Real work. Real results.
+From hospitality brands in Hyderabad to pickleball and professional sports teams — plus real estate, healthcare, fashion, and NGOs.
+
+At Brosmedia, we are more than just a digital marketing agency — we are growth partners for brands that want to thrive in today’s fast-moving digital landscape. With creativity at our core and strategy as our foundation, we bring together design, technology, and marketing expertise to craft digital experiences that leave a lasting impact.
+
+Our portfolio reflects a diverse range of projects across industries, where we have transformed ideas into compelling stories and brands into market leaders. From startups seeking a strong online presence to established businesses ready to scale, we tailor strategies that align with every stage of growth.
+
+## Narenn Living PG (Hospitality)
+Goal: Needed a serious digital presence and lead pipeline to fill rooms.
+What we did: Video editing, creatives/posters, Meta ads, YouTube posting, 54-page SEO website, telecalling setup.
+Result: Increased bookings via SEO traffic + telecalling conversion.
+Website: narennliving.com
+
+## Nellore Wolves (Sports — Andhra Pickle League)
+Goal: New APL franchise needed a full brand and fan presence from day one.
+What we did: Creatives, posts, video editing, social media handling.
+Result: Launched a new sports franchise identity and kept season-long fan content consistent.
+
+## Vizag Seahawks (Sports — Andhra Pickle League)
+Goal: New APL franchise needed digital marketing to build fans and visibility from scratch.
+What we did: Creatives, posters, video editing, social media handling.
+Result: Built a debut-season franchise presence with match-day creatives and fan engagement.
+
+## MB Prime (Villas & Plots) — Real estate
+Goal: Convert awareness into actual site visits and bookings across multiple launches.
+What we did: Social media marketing, Meta ads, TeleCRM connection, creatives/posters/banners, video editing + theatre ads, YouTube/Instagram/Facebook posting, local ads, website + SEO.
+Result: Increased villa and plot bookings through ads, social, and TeleCRM follow-up.
+Website: mbprimeprojects.com
+
+## Amvi Foods (Food & agri exports)
+Goal: Wanted a stronger digital portfolio to present internationally.
+What we did: Video editing, creatives, social media handling, website, brochure design.
+Result: Stronger, more credible presence for an international audience.
+Website: amvifoods.com
+
+## GoClean Foundation (NGO)
+Goal: Needed a professional identity and print material for fundraising/outreach.
+What we did: Logo design, brochure design.
+Result: Credible identity supporting fundraising and outreach.
+
+## Sasha Clinic Group (Healthcare — 3 sub-brands)
+Sub-brands: Lumiere Luxe, Sasha Dental, Sasha Slimming.
+Goal: Needed three separate identities/websites plus ongoing creative support to keep bookings flowing.
+What we did: Built 3 websites (one per brand), ongoing video editing, creatives/posters/banners for ad campaigns.
+Result: Increased bookings across all three.
+Sites: sashasmiles.com, sashaslimming.com, lumiereluxe.in
+
+## Zarivaram (Fashion / saree boutique)
+Goal: Turn online attention into actual store visits.
+What we did: Video editing, creative/poster design, Instagram posting, event planning (e.g. Mayabazar).
+Result: Increased footfall — customers visiting the store to buy.
+
+## DISTA (Delivery platform)
+Goal: App/product needed to feel as easy to use as it is functional.
+What we did: App & UI creative design, interface design, digital product creative assets.
+Result: More user-friendly website and app.
+Website: distausa.com
+
+## Andhra Machines Store (E-commerce)
+Goal: Needed an online store.
+What we did: Full e-commerce website design & development.
+Result: A functioning online store.
+Website: andhramachinesagencies.com
+
+## ViQantAI (Technology)
+Goal: Needed a brand built from scratch plus an active social media presence.
+What we did: Branding, logo design, color palette, set up social accounts, carousel/static post design, video editing.
+Result: Consistent brand identity with an active content pipeline, not a one-off logo drop.
+
+# Working with Brosmedia
+
+How we start: A WhatsApp or a booked strategy call is enough. We spend 30 minutes on your brand, goals, and constraints — no pitch deck theatre, no commitment required.
+
+Small businesses welcome: Most of our clients are growing brands, not mega-corps. What matters is whether you are serious about the brand — not how big the retainer looks on day one.
+
+Hyderabad-based, India-ready: We work from Jubilee Hills and deliver remotely across India.
+
+Projects and retainers: Branding, websites, and brochures are quoted per project. Social, ads, and ongoing content run on monthly retainers — clear scope, no fuzzy minimum-months traps.
+
+All work in-house: Design, development, video, content, and ads stay with our team.
+
+# Contact
+
+Let's build something great together.
+Whether you have a clear brief or just a rough idea, book a free 30 min Strategy Call and we will map clear next steps for your brand.
+
+Address: 1st Floor, Road No. 86, Jubilee Hills, Hyderabad, Telangana 500096
+Phone: +91 70138 14030
+Email: info@brosmedia.in
+Website: https://www.brosmedia.in
+Hours: Monday–Saturday, 10:00–19:00

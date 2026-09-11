@@ -1,8 +1,11 @@
 import { useEffect } from 'react'
 import {
   absoluteUrl,
+  buildBreadcrumbSchema,
   buildFaqSchema,
+  buildHomePageSchema,
   buildOrganizationSchema,
+  buildPortfolioPageSchema,
   buildServiceListSchema,
   buildWebPageSchema,
   buildWebsiteSchema,
@@ -50,6 +53,10 @@ function upsertJsonLd(id, data) {
   el.textContent = JSON.stringify(data)
 }
 
+function removeJsonLd(id) {
+  document.getElementById(id)?.remove()
+}
+
 export default function Seo({
   title = defaultTitle,
   description = defaultDescription,
@@ -62,6 +69,8 @@ export default function Seo({
     const robots = noIndex
       ? 'noindex, nofollow'
       : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+    const isHome = path === '/' || path === ''
+    const isPortfolio = path === '/portfolio'
 
     document.title = title
 
@@ -129,9 +138,41 @@ export default function Seo({
 
     upsertJsonLd('seo-organization', buildOrganizationSchema())
     upsertJsonLd('seo-website', buildWebsiteSchema())
-    upsertJsonLd('seo-webpage', buildWebPageSchema({ title, description, path }))
-    upsertJsonLd('seo-faq', buildFaqSchema())
-    upsertJsonLd('seo-services', buildServiceListSchema())
+
+    if (isHome) {
+      upsertJsonLd('seo-webpage', buildHomePageSchema({ title, description }))
+      upsertJsonLd('seo-faq', buildFaqSchema())
+      upsertJsonLd('seo-services', buildServiceListSchema())
+      upsertJsonLd(
+        'seo-breadcrumb',
+        buildBreadcrumbSchema([{ name: 'Home', path: '/' }]),
+      )
+      removeJsonLd('seo-portfolio')
+    } else if (isPortfolio) {
+      upsertJsonLd('seo-webpage', buildPortfolioPageSchema({ title, description }))
+      upsertJsonLd(
+        'seo-breadcrumb',
+        buildBreadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Portfolio', path: '/portfolio' },
+        ]),
+      )
+      removeJsonLd('seo-faq')
+      removeJsonLd('seo-services')
+      removeJsonLd('seo-portfolio')
+    } else {
+      upsertJsonLd('seo-webpage', buildWebPageSchema({ title, description, path }))
+      upsertJsonLd(
+        'seo-breadcrumb',
+        buildBreadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: title.split('|')[0].trim(), path },
+        ]),
+      )
+      removeJsonLd('seo-faq')
+      removeJsonLd('seo-services')
+      removeJsonLd('seo-portfolio')
+    }
   }, [title, description, path, image, noIndex])
 
   return null

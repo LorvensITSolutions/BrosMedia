@@ -1,15 +1,7 @@
 import { getContactWhatsAppHref, contactEmail } from '../../data/contact'
 import NudgeButton from '../../framer/nudge_button.jsx'
 import ShowreelButton from '../../framer/showreel_button.jsx'
-
-/** Shared hero-matching CTA props (Framer Nudge + Showreel). */
-// eslint-disable-next-line react-refresh/only-export-components -- shared CTA theme tokens
-export const HERO_NUDGE_PROPS = {
-  buttonColor: '#dfff00',
-  textColor: '#000000',
-  arrowColor: '#000000',
-  arrowWrapperColor: '#ffffff',
-}
+import { HERO_NUDGE_PROPS } from './heroCtaProps'
 
 export function PrimaryBookingButton({
   text = 'Book a Free Strategy Call',

@@ -10,6 +10,14 @@ import { useTheme } from '../lib/ThemeProvider.jsx'
 import { routes, scrollToSection } from '../data/navigation'
 import { seoPages } from '../data/seo'
 
+/** Path-based section landing pages (also used in sitemap). */
+const PATH_SECTION_HASH = {
+  '/services': '#services',
+  '/about': '#about',
+  '/industries': '#industries',
+  '/contact': '#contact',
+}
+
 function scrollToHash(hash) {
   return scrollToSection(hash || '#hero')
 }
@@ -20,26 +28,38 @@ export default function Layout() {
   const pageSeo = seoPages[pathname] ?? seoPages.home
   const isPortfolio = pathname === routes.portfolio
   const isHome = pathname === routes.home
+  const sectionHash = PATH_SECTION_HASH[pathname]
 
   useEffect(() => {
-    // Hash scrolling is for homepage sections only.
-    if (pathname !== routes.home) return undefined
-
     let cancelled = false
     const timer = window.setTimeout(() => {
       if (cancelled) return
-      const ok = scrollToHash(hash)
-      if (!ok && hash && hash !== '#hero') {
-        window.setTimeout(() => {
-          if (!cancelled) scrollToHash(hash)
-        }, 120)
+
+      if (pathname === routes.home) {
+        const ok = scrollToHash(hash)
+        if (!ok && hash && hash !== '#hero') {
+          window.setTimeout(() => {
+            if (!cancelled) scrollToHash(hash)
+          }, 120)
+        }
+        return
+      }
+
+      if (sectionHash) {
+        const ok = scrollToSection(sectionHash)
+        if (!ok) {
+          window.setTimeout(() => {
+            if (!cancelled) scrollToSection(sectionHash)
+          }, 120)
+        }
       }
     }, 60)
+
     return () => {
       cancelled = true
       window.clearTimeout(timer)
     }
-  }, [pathname, hash])
+  }, [pathname, hash, sectionHash])
 
   // Light/dark theme only applies on the portfolio page.
   useEffect(() => {
@@ -57,7 +77,7 @@ export default function Layout() {
       <Footer />
       <FloatMenu />
       {isPortfolio ? <ThemeToggle /> : null}
-      {isHome ? <PortfolioShortcut /> : null}
+      {isHome || sectionHash ? <PortfolioShortcut /> : null}
     </div>
   )
 }
