@@ -24,7 +24,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.07, delayChildren: 0.04 } },
 }
 
-function LogoCard({ client }) {
+function LogoCard({ client, priority = false }) {
   const href = getClientWebsiteHref(client.website) || client.instagram
   const cardClass =
     'group relative mx-auto flex h-24 w-full items-center justify-center overflow-hidden rounded-xl bg-white p-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-transform duration-300 hover:-translate-y-1 sm:h-40 sm:rounded-2xl sm:p-2.5 lg:h-44'
@@ -34,8 +34,9 @@ function LogoCard({ client }) {
       src={client.logo}
       alt={`${client.client} brand logo`}
       className="max-h-[86%] w-auto max-w-[90%] object-contain sm:max-h-[90%] sm:max-w-[92%]"
-      loading="lazy"
+      loading={priority ? 'eager' : 'lazy'}
       decoding="async"
+      fetchPriority={priority ? 'high' : 'auto'}
     />
   ) : (
     <span className="text-sm font-bold uppercase tracking-wide text-black/40">
@@ -188,8 +189,8 @@ export default function IconicIdentities() {
           variants={stagger}
           className="mt-3 grid grid-cols-3 gap-2 sm:mt-4 sm:gap-3"
         >
-          {portfolioIconicFeatured.map((client) => (
-            <LogoCard key={client.id} client={client} />
+          {portfolioIconicFeatured.map((client, index) => (
+            <LogoCard key={client.id} client={client} priority={index < 4} />
           ))}
         </motion.div>
       </div>

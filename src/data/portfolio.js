@@ -303,15 +303,6 @@ export const portfolioSocialMore = [
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/amvi_instgram.jpeg',
   },
   {
-    id: 'social-yalla',
-    name: 'Yalla Dorababu',
-    handle: '@yalladorababu_official',
-    status: 'Political leadership presence with consistent community content',
-    href: 'https://www.instagram.com/yalladorababu_official',
-    cta: 'View Profile',
-    image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/yalladorababu_instgram.png',
-  },
-  {
     id: 'social-vizag',
     name: 'Vizag Sea Hawks',
     handle: '@vizagseahawksofficial',

@@ -74,6 +74,7 @@ function ChevronRight({ className }) {
 function GalleryCard({
   image,
   index,
+  uniqueCount,
   cardWidth,
   cardHeight,
   borderRadius,
@@ -81,6 +82,9 @@ function GalleryCard({
   bareCard,
   onImageClick,
 }) {
+  const isPrimaryCopy = index < uniqueCount
+  const isPriority = index < Math.min(3, uniqueCount)
+
   return (
     <button
       type="button"
@@ -105,9 +109,9 @@ function GalleryCard({
         <img
           src={image.src}
           alt={image.alt || 'Brosmedia creative work'}
-          loading={index < 3 ? 'eager' : 'lazy'}
+          loading={isPrimaryCopy ? 'eager' : 'lazy'}
           decoding="async"
-          fetchPriority={index === 0 ? 'high' : 'auto'}
+          fetchPriority={isPriority ? 'high' : 'auto'}
           draggable={false}
           className={`block max-h-full max-w-full ${bareCard ? 'h-full w-full object-contain' : 'object-contain'}`}
         />
@@ -227,7 +231,8 @@ export default function CreativeWorkGallery({
               <GalleryCard
                 key={`${image.src}-${imageIndex}`}
                 image={image}
-                index={imageIndex % images.length}
+                index={imageIndex}
+                uniqueCount={images.length}
                 cardWidth={cardWidth}
                 cardHeight={cardHeight}
                 borderRadius={borderRadius}

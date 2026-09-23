@@ -23,7 +23,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
 }
 
-function ProjectCard({ project, size = 'md' }) {
+function ProjectCard({ project, size = 'md', priority = false }) {
   return (
     <motion.article
       variants={scaleIn}
@@ -35,8 +35,9 @@ function ProjectCard({ project, size = 'md' }) {
         src={project.image}
         alt={project.imageAlt || `${project.title} website by Brosmedia`}
         className="block h-auto max-h-[min(52vh,28rem)] w-full object-cover object-top sm:max-h-none sm:object-contain"
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
         decoding="async"
+        fetchPriority={priority ? 'high' : 'auto'}
       />
 
       <div className={`flex flex-1 flex-col ${size === 'lg' ? 'p-4 sm:p-6' : 'p-4 sm:p-5'}`}>
@@ -183,8 +184,13 @@ export default function FeaturedProjects() {
           variants={stagger}
           className="mt-4 grid grid-cols-1 gap-3.5 sm:mt-6 sm:grid-cols-2 sm:gap-5 lg:gap-6"
         >
-          {portfolioWebsiteFeatured.map((project) => (
-            <ProjectCard key={project.id} project={project} size="lg" />
+          {portfolioWebsiteFeatured.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              size="lg"
+              priority={index < 2}
+            />
           ))}
         </motion.div>
       </div>

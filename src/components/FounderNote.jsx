@@ -51,11 +51,11 @@ export default function FounderNote() {
             variants={fadeUp}
             className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-accent"
           >
-            {founderNote.label} · Founded {founderNote.founded}
+            {founderNote.label} · {founderNote.coFounded}
           </motion.p>
 
           <div className="mt-6 space-y-5 text-[0.95rem] leading-relaxed text-white/70 sm:text-base sm:leading-[1.75]">
-            {founderNote.letter.map((para) => (
+            {founderNote.coLetter.map((para) => (
               <motion.p key={para.slice(0, 32)} variants={fadeUp}>
                 {para}
               </motion.p>
@@ -66,8 +66,8 @@ export default function FounderNote() {
             variants={fadeUp}
             className="mt-8 text-sm font-semibold text-white"
           >
-            - {founderNote.founderName},{' '}
-            <span className="font-medium text-white/50">{founderNote.founderTitle}</span>
+            - {founderNote.coFounderName},{' '}
+            <span className="font-medium text-white/50">{founderNote.coFounderTitle}</span>
           </motion.p>
         </motion.div>
       </div>

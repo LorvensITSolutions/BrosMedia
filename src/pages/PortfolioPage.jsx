@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react'
 import PortfolioHero from '../components/portfolio/PortfolioHero.jsx'
+import IconicIdentities from '../components/portfolio/IconicIdentities.jsx'
+import FeaturedProjects from '../components/portfolio/FeaturedProjects.jsx'
 
 const AboutOurWork = lazy(() => import('../components/portfolio/AboutOurWork.jsx'))
-const IconicIdentities = lazy(() => import('../components/portfolio/IconicIdentities.jsx'))
-const FeaturedProjects = lazy(() => import('../components/portfolio/FeaturedProjects.jsx'))
 const PosterDesigns = lazy(() => import('../components/portfolio/PosterDesigns.jsx'))
 const SocialPresence = lazy(() => import('../components/portfolio/SocialPresence.jsx'))
 
@@ -23,8 +23,10 @@ export default function PortfolioPage() {
       <PortfolioHero onExplore={scrollToAbout} />
       <Suspense fallback={<SectionFallback />}>
         <AboutOurWork />
-        <IconicIdentities />
-        <FeaturedProjects />
+      </Suspense>
+      <IconicIdentities />
+      <FeaturedProjects />
+      <Suspense fallback={<SectionFallback />}>
         <PosterDesigns />
         <SocialPresence />
       </Suspense>

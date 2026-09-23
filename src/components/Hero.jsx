@@ -185,7 +185,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-3 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 px-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 sm:px-6"
+          className="mx-auto mt-3 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 px-4 sm:mt-12 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-4 sm:px-6"
         >
           <PrimaryBookingButton fullWidth />
           <ShowreelButton href={SHOWREEL_URL} fullWidth />

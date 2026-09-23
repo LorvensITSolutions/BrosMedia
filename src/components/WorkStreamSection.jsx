@@ -116,6 +116,20 @@ function ImageModal({ image, onClose }) {
 export default function WorkStreamSection() {
   const [activeImage, setActiveImage] = useState(null)
 
+  useEffect(() => {
+    const links = HERO_IMAGES.slice(0, 4).map((image) => {
+      const link = document.createElement('link')
+      link.rel = 'preload'
+      link.as = 'image'
+      link.href = image.src
+      document.head.appendChild(link)
+      return link
+    })
+    return () => {
+      links.forEach((link) => link.remove())
+    }
+  }, [])
+
   return (
     <section
       id="work-stream"

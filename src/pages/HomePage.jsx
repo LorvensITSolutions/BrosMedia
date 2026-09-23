@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react'
 import Hero from '../components/Hero'
+import WorkStreamSection from '../components/WorkStreamSection'
+import ReelsWorkSection from '../components/ReelsWorkSection'
 
-const WorkStreamSection = lazy(() => import('../components/WorkStreamSection'))
-const ReelsWorkSection = lazy(() => import('../components/ReelsWorkSection'))
 const StatsBar = lazy(() => import('../components/StatsBar'))
 const About = lazy(() => import('../components/About'))
 const FounderNote = lazy(() => import('../components/FounderNote'))
@@ -24,12 +24,9 @@ export default function HomePage() {
       <div className="relative overflow-x-hidden">
         <Hero />
       </div>
-      <Suspense fallback={<SectionFallback minHeight="50vh" />}>
-        <WorkStreamSection />
-      </Suspense>
-      <Suspense fallback={<SectionFallback minHeight="56vh" />}>
-        <ReelsWorkSection />
-      </Suspense>
+      {/* Load immediately so creative images start fetching with first paint */}
+      <WorkStreamSection />
+      <ReelsWorkSection />
       <Suspense fallback={<SectionFallback minHeight="28vh" />}>
         <StatsBar />
         <About />

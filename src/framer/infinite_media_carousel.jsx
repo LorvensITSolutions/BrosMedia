@@ -158,7 +158,7 @@ export default function InfiniteMediaCarousel({
           if (entry.target.tagName === 'VIDEO') hydrateVideo(entry.target)
         })
       },
-      { root: null, rootMargin: '140px 0px', threshold: 0.05 },
+      { root: null, rootMargin: '480px 0px', threshold: 0.01 },
     )
 
     const watch = () => {
