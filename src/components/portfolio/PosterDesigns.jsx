@@ -38,9 +38,10 @@ function PosterCard({ poster, size = 'md' }) {
     >
       <img
         src={poster.src}
-        alt={poster.alt}
+        alt={poster.alt || `${poster.id} campaign creative by Brosmedia`}
         className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
         loading="lazy"
+        decoding="async"
       />
     </motion.article>
   )

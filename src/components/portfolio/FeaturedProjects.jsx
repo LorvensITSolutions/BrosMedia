@@ -33,9 +33,10 @@ function ProjectCard({ project, size = 'md' }) {
     >
       <img
         src={project.image}
-        alt={`${project.title} project preview`}
+        alt={project.imageAlt || `${project.title} website by Brosmedia`}
         className="block h-auto max-h-[min(52vh,28rem)] w-full object-cover object-top sm:max-h-none sm:object-contain"
         loading="lazy"
+        decoding="async"
       />
 
       <div className={`flex flex-1 flex-col ${size === 'lg' ? 'p-4 sm:p-6' : 'p-4 sm:p-5'}`}>
@@ -83,9 +84,10 @@ function MarqueeWebsiteCard({ project }) {
     >
       <img
         src={project.image}
-        alt={`${project.title} project preview`}
+        alt={project.imageAlt || `${project.title} website by Brosmedia`}
         className="block h-36 w-full object-cover object-top sm:h-auto sm:max-h-48 sm:object-contain"
         loading="lazy"
+        decoding="async"
       />
       <div className="flex flex-1 flex-col p-3.5 sm:p-4">
         <h3 className="text-sm font-bold tracking-tight text-[var(--page-ink)] sm:text-base">

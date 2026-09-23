@@ -25,8 +25,8 @@ export const REELS_VIDEOS = [
 export const REELS_CAROUSEL_ITEMS = REELS_VIDEOS.map(({ client, video }) => ({
   mediaType: 'Video',
   video,
-  title: client,
-  description: '',
+  title: `${client} reel by Brosmedia`,
+  description: `${client} short-form video produced by Brosmedia`,
 }))
 
 export const reelsIntro = {

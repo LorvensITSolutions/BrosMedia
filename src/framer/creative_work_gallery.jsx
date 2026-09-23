@@ -104,7 +104,10 @@ function GalleryCard({
       >
         <img
           src={image.src}
-          alt={image.alt || ''}
+          alt={image.alt || 'Brosmedia creative work'}
+          loading={index < 3 ? 'eager' : 'lazy'}
+          decoding="async"
+          fetchPriority={index === 0 ? 'high' : 'auto'}
           draggable={false}
           className={`block max-h-full max-w-full ${bareCard ? 'h-full w-full object-contain' : 'object-contain'}`}
         />

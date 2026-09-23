@@ -58,7 +58,11 @@ export default function Footer() {
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white p-1 transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10 sm:rounded-xl sm:p-1.5">
                 <img
                   src={LOGO_URL}
-                  alt=""
+                  alt="Brosmedia logo"
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-contain"
                 />
               </span>

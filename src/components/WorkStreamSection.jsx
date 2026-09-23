@@ -95,7 +95,8 @@ function ImageModal({ image, onClose }) {
             <div className="max-h-[min(88svh,820px)] overflow-hidden rounded-xl bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] sm:rounded-2xl">
               <img
                 src={image.src}
-                alt={image.alt || 'Brosmedia creative'}
+                alt={image.alt || 'Brosmedia creative work preview'}
+                decoding="async"
                 className="max-h-[min(78svh,760px)] w-full object-contain"
               />
               {image.alt ? (

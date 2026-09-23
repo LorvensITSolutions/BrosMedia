@@ -65,7 +65,7 @@ export default function MonoNav() {
             }}
           >
             <span className="mono-nav__logo">
-              <img src={LOGO_URL} alt="" />
+              <img src={LOGO_URL} alt="Brosmedia logo" width={36} height={36} decoding="async" fetchPriority="high" />
             </span>
             <span className="mono-nav__wordmark">Brosmedia</span>
           </a>

@@ -15,6 +15,7 @@ export default function Services() {
     shortTitle: service.navLabel,
     description: service.summary,
     image: service.image,
+    imageAlt: `${service.name} service visual from Brosmedia`,
   }))
 
   return (

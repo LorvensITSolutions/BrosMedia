@@ -110,18 +110,20 @@ export const portfolioWebsiteFeatured = [
     id: 'web-narenn',
     title: 'Narenn Living',
     description:
-      'Premium hospitality website with SEO pages and a lead pipeline — built to fill beds in Madhapur.',
+      'Premium hospitality website with SEO pages and a lead pipeline - built to fill beds in Madhapur.',
     outcome: 'SEO + ads + telecalling → more room bookings',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/narennwebsite.png',
+    imageAlt: 'Narenn Living hospitality website designed by Brosmedia',
     href: 'https://narennliving.com',
   },
   {
     id: 'web-mb-prime',
     title: 'MB Prime Projects',
     description:
-      'Social + Meta ads + TeleCRM — villa & plot bookings.',
+      'Social + Meta ads + TeleCRM - villa & plot bookings.',
     outcome: 'Social + Meta ads + TeleCRM\nto villa & plot bookings',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/mbprimewebsite.png',
+    imageAlt: 'MB Prime Projects real estate website designed by Brosmedia',
     href: 'https://mbprimeprojects.com',
   },
 ]
@@ -133,6 +135,7 @@ export const portfolioOtherWebsites = [
     description:
       'Medical-aesthetic clinic website focused on body analysis bookings and conversion-led CTAs.',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/sashaslimmingwebsite.png',
+    imageAlt: 'Sasha Luxe Slimming clinic website by Brosmedia',
     href: 'https://sashaslimming.com',
   },
   {
@@ -141,6 +144,7 @@ export const portfolioOtherWebsites = [
     description:
       'Dental clinic site built around trust, gentle care messaging, and easy consultation booking.',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/sashasmileswebsite.png',
+    imageAlt: 'Sasha Smiles dental clinic website by Brosmedia',
     href: 'https://sashasmiles.com',
   },
   {
@@ -149,6 +153,7 @@ export const portfolioOtherWebsites = [
     description:
       'Luxury salon experience site with premium storytelling and appointment-driven journeys.',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/lumiereluxewebsite.png',
+    imageAlt: 'Lumière Luxe salon website by Brosmedia',
     href: 'https://lumiereluxe.in',
   },
   {
@@ -157,22 +162,25 @@ export const portfolioOtherWebsites = [
     description:
       'Export-ready brand website taking Konaseema farms to global markets with clear RFQ flows.',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/amvifoodswebsite.png',
+    imageAlt: 'Amvi Foods export brand website by Brosmedia',
     href: 'https://amvifoods.com',
   },
   {
     id: 'web-andhra-machines',
     title: 'Andhra Machines',
     description:
-      'Full e-commerce storefront for sewing machines — catalog, brands, and nationwide delivery.',
+      'Full e-commerce storefront for sewing machines - catalog, brands, and nationwide delivery.',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/andhramachineswebsite.png',
+    imageAlt: 'Andhra Machines e-commerce website by Brosmedia',
     href: 'https://andhramachinesagencies.com',
   },
   {
     id: 'web-yalla-dorababu',
     title: 'Yalla Dorababu',
     description:
-      'Political portfolio site for Yalla Venkata Ramamohan Rao — timeline, speeches, gallery, and public connect.',
+      'Political portfolio site for Yalla Venkata Ramamohan Rao - timeline, speeches, gallery, and public connect.',
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/yalladorababuwebsite.png',
+    imageAlt: 'Yalla Dorababu political portfolio website by Brosmedia',
     href: 'https://yalladorababu.in',
   },
 ]
@@ -274,13 +282,13 @@ export const portfolioSocialFeatured = [
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/nellore-instgram.jpeg',
   },
   {
-    id: 'social-vizag',
-    name: 'Vizag Sea Hawks',
-    handle: '@vizagseahawksofficial',
-    status: 'New APL franchise · Debut-season identity, match-day creatives & fan engagement',
-    href: 'https://www.instagram.com/vizagseahawksofficial',
+    id: 'social-mbprime',
+    name: 'MB Prime',
+    handle: '@mbprimeprojects',
+    status: 'Real estate villas & plots - always-on property content',
+    href: 'https://www.instagram.com/mbprimeprojects',
     cta: 'View Profile',
-    image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/vizag_seahawks_instgram.jpeg',
+    image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/mbprime_instgram.jpg',
   },
 ]
 
@@ -304,13 +312,13 @@ export const portfolioSocialMore = [
     image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/yalladorababu_instgram.png',
   },
   {
-    id: 'social-mbprime',
-    name: 'MB Prime',
-    handle: '@mbprimeprojects',
-    status: 'Real estate villas & plots — always-on property content',
-    href: 'https://www.instagram.com/mbprimeprojects',
+    id: 'social-vizag',
+    name: 'Vizag Sea Hawks',
+    handle: '@vizagseahawksofficial',
+    status: 'New APL franchise · Debut-season identity, match-day creatives & fan engagement',
+    href: 'https://www.instagram.com/vizagseahawksofficial',
     cta: 'View Profile',
-    image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/mbprime_instgram.jpg',
+    image: 'https://brosmedia.sgp1.cdn.digitaloceanspaces.com/vizag_seahawks_instgram.jpeg',
   },
   {
     id: 'social-zarivaram',

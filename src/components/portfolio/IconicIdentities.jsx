@@ -32,9 +32,10 @@ function LogoCard({ client }) {
   const inner = client.logo ? (
     <img
       src={client.logo}
-      alt={`${client.client} logo`}
+      alt={`${client.client} brand logo`}
       className="max-h-[86%] w-auto max-w-[90%] object-contain sm:max-h-[90%] sm:max-w-[92%]"
       loading="lazy"
+      decoding="async"
     />
   ) : (
     <span className="text-sm font-bold uppercase tracking-wide text-black/40">
@@ -79,9 +80,10 @@ function MarqueeLogoCard({ client }) {
   const inner = client.logo ? (
     <img
       src={client.logo}
-      alt={`${client.client} logo`}
+      alt={`${client.client} brand logo`}
       className="max-h-[88%] w-auto max-w-[90%] object-contain"
       loading="lazy"
+      decoding="async"
     />
   ) : (
     <span className="text-sm font-bold uppercase tracking-wide text-black/40">

@@ -170,7 +170,9 @@ export default function About() {
           >
             <motion.img
               src={ABOUT_IMAGE}
-              alt="Brosmedia team collaborating"
+              alt="Brosmedia team collaborating in the Hyderabad studio"
+              loading="lazy"
+              decoding="async"
               className="aspect-[4/3] h-full w-full object-cover lg:aspect-auto lg:min-h-[420px]"
               initial={{ scale: 1.12 }}
               whileInView={{ scale: 1 }}

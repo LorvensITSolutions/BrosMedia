@@ -16,7 +16,7 @@ export const testimonials = [
     designation: 'Real Estate · Srikakulam',
     image: {
       src: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
-      alt: 'MB Prime Projects testimonial',
+      alt: 'MB Prime Projects client photo for Brosmedia testimonial',
     },
   },
   {
@@ -27,7 +27,7 @@ export const testimonials = [
     designation: 'Dental Clinic · Hyderabad',
     image: {
       src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80',
-      alt: 'Sasha Smiles testimonial',
+      alt: 'Sasha Smiles dental clinic client photo for Brosmedia testimonial',
     },
   },
   {
@@ -38,7 +38,7 @@ export const testimonials = [
     designation: 'Ethnic Wear · Hyderabad',
     image: {
       src: 'https://res.cloudinary.com/dvnplfu6z/image/upload/v1776921469/logo_1_rwdv9g.png',
-      alt: 'Zarivaram testimonial',
+      alt: 'Zarivaram brand logo for Brosmedia testimonial',
     },
   },
 ]

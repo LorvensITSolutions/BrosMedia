@@ -13,9 +13,10 @@ function MemberCard({ member }) {
       {member.photo ? (
         <img
           src={member.photo}
-          alt={member.name}
+          alt={`${member.name}, ${member.role} at Brosmedia`}
           className="h-20 w-20 rounded-full object-cover ring-1 ring-white/15 sm:h-24 sm:w-24"
           loading="lazy"
+          decoding="async"
         />
       ) : (
         <div

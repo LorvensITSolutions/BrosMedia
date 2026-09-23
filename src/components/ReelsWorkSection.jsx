@@ -8,6 +8,7 @@ import {
   reelsCarouselTheme,
   reelsIntro,
 } from '../data/reelsWork.js'
+import DeferUntilVisible from './DeferUntilVisible.jsx'
 
 const spring = { type: 'spring', stiffness: 80, damping: 22, mass: 0.8 }
 const viewport = { once: true, margin: '-80px' }
@@ -87,6 +88,7 @@ function ReelVideoModal({ reel, onClose }) {
                 controls
                 autoPlay
                 playsInline
+                preload="metadata"
                 className="max-h-[min(calc(78svh-var(--navbar-height)),760px)] w-full object-contain"
               />
               {reel.title ? (
@@ -183,13 +185,19 @@ export default function ReelsWorkSection() {
       </div>
 
       <div className="relative z-10 w-full overflow-visible pb-8 pt-0 sm:pb-10 lg:pb-12">
-        <InfiniteMediaCarousel
-          key={`${metrics.cardWidth}x${metrics.cardHeight}`}
-          items={REELS_CAROUSEL_ITEMS}
-          theme={carouselTheme}
-          onVideoOpen={setActiveReel}
-          minHeight={metrics.carouselMinHeight}
-        />
+        <DeferUntilVisible
+          rootMargin="280px 0px"
+          minHeight={`${Math.max(metrics.carouselMinHeight || 420, 420)}px`}
+          className="w-full"
+        >
+          <InfiniteMediaCarousel
+            key={`${metrics.cardWidth}x${metrics.cardHeight}`}
+            items={REELS_CAROUSEL_ITEMS}
+            theme={carouselTheme}
+            onVideoOpen={setActiveReel}
+            minHeight={metrics.carouselMinHeight}
+          />
+        </DeferUntilVisible>
       </div>
 
       <ReelVideoModal reel={activeReel} onClose={() => setActiveReel(null)} />

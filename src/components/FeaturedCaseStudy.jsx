@@ -45,9 +45,10 @@ export default function FeaturedCaseStudy() {
           >
             <img
               src={study.logo}
-              alt={`${study.client} logo`}
+              alt={`${study.client} brand logo`}
               className="h-14 w-14 object-contain sm:h-16 sm:w-16"
               loading="lazy"
+              decoding="async"
             />
             <div>
               <p className="text-base font-semibold text-white sm:text-lg">
@@ -80,9 +81,10 @@ export default function FeaturedCaseStudy() {
           >
             <img
               src={study.socialImage}
-              alt={`${study.client} Instagram profile`}
+              alt={`${study.client} Instagram profile photo`}
               className="absolute inset-0 h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
               loading="lazy"
+              decoding="async"
             />
           </motion.a>
 

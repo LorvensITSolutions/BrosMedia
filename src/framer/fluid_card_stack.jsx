@@ -47,9 +47,10 @@ function StackCard({
     >
       <motion.img
         src={item.image}
-        alt={item.title}
+        alt={item.imageAlt || `${item.title} — Brosmedia service`}
         className="absolute inset-0 h-full w-full object-cover"
         loading="lazy"
+        decoding="async"
         animate={{ scale: isActive ? 1.03 : 1.14 }}
         transition={imageSpring}
         style={{ transformOrigin: 'center center' }}

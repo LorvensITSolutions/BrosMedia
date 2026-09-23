@@ -131,6 +131,50 @@ export default function InfiniteMediaCarousel({
     return () => root.removeEventListener('click', handleClick, true)
   }, [items, onVideoOpen])
 
+  // Only attach real video sources when a card nears the viewport.
+  useEffect(() => {
+    const root = rootRef.current
+    if (!root) return undefined
+
+    const hydrateVideo = (video) => {
+      const src = video.dataset.src
+      if (!src) return
+      const source = video.querySelector('source')
+      if (source && !source.getAttribute('src')) {
+        source.src = source.dataset.src || src
+      }
+      if (!video.getAttribute('src')) {
+        video.src = src
+      }
+      if (video.preload === 'none') {
+        video.preload = 'metadata'
+      }
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          if (entry.target.tagName === 'VIDEO') hydrateVideo(entry.target)
+        })
+      },
+      { root: null, rootMargin: '140px 0px', threshold: 0.05 },
+    )
+
+    const watch = () => {
+      root.querySelectorAll('video').forEach((video) => observer.observe(video))
+    }
+
+    watch()
+    const mutation = new MutationObserver(watch)
+    mutation.observe(root, { childList: true, subtree: true })
+
+    return () => {
+      observer.disconnect()
+      mutation.disconnect()
+    }
+  }, [items])
+
   return (
     <div
       ref={rootRef}

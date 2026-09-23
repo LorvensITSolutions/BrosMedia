@@ -31,26 +31,29 @@ function SocialCard({ profile }) {
       transition={spring}
       className="group flex h-full w-[78%] min-w-[78%] snap-center flex-col overflow-hidden rounded-2xl border border-[var(--page-border)] bg-[var(--page-surface)] sm:w-full sm:min-w-0"
     >
-      <img
-        src={profile.image}
-        alt={`${profile.name} Instagram profile`}
-        className="block h-auto w-full object-contain"
-        loading="lazy"
-      />
+      <div className="aspect-[3/4] w-full shrink-0 overflow-hidden bg-black/40">
+        <img
+          src={profile.image}
+          alt={`${profile.name} Instagram profile photo`}
+          className="h-full w-full object-cover object-top"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
 
-      <div className="flex flex-1 flex-col p-3.5 sm:p-4">
+      <div className="flex min-h-[7.5rem] flex-1 flex-col p-3.5 sm:min-h-[8.25rem] sm:p-4">
         <p className="text-sm font-semibold text-[var(--page-ink)]">
           <span className="text-accent">{profile.handle}</span>
           <span className="text-[var(--page-muted)]"> · {profile.name}</span>
         </p>
-        <p className="mt-1.5 text-xs leading-relaxed text-[var(--page-muted)] sm:text-[0.8125rem]">
+        <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-[var(--page-muted)] sm:text-[0.8125rem]">
           {profile.status}
         </p>
         <a
           href={profile.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-accent transition group-hover:gap-2.5 sm:min-h-0"
+          className="mt-auto inline-flex min-h-10 items-center gap-1.5 pt-3 text-sm font-semibold text-accent transition group-hover:gap-2.5 sm:min-h-0"
         >
           {profile.cta}
           <span aria-hidden>→</span>
@@ -71,9 +74,10 @@ function MarqueeHandleCard({ profile }) {
     >
       <img
         src={profile.image}
-        alt={`${profile.name} Instagram profile`}
+        alt={`${profile.name} Instagram profile photo`}
         className="block h-auto w-full object-contain"
         loading="lazy"
+        decoding="async"
       />
       <div className="flex flex-1 flex-col p-3.5">
         <p className="text-sm font-semibold text-[var(--page-ink)]">
@@ -161,7 +165,7 @@ export default function SocialPresence() {
           whileInView="visible"
           viewport={viewport}
           variants={stagger}
-          className="-mx-4 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 scrollbar-hide sm:mx-0 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0 lg:gap-4"
+          className="-mx-4 mt-4 flex snap-x snap-mandatory items-stretch gap-3 overflow-x-auto px-4 pb-1 scrollbar-hide sm:mx-0 sm:mt-5 sm:grid sm:grid-cols-3 sm:items-stretch sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0 lg:gap-4"
         >
           {portfolioSocialFeatured.map((profile) => (
             <SocialCard key={profile.id} profile={profile} />

@@ -1,9 +1,15 @@
-import AboutOurWork from '../components/portfolio/AboutOurWork.jsx'
-import FeaturedProjects from '../components/portfolio/FeaturedProjects.jsx'
-import IconicIdentities from '../components/portfolio/IconicIdentities.jsx'
+import { lazy, Suspense } from 'react'
 import PortfolioHero from '../components/portfolio/PortfolioHero.jsx'
-import PosterDesigns from '../components/portfolio/PosterDesigns.jsx'
-import SocialPresence from '../components/portfolio/SocialPresence.jsx'
+
+const AboutOurWork = lazy(() => import('../components/portfolio/AboutOurWork.jsx'))
+const IconicIdentities = lazy(() => import('../components/portfolio/IconicIdentities.jsx'))
+const FeaturedProjects = lazy(() => import('../components/portfolio/FeaturedProjects.jsx'))
+const PosterDesigns = lazy(() => import('../components/portfolio/PosterDesigns.jsx'))
+const SocialPresence = lazy(() => import('../components/portfolio/SocialPresence.jsx'))
+
+function SectionFallback() {
+  return <div className="min-h-[32vh] w-full bg-[var(--page-bg)]" aria-hidden />
+}
 
 export default function PortfolioPage() {
   const scrollToAbout = () => {
@@ -15,11 +21,13 @@ export default function PortfolioPage() {
   return (
     <>
       <PortfolioHero onExplore={scrollToAbout} />
-      <AboutOurWork />
-      <IconicIdentities />
-      <FeaturedProjects />
-      <PosterDesigns />
-      <SocialPresence />
+      <Suspense fallback={<SectionFallback />}>
+        <AboutOurWork />
+        <IconicIdentities />
+        <FeaturedProjects />
+        <PosterDesigns />
+        <SocialPresence />
+      </Suspense>
     </>
   )
 }

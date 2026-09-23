@@ -45,9 +45,10 @@ function TestimonialProCard({
           {image ? (
             <img
               src={image}
-              alt={imageAlt || name}
+              alt={imageAlt || `${name} client photo`}
               className="h-10 w-10 shrink-0 rounded-full object-cover"
               loading="lazy"
+              decoding="async"
             />
           ) : (
             <span
