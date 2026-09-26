@@ -52,7 +52,10 @@ export default function Layout() {
             if (!cancelled) scrollToSection(sectionHash)
           }, 120)
         }
+        return
       }
+
+      window.scrollTo({ top: 0, behavior: 'auto' })
     }, 60)
 
     return () => {

@@ -24,6 +24,10 @@ Brosmedia has delivered 12+ brand builds across 6+ industries, with a full-stack
 - [Industries](https://www.brosmedia.in/industries): Real estate, sports, hospitality, healthcare, fashion & retail, NGO & public.
 - [Contact](https://www.brosmedia.in/contact): Jubilee Hills, Hyderabad. +91 70138 14030 · info@brosmedia.in
 
+## Legal
+- [Privacy Policy](https://www.brosmedia.in/privacy-policy): How Brosmedia collects and uses personal information.
+- [Terms & Conditions](https://www.brosmedia.in/terms-and-conditions): Website and service engagement terms.
+
 ## Optional
 - [AI catalog](https://www.brosmedia.in/ai-catalog.json): Machine-readable site summary for AI agents.
 - [Full content index](https://www.brosmedia.in/llms-full.txt): Expanded page-level copy for AI systems.

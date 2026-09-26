@@ -23,6 +23,11 @@ export const footerBottomLinks = [
   ...navLinks,
 ]
 
+export const footerLegalLinks = [
+  { label: 'Privacy Policy', to: routes.privacy },
+  { label: 'Terms & Conditions', to: routes.terms },
+]
+
 export const footerSocialLinks = [
   {
     label: 'Instagram',

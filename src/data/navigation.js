@@ -6,6 +6,8 @@ export const routes = {
   industries: '/#industries',
   about: '/#about',
   contact: '/#contact',
+  privacy: '/privacy-policy',
+  terms: '/terms-and-conditions',
 }
 
 export const navLinks = [

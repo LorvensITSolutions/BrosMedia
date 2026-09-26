@@ -104,6 +104,18 @@ export const seoPages = {
       'Get in touch with Brosmedia in Jubilee Hills, Hyderabad. Tell us about your brand — we will reply with clear next steps.',
     path: '/contact',
   },
+  '/privacy-policy': {
+    title: 'Privacy Policy | Brosmedia',
+    description:
+      'Read how Brosmedia collects, uses, and protects personal information when you visit our website or work with our Hyderabad digital marketing agency.',
+    path: '/privacy-policy',
+  },
+  '/terms-and-conditions': {
+    title: 'Terms & Conditions | Brosmedia',
+    description:
+      'Terms & Conditions for using the Brosmedia website and engaging our digital marketing, branding, and creative services in Hyderabad.',
+    path: '/terms-and-conditions',
+  },
 }
 
 export function absoluteUrl(path = '/') {

@@ -5,6 +5,12 @@ import HomePage from './pages/HomePage'
 import { routes } from './data/navigation'
 
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
+const TermsPage = lazy(() => import('./pages/TermsPage'))
+
+function PageFallback() {
+  return <div className="min-h-[50vh] bg-[var(--page-bg)]" aria-hidden />
+}
 
 function App() {
   return (
@@ -15,8 +21,24 @@ function App() {
           <Route
             path={routes.portfolio}
             element={
-              <Suspense fallback={<div className="min-h-[50vh] bg-[var(--page-bg)]" aria-hidden />}>
+              <Suspense fallback={<PageFallback />}>
                 <PortfolioPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path={routes.privacy}
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <PrivacyPolicyPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path={routes.terms}
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <TermsPage />
               </Suspense>
             }
           />

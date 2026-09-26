@@ -71,4 +71,22 @@
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://brosmedia.in/our-work" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://brosmedia.in/our-work" />
   </url>
+
+  <url>
+    <loc>https://brosmedia.in/privacy-policy</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://brosmedia.in/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brosmedia.in/privacy-policy" />
+  </url>
+
+  <url>
+    <loc>https://brosmedia.in/terms-and-conditions</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://brosmedia.in/terms-and-conditions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brosmedia.in/terms-and-conditions" />
+  </url>
 </urlset>

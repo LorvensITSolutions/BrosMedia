@@ -57,6 +57,18 @@ const pages = {
       "Explore Brosmedia's work across branding, websites, social media, Meta ads, and creative production for clients in India and beyond.",
     path: '/our-work',
   },
+  privacy: {
+    title: 'Privacy Policy | Brosmedia',
+    description:
+      'Read how Brosmedia collects, uses, and protects personal information when you visit our website or work with our Hyderabad digital marketing agency.',
+    path: '/privacy-policy',
+  },
+  terms: {
+    title: 'Terms & Conditions | Brosmedia',
+    description:
+      'Terms & Conditions for using the Brosmedia website and engaging our digital marketing, branding, and creative services in Hyderabad.',
+    path: '/terms-and-conditions',
+  },
 }
 
 const services = [
@@ -384,6 +396,26 @@ function main() {
         pages.ourWork.title,
         pages.ourWork.description,
         `<section><h2>Our work</h2><p>Clients include: ${escapeHtml(clients.join(', '))}.</p><p><a href="${siteUrl}/portfolio">Open full portfolio</a></p></section>`,
+      ),
+    ),
+    writeRoute(
+      templateHtml,
+      '/privacy-policy',
+      pages.privacy,
+      sectionBody(
+        pages.privacy.title,
+        pages.privacy.description,
+        `<section><h2>Privacy Policy</h2><p>Brosmedia explains how personal information is collected, used, and protected when you use our website or services. Contact: <a href="mailto:${email}">${escapeHtml(email)}</a>.</p><p><a href="${siteUrl}/terms-and-conditions">Terms &amp; Conditions</a></p></section>`,
+      ),
+    ),
+    writeRoute(
+      templateHtml,
+      '/terms-and-conditions',
+      pages.terms,
+      sectionBody(
+        pages.terms.title,
+        pages.terms.description,
+        `<section><h2>Terms &amp; Conditions</h2><p>These terms govern use of the Brosmedia website and engagement of our digital marketing and creative services. Contact: <a href="mailto:${email}">${escapeHtml(email)}</a>.</p><p><a href="${siteUrl}/privacy-policy">Privacy Policy</a></p></section>`,
       ),
     ),
   ]

@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import {
   footerBottomLinks,
   footerIntro,
+  footerLegalLinks,
   routes,
 } from '../data/footer'
 
@@ -135,9 +136,21 @@ export default function Footer() {
         >
           BROSMEDIA
         </p>
-        <p className="relative z-10 -mt-1 w-full px-5 text-center text-[0.7rem] leading-none text-[var(--page-muted)] sm:text-xs">
-          © {year} {footerIntro.companyName}. All rights reserved.
-        </p>
+        <div className="relative z-10 -mt-1 flex w-full flex-col items-center gap-2.5 px-5 sm:gap-3">
+          <nav
+            aria-label="Legal"
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1"
+          >
+            {footerLegalLinks.map((link) => (
+              <FooterNavLink key={link.to} to={link.to}>
+                {link.label}
+              </FooterNavLink>
+            ))}
+          </nav>
+          <p className="text-center text-[0.7rem] leading-none text-[var(--page-muted)] sm:text-xs">
+            © {year} {footerIntro.companyName}. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   )
